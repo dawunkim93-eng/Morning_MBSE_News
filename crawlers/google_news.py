@@ -1,5 +1,6 @@
 import requests
 import xml.etree.ElementTree as ET
+from bs4 import BeautifulSoup
 from config import HEADERS, GOOGLE_NEWS_QUERIES
 
 
@@ -30,27 +31,32 @@ def _fetch_google_rss(query: str, max_results: int = 5) -> list[dict]:
         title_el = item.find("title")
         link_el = item.find("link")
         guid_el = item.find("guid")
-        source_el = item.find("source")
+        desc_el = item.find("description")
 
         title = title_el.text.strip() if title_el is not None and title_el.text else ""
+        # Google RSS 제목 끝의 " - 출처명" 분리
+        title = title.rsplit(" - ", 1)[0].strip() if " - " in title else title
+
         link = ""
         if link_el is not None and link_el.text:
             link = link_el.text.strip()
         elif guid_el is not None and guid_el.text:
             link = guid_el.text.strip()
-        source = source_el.text.strip() if source_el is not None and source_el.text else ""
+
+        summary = ""
+        if desc_el is not None and desc_el.text:
+            summary = BeautifulSoup(desc_el.text, "html.parser").get_text(strip=True)
 
         if title and link:
-            results.append({"title": title, "link": link, "source": source})
+            results.append({"title": title, "link": link, "summary": summary})
     return results
 
 
-def collect_google_news() -> list[str]:
-    seen, lines = set(), []
+def collect_google_news() -> list[dict]:
+    seen, items = set(), []
     for query in GOOGLE_NEWS_QUERIES:
         for item in _fetch_google_rss(query):
             if item["title"] not in seen:
                 seen.add(item["title"])
-                src = f"  [{item['source']}]" if item["source"] else ""
-                lines.append(f"📰 {item['title']}{src}\n{item['link']}")
-    return lines
+                items.append(item)
+    return items

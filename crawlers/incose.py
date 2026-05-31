@@ -3,18 +3,15 @@ from bs4 import BeautifulSoup
 from config import HEADERS
 
 _SELECTORS = [
-    "h3.news-heading a",
-    "h2.news-title a",
-    ".news-list-item a",
-    ".article-title a",
-    "article h3 a",
-    "article h2 a",
-    ".sf-content-block h3 a",
-    "li.news-item a",
+    ("h3.news-heading a", ".news-summary, .news-description, p"),
+    ("h2.news-title a", ".news-summary, p"),
+    (".news-list-item a", "p"),
+    ("article h3 a", "p"),
+    ("article h2 a", "p"),
 ]
 
 
-def collect_incose_news(max_results: int = 5) -> list[str]:
+def collect_incose_news(max_results: int = 5) -> list[dict]:
     url = "https://www.incose.org/news-and-events/news"
     try:
         resp = requests.get(url, headers=HEADERS, timeout=15)
@@ -24,10 +21,10 @@ def collect_incose_news(max_results: int = 5) -> list[str]:
         return []
 
     soup = BeautifulSoup(resp.text, "html.parser")
-    lines, seen = [], set()
+    items, seen = [], set()
 
-    for selector in _SELECTORS:
-        tags = soup.select(selector)
+    for title_sel, desc_sel in _SELECTORS:
+        tags = soup.select(title_sel)
         if not tags:
             continue
         for tag in tags[:max_results]:
@@ -35,9 +32,17 @@ def collect_incose_news(max_results: int = 5) -> list[str]:
             href = tag.get("href", "")
             if href and not href.startswith("http"):
                 href = "https://www.incose.org" + href
+
+            summary = ""
+            parent = tag.find_parent(["article", "li", "div"])
+            if parent:
+                desc_tag = parent.select_one(desc_sel)
+                if desc_tag:
+                    summary = desc_tag.get_text(strip=True)
+
             if title and href and title not in seen:
                 seen.add(title)
-                lines.append(f"🏛 {title}\n{href}")
+                items.append({"title": title, "link": href, "summary": summary})
         break
 
-    return lines
+    return items

@@ -29,19 +29,23 @@ def _fetch_arxiv(query: str, max_results: int = 3) -> list[dict]:
         t = entry.find("atom:title", ns)
         l = entry.find("atom:id", ns)
         p = entry.find("atom:published", ns)
+        s = entry.find("atom:summary", ns)
+
         title = t.text.strip().replace("\n", " ") if t is not None else ""
         link = l.text.strip() if l is not None else ""
-        published = p.text[:10] if p is not None else ""
+        date = p.text[:10] if p is not None else ""
+        summary = s.text.strip().replace("\n", " ") if s is not None else ""
+
         if title and link:
-            papers.append({"title": title, "link": link, "published": published})
+            papers.append({"title": title, "link": link, "date": date, "summary": summary})
     return papers
 
 
-def collect_arxiv_papers() -> list[str]:
-    seen, lines = set(), []
+def collect_arxiv_papers() -> list[dict]:
+    seen, items = set(), []
     for query in ARXIV_QUERIES:
         for p in _fetch_arxiv(query):
             if p["title"] not in seen:
                 seen.add(p["title"])
-                lines.append(f"📄 {p['title']}\n   🗓 {p['published']}  |  {p['link']}")
-    return lines
+                items.append(p)
+    return items
