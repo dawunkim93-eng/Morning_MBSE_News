@@ -8,13 +8,13 @@ from crawlers import (
     collect_semantic_scholar,
 )
 from notifier import send_telegram
-from utils import translate_to_korean, smart_truncate
+from utils import translate_to_korean, smart_truncate, score_mbse_relevance
 
 
 def _format_news(item: dict) -> str:
     lines = [f"📰 {item['title']}"]
     if item.get("summary"):
-        summary = smart_truncate(translate_to_korean(item["summary"]), max_sentences=2)
+        summary = smart_truncate(translate_to_korean(item["summary"]), max_sentences=3)
         lines.append(f"💬 {summary}")
     lines.append(item["link"])
     return "\n".join(lines)
@@ -53,7 +53,7 @@ def build_message(today: str) -> str:
     print("[3/5] INCOSE...")
     incose = collect_incose_news()
 
-    news_items = _dedup(naver + google + incose)
+    news_items = sorted(_dedup(naver + google + incose), key=score_mbse_relevance, reverse=True)
     print(f"      번역 중 ({len(news_items)}건)...")
     news_lines = [_format_news(i) for i in news_items]
     sections += [f"\n📡 뉴스{SEP}"] + (news_lines or ["관련 뉴스 없음"])
@@ -65,7 +65,7 @@ def build_message(today: str) -> str:
     print("[5/5] Semantic Scholar...")
     semantic = collect_semantic_scholar()
 
-    paper_items = _dedup(arxiv + semantic)
+    paper_items = sorted(_dedup(arxiv + semantic), key=score_mbse_relevance, reverse=True)
     print(f"      번역 중 ({len(paper_items)}건)...")
     paper_lines = [_format_paper(i) for i in paper_items]
     sections += [f"\n🔬 논문{SEP}"] + (paper_lines or ["관련 논문 없음"])
