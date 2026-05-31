@@ -10,7 +10,9 @@ def send_telegram(message: str) -> None:
     for chunk in [message[i:i + 4000] for i in range(0, len(message), 4000)]:
         try:
             resp = requests.post(
-                url, data={"chat_id": CHAT_ID, "text": chunk}, timeout=10
+                url,
+                data={"chat_id": CHAT_ID, "text": chunk, "parse_mode": "HTML"},
+                timeout=10,
             )
             resp.raise_for_status()
         except requests.RequestException as e:

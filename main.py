@@ -1,3 +1,4 @@
+import html as _html
 from datetime import datetime
 from config import KST
 from crawlers import (
@@ -10,23 +11,29 @@ from crawlers import (
 from notifier import send_telegram
 from utils import translate_to_korean, smart_truncate, score_mbse_relevance
 
+_e = _html.escape  # HTML 특수문자 이스케이프 shorthand
+
 
 def _format_news(item: dict) -> str:
-    lines = [f"📰 {item['title']}"]
+    title = _e(item["title"])
+    lines = [f"📰 <b>{title}</b>"]
     if item.get("summary"):
-        summary = smart_truncate(translate_to_korean(item["summary"]), max_sentences=3)
+        # 뉴스 스니펫은 원래 짧으므로 truncate 없이 전체 출력
+        summary = _e(translate_to_korean(item["summary"]))
         lines.append(f"💬 {summary}")
-    lines.append(item["link"])
+    lines.append(f'<a href="{item["link"]}">🔗 기사 보기</a>')
     return "\n".join(lines)
 
 
 def _format_paper(item: dict) -> str:
-    lines = [f"📄 {item['title']}"]
+    title = _e(item["title"])
+    lines = [f"📄 <b>{title}</b>"]
     if item.get("summary"):
-        summary = smart_truncate(translate_to_korean(item["summary"]), max_sentences=3)
+        # 논문 초록은 길기 때문에 3문장으로 제한
+        summary = _e(smart_truncate(translate_to_korean(item["summary"]), max_sentences=3))
         lines.append(f"💬 {summary}")
     date_str = f"🗓 {item['date']}  |  " if item.get("date") else ""
-    lines.append(f"{date_str}{item['link']}")
+    lines.append(f"{date_str}<a href=\"{item['link']}\">🔗 논문 보기</a>")
     return "\n".join(lines)
 
 
