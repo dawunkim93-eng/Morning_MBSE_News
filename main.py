@@ -21,7 +21,7 @@ def _format_news(item: dict) -> str:
         # 뉴스 스니펫은 원래 짧으므로 truncate 없이 전체 출력
         summary = _e(translate_to_korean(item["summary"]))
         lines.append(f"💬 {summary}")
-    lines.append(f'<a href="{item["link"]}">🔗 기사 보기</a>')
+    lines.append(f'<a href="{_e(item["link"])}">🔗 기사 보기</a>')
     return "\n".join(lines)
 
 
@@ -33,7 +33,7 @@ def _format_paper(item: dict) -> str:
         summary = _e(smart_truncate(translate_to_korean(item["summary"]), max_sentences=3))
         lines.append(f"💬 {summary}")
     date_str = f"🗓 {item['date']}  |  " if item.get("date") else ""
-    lines.append(f"{date_str}<a href=\"{item['link']}\">🔗 논문 보기</a>")
+    lines.append(f"{date_str}<a href=\"{_e(item['link'])}\">🔗 논문 보기</a>")
     return "\n".join(lines)
 
 

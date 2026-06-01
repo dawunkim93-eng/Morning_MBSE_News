@@ -16,4 +16,5 @@ def send_telegram(message: str) -> None:
             )
             resp.raise_for_status()
         except requests.RequestException as e:
-            print(f"  텔레그램 전송 실패: {e}")
+            # 예외를 다시 던져 GitHub Actions가 실패로 감지하도록
+            raise RuntimeError(f"텔레그램 전송 실패: {e}\n응답: {getattr(e.response, 'text', '')}") from e
