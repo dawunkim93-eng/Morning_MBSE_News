@@ -1,13 +1,20 @@
 name: Daily MBSE News
 
 on:
+  # GitHub Actions 는 매 정시(0분)에 워크플로우가 몰려 지연 발생
+  # → 21:45 UTC (KST 06:45) 로 설정해 혼잡 회피, 실제 수신 ≈ KST 07:00
   schedule:
-    - cron: '0 22 * * *'  # KST 07:00 (UTC 22:00 전날)
-  workflow_dispatch:       # 수동 실행
+    - cron: '45 21 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: daily-news
+  cancel-in-progress: true   # 중복 실행 방지
 
 jobs:
   crawl-and-notify:
     runs-on: ubuntu-latest
+    timeout-minutes: 15      # 무한 대기 방지
 
     steps:
       - name: Checkout
@@ -21,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Run news bot
+      - name: Run orchestrator
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
