@@ -1,0 +1,57 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# 플러그인 : domains
+# 설명     : MBSE 적용 도메인 확장 키워드 플러그인.
+#            항공우주, 국방, 자동차, 디지털 트윈 등 MBSE가 실제로 사용되는
+#            산업 도메인별 키워드를 정의한다.
+# ─────────────────────────────────────────────────────────────────────────────
+# 수정 이력
+#   버전    날짜          내용
+#   v1.0   2026-06-10   최초 작성 — 산업 도메인별 MBSE 키워드 정의
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: "MBSE 적용 도메인"
+priority: 4
+
+# ── 소스별 검색 쿼리 ────────────────────────────────────────────────────────
+
+naver:
+  - "디지털 트윈 시스템 엔지니어링"
+  - "항공우주 MBSE"
+  - "국방 MBSE"
+
+google_news:
+  - "MBSE aerospace defense"
+  - "digital twin systems engineering"
+  - "MBSE automotive industry"
+  - "MBSE space systems"
+
+arxiv:
+  - "MBSE aerospace"
+  - "digital twin model-based"
+  - "MBSE cyber-physical systems"
+
+semantic_scholar: ""
+
+filter:
+  - "aerospace"
+  - "defense"
+  - "automotive"
+  - "cyber-physical"
+  - "digital twin"
+  - "디지털 트윈"
+  - "space systems"
+  - "항공우주"
+
+scoring:
+  core: []    # 도메인 키워드는 핵심 점수 없음
+  related:
+    - { term: "aerospace",            weight: 2 }
+    - { term: "defense",              weight: 2 }
+    - { term: "automotive",           weight: 2 }
+    - { term: "cyber-physical",       weight: 3 }
+    - { term: "digital twin",         weight: 3 }
+    - { term: "디지털 트윈",             weight: 3 }
+    - { term: "space systems",        weight: 2 }
+    - { term: "항공우주",               weight: 2 }
+    - { term: "system architecture",  weight: 3 }
+    - { term: "systems architecture", weight: 3 }

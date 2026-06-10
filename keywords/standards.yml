@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# 플러그인 : standards
+# 설명     : 시스템 엔지니어링 관련 표준·아키텍처 프레임워크 키워드 플러그인.
+#            DoDAF, UAF, UPDM 등 국제 표준 및 아키텍처 프레임워크를 다룬다.
+# ─────────────────────────────────────────────────────────────────────────────
+# 수정 이력
+#   버전    날짜          내용
+#   v1.0   2026-06-10   최초 작성 — SE 표준 및 아키텍처 프레임워크 키워드 정의
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: "SE 표준 & 아키텍처"
+priority: 3
+
+# ── 소스별 검색 쿼리 ────────────────────────────────────────────────────────
+
+naver:
+  - "DoDAF"
+  - "UAF 아키텍처"
+  - "INCOSE"
+
+google_news:
+  - "DoDAF MBSE systems engineering"
+  - "UAF Unified Architecture Framework"
+  - "INCOSE systems engineering"
+  - "UPDM defense architecture"
+
+arxiv:
+  - "UAF Unified Architecture Framework"
+  - "DoDAF model-based"
+  - "INCOSE systems engineering standard"
+
+semantic_scholar: ""
+
+filter:
+  - "DoDAF"
+  - "UAF"
+  - "UPDM"
+  - "INCOSE"
+  - "NATO"
+  - "TOGAF"
+  - "ArchiMate"
+  - "MODAF"
+
+scoring:
+  core:
+    - { term: "incose",  weight: 6 }
+    - { term: "uaf",     weight: 5 }
+    - { term: "dodaf",   weight: 5 }
+    - { term: "updm",    weight: 5 }
+  related:
+    - { term: "nato",       weight: 3 }
+    - { term: "modaf",      weight: 3 }
+    - { term: "togaf",      weight: 2 }
+    - { term: "archimate",  weight: 2 }
+    - { term: "ontology",   weight: 2 }
+    - { term: "standard",   weight: 1 }

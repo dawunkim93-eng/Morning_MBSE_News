@@ -4,10 +4,12 @@
 # 설명    : 모든 bash 에이전트가 source 해서 사용하는 공유 유틸리티 함수 모음.
 #           네트워크 요청, HTML/RSS 파싱, 캐시 관리, Claude API 요약,
 #           텔레그램 전송 등 공통 기능을 제공한다.
+#           키워드는 load_keywords() 를 통해 keywords/*.yml 플러그인에서 로드한다.
 # ─────────────────────────────────────────────────────────────────────────────
 # 수정 이력
 #   버전    날짜          내용
 #   v1.0   2026-06-10   최초 작성 — 네트워크·필터링·AI·텔레그램 공유 함수 구현
+#   v1.1   2026-06-10   load_keywords() 추가, filter_keywords() 플러그인 연동
 # ─────────────────────────────────────────────────────────────────────────────
 #
 # 사용법:
@@ -121,24 +123,47 @@ PYEOF
 }
 
 # ═════════════════════════════════════════════════════════════════════════════
+# 키워드 플러그인 함수
+# ═════════════════════════════════════════════════════════════════════════════
+
+load_keywords() {
+    # 인자: <format>  (naver|google|arxiv|semantic|filter|all)
+    # 설명: keyword_loader.py 를 통해 keywords/*.yml 플러그인에서 키워드를 로드한다.
+    #       형식별로 줄바꿈 구분 목록 또는 JSON 을 출력한다.
+    #       keyword_loader.py 실행 실패 시 빈 문자열 반환 (에이전트가 기본값으로 폴백).
+    local format="${1:-all}"
+    python3 "$SCRIPT_DIR/keyword_loader.py" --format "$format" 2>/dev/null || true
+}
+
+# ═════════════════════════════════════════════════════════════════════════════
 # 필터링 함수
 # ═════════════════════════════════════════════════════════════════════════════
 
 filter_keywords() {
     # 인자: <파일경로 또는 -> [키워드 ...]
     # 설명: 파일(또는 stdin)에서 MBSE 관련 키워드가 포함된 행만 출력한다.
+    #       키워드 인자가 없으면 keywords/*.yml 플러그인에서 자동으로 로드한다.
     #       grep -i 로 대소문자 무관하게 필터링한다.
     local src="$1"; shift
-    # 키워드 인자가 없으면 기본 MBSE 키워드 목록 사용
-    local kws=("${@:-MBSE SysML UAF digital.twin systems.engineering Cameo model-based INCOSE DoDAF UPDM Capella}")
     local pattern
-    # OR 패턴으로 결합: MBSE|SysML|UAF|...
-    pattern=$(IFS='|'; echo "${kws[*]}")
+
+    if [[ $# -eq 0 ]]; then
+        # 인자 없음 → keyword_loader.py 에서 동적으로 로드
+        local loaded
+        loaded=$(python3 "$SCRIPT_DIR/keyword_loader.py" \
+                    --format filter --separator '|' 2>/dev/null) || \
+            loaded="MBSE|SysML|UAF|systems.engineering|model-based|INCOSE|Cameo|Capella"
+        pattern="$loaded"
+    else
+        # 인자로 받은 키워드 사용 (기존 방식 유지)
+        local kws=("$@")
+        pattern=$(IFS='|'; echo "${kws[*]}")
+    fi
 
     if [[ "$src" == "-" ]]; then
-        grep -iE "$pattern" || true  # stdin에서 읽기
+        grep -iE "$pattern" || true
     else
-        grep -iE "$pattern" "$src" 2>/dev/null || true  # 파일에서 읽기
+        grep -iE "$pattern" "$src" 2>/dev/null || true
     fi
 }
 

@@ -1,0 +1,53 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# 플러그인 : tools
+# 설명     : MBSE 도구(Tool) 관련 키워드 플러그인.
+#            Cameo, Capella 등 주요 MBSE 모델링 도구에 관한 뉴스·논문을 수집한다.
+# ─────────────────────────────────────────────────────────────────────────────
+# 수정 이력
+#   버전    날짜          내용
+#   v1.0   2026-06-10   최초 작성 — MBSE 도구 키워드 정의
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: "MBSE 도구"
+priority: 2
+
+# ── 소스별 검색 쿼리 ────────────────────────────────────────────────────────
+
+naver:
+  - "Cameo Systems Modeler"
+  - "Capella MBSE"
+  - "MagicDraw"
+
+google_news:
+  - "Cameo Systems Modeler MBSE"
+  - "Capella MBSE tool"
+  - "Rhapsody systems engineering"
+
+arxiv:
+  - "Cameo SysML tool"
+  - "Capella MBSE modeling"
+
+# Semantic Scholar 쿼리는 기존 core에서 커버되므로 생략 가능 (빈 값 허용)
+semantic_scholar: ""
+
+filter:
+  - "Cameo"
+  - "Capella"
+  - "MagicDraw"
+  - "Rhapsody"
+  - "Enterprise Architect"
+  - "Sparx"
+  - "Papyrus"
+
+scoring:
+  core:
+    - { term: "cameo",               weight: 6 }
+    - { term: "capella",             weight: 6 }
+    - { term: "magicDraw",           weight: 5 }
+    - { term: "rhapsody",            weight: 5 }
+  related:
+    - { term: "enterprise architect", weight: 3 }
+    - { term: "papyrus",              weight: 3 }
+    - { term: "sparx",                weight: 3 }
+    - { term: "modeling tool",        weight: 2 }
+    - { term: "uml",                  weight: 2 }
