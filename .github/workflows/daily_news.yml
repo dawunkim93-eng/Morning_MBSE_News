@@ -23,6 +23,9 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
       - name: Make agent scripts executable
         run: chmod +x agents/*.sh skills.sh
 

@@ -1,15 +1,20 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # 파일    : main.py
-# 설명    : 프로그램 진입점. Orchestrator 를 실행하는 단일 호출부.
+# 설명    : 프로그램 진입점. orchestrator.py 의 asyncio 파이프라인을 실행한다.
 # ─────────────────────────────────────────────────────────────────────────────
 # 수정 이력
 #   버전    날짜          내용
-#   v1.0   2026-06-10   최초 작성 — Orchestrator 호출 진입점
+#   v1.0   2026-06-10   최초 작성 — Orchestrator 클래스 호출 진입점
+#   v1.1   2026-06-12   버그 수정 — orchestrator.py 의 async main() 으로 교체
+#                                   (Orchestrator 클래스 임포트 오류 수정)
 # ─────────────────────────────────────────────────────────────────────────────
 
-from orchestrator import Orchestrator
+import asyncio
+import sys
+
+# orchestrator.py 의 async def main() 을 가져와 실행
+from orchestrator import main as run_pipeline
 
 if __name__ == "__main__":
-    # Python 에이전트 기반 오케스트레이터 실행
-    # bash 에이전트 방식으로 전환 시 orchestrator.py 를 직접 실행할 것
-    Orchestrator().run()
+    dry_run = "--dry-run" in sys.argv
+    asyncio.run(run_pipeline(dry_run))
