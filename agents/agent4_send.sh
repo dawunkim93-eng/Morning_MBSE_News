@@ -10,6 +10,7 @@
 #   버전    날짜          내용
 #   v1.0   2026-06-10   최초 작성 — MarkdownV2 포맷, 텔레그램 발송, 캐시/로그 구현
 #   v1.1   2026-06-12   버그 수정 — mdv2() 특수문자 목록에 '-' 추가 (400 에러 수정)
+#   v1.2   2026-06-13   버그 수정 — HTTPError 시 Telegram 응답 본문 출력, urllib.error 추가
 # ─────────────────────────────────────────────────────────────────────────────
 #
 # 입력:
@@ -40,7 +41,7 @@ python3 - "$INPUT" \
           "${CHAT_ID:-}" \
           "$LOG_FILE" \
           "$SCRIPT_DIR/cache/seen_urls.txt" <<'PYEOF'
-import sys, json, re, urllib.request, urllib.parse, datetime
+import sys, json, re, urllib.request, urllib.parse, urllib.error, datetime
 
 # 인자 파싱
 input_path = sys.argv[1]
@@ -160,12 +161,21 @@ else:
                     break
                 else:
                     raise RuntimeError(f"API 오류: {result}")
+        except urllib.error.HTTPError as http_err:
+            # HTTP 4xx/5xx — 실제 Telegram API 에러 메시지를 읽어 출력
+            body = http_err.read().decode("utf-8", errors="replace")
+            print(f"[agent4] 시도 {attempt}/{max_retries} 실패 "
+                  f"(HTTP {http_err.code}): {body}", file=sys.stderr)
+            if attempt == max_retries:
+                sys.exit(1)
+            import time
+            time.sleep(5 * attempt)
         except Exception as e:
             print(f"[agent4] 시도 {attempt}/{max_retries} 실패: {e}", file=sys.stderr)
             if attempt == max_retries:
                 sys.exit(1)
             import time
-            time.sleep(5 * attempt)  # 5s → 10s → 15s 대기
+            time.sleep(5 * attempt)
 
 # ── URL 캐시 저장 ────────────────────────────────────────────────────────────
 # 발송 성공 또는 DRY-RUN 시 URL을 캐시에 저장 (다음 실행 시 중복 방지)

@@ -50,11 +50,16 @@ echo "[agent1] INCOSE 홈페이지 수집..." >&2
 incose_html=$(web_fetch "https://www.incose.org/news-and-events/news") || incose_html=""
 
 if [[ -n "$incose_html" ]]; then
-    # Python으로 INCOSE HTML에서 MBSE 관련 링크 추출
-    echo "$incose_html" | python3 - "$SCRIPT_DIR/cache/seen_urls.txt" <<'PYEOF' >> "$TSV_TMP"
+    # ※ pipe+heredoc 충돌 방지: HTML을 임시 파일로 전달 (sys.argv[1])
+    local _html_tmp
+    _html_tmp=$(mktemp)
+    printf '%s' "$incose_html" > "$_html_tmp"
+    python3 - "$_html_tmp" "$SCRIPT_DIR/cache/seen_urls.txt" <<'PYEOF' >> "$TSV_TMP"
 import sys, re
-cache_file = sys.argv[1] if len(sys.argv) > 1 else ""
-html = sys.stdin.read()
+html_file  = sys.argv[1] if len(sys.argv) > 1 else ""
+cache_file = sys.argv[2] if len(sys.argv) > 2 else ""
+with open(html_file) as f:
+    html = f.read()
 
 # 기존 캐시 URL 로드 (중복 수집 방지)
 cached = set()
@@ -78,6 +83,7 @@ for href, text in re.findall(pattern, html, re.DOTALL):
         seen.add(href)
         print(f"{text}|{href}|")
 PYEOF
+    rm -f "$_html_tmp"
 fi
 
 # ── Step 3: 키워드 필터링 ─────────────────────────────────────────────────────

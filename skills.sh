@@ -62,22 +62,29 @@ fetch_rss() {
     # 인자: <url>
     # 설명: RSS/Atom XML을 가져와 "제목|URL|날짜" 형식의 TSV로 출력한다.
     #       RSS 2.0 형식(<item> 태그)을 파싱한다.
+    #
+    # ※ "echo $xml | python3 - <<'PYEOF'" 패턴은 파이프와 heredoc이 stdin을
+    #   동시에 차지해 충돌한다. heredoc이 stdin을 가져가므로 파이프 데이터가
+    #   유실된다. → XML을 임시 파일에 써서 인수로 전달하는 방식으로 수정.
     local url="$1"
-    local xml
+    local xml _tmp
 
     xml=$(web_fetch "$url") || return 1
+    _tmp=$(mktemp)
+    printf '%s' "$xml" > "$_tmp"
 
-    # Python으로 RSS XML 파싱 (bash의 XML 파싱 능력이 제한적이므로)
-    echo "$xml" | python3 - <<'PYEOF'
+    # 임시 파일 경로를 인수(sys.argv[1])로 전달 — stdin 충돌 없음
+    python3 - "$_tmp" <<'PYEOF'
 import sys, xml.etree.ElementTree as ET, re
 try:
-    root = ET.fromstring(sys.stdin.read())
+    with open(sys.argv[1]) as f:
+        content = f.read()
+    root = ET.fromstring(content)
     for item in root.findall('.//item'):
         t = item.find('title')
         l = item.find('link')
         d = item.find('pubDate') or item.find('dc:date',
                 {'dc': 'http://purl.org/dc/elements/1.1/'})
-        # 파이프(|)는 TSV 구분자이므로 제목에서 제거
         title = re.sub(r'<[^>]+>', '', (t.text or '')).strip().replace('|', '-') if t is not None else ''
         link  = (l.text or '').strip() if l is not None else ''
         date  = (d.text or '').strip() if d is not None else ''
@@ -86,6 +93,7 @@ try:
 except Exception as e:
     print(f"[fetch_rss] 파싱 오류: {e}", file=sys.stderr)
 PYEOF
+    rm -f "$_tmp"
 }
 
 parse_html() {

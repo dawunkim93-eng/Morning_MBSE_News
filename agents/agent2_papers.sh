@@ -35,12 +35,17 @@ echo "[agent2] 논문 소스 병렬 수집 시작..." >&2
     echo "[agent2] arXiv 요청: $arxiv_url" >&2
     xml=$(web_fetch "$arxiv_url") || exit 0
 
-    # Atom XML → JSON 변환 (arXiv는 RSS가 아닌 Atom 형식)
-    echo "$xml" | python3 - <<'PYEOF' > "$ARXIV_TMP"
+    # ※ pipe+heredoc 충돌 방지: XML을 임시 파일로 전달
+    local _xml_tmp
+    _xml_tmp=$(mktemp)
+    printf '%s' "$xml" > "$_xml_tmp"
+    python3 - "$_xml_tmp" <<'PYEOF' > "$ARXIV_TMP"
 import sys, json, xml.etree.ElementTree as ET
 ns = {'atom': 'http://www.w3.org/2005/Atom'}
 try:
-    root  = ET.fromstring(sys.stdin.read())
+    with open(sys.argv[1]) as f:
+        content = f.read()
+    root  = ET.fromstring(content)
     items = []
     for entry in root.findall('atom:entry', ns):
         t = entry.find('atom:title',     ns)
@@ -60,6 +65,7 @@ except Exception as e:
     print(f'[agent2-arxiv] 오류: {e}', file=sys.stderr)
     print('[]')  # 실패 시 빈 배열 반환
 PYEOF
+    rm -f "$_xml_tmp"
 ) &
 PID_ARXIV=$!  # arXiv 백그라운드 프로세스 PID
 
@@ -69,10 +75,15 @@ PID_ARXIV=$!  # arXiv 백그라운드 프로세스 PID
     echo "[agent2] Semantic Scholar 요청: $sem_url" >&2
     json=$(web_fetch "$sem_url") || exit 0
 
-    echo "$json" | python3 - <<'PYEOF' > "$SEMANTIC_TMP"
+    # ※ pipe+heredoc 충돌 방지: JSON을 임시 파일로 전달
+    local _json_tmp
+    _json_tmp=$(mktemp)
+    printf '%s' "$json" > "$_json_tmp"
+    python3 - "$_json_tmp" <<'PYEOF' > "$SEMANTIC_TMP"
 import sys, json
 try:
-    d     = json.loads(sys.stdin.read())
+    with open(sys.argv[1]) as f:
+        d = json.loads(f.read())
     items = []
     for p in d.get('data', []):
         title    = p.get('title', '')
@@ -93,6 +104,7 @@ except Exception as e:
     print(f'[agent2-semantic] 오류: {e}', file=sys.stderr)
     print('[]')
 PYEOF
+    rm -f "$_json_tmp"
 ) &
 PID_SEMANTIC=$!  # Semantic Scholar 백그라운드 프로세스 PID
 
