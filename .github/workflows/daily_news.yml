@@ -9,6 +9,9 @@ concurrency:
   group: daily-news
   cancel-in-progress: true
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # Node.js 20 deprecation 경고 해소
+
 jobs:
   crawl-and-notify:
     runs-on: ubuntu-latest
