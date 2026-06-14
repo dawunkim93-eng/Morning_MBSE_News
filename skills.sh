@@ -277,14 +277,15 @@ ai_summarize() {
     local groq_key="${GROQ_API_KEY:-}"
     local anthropic_key="${ANTHROPIC_API_KEY:-}"
 
-    # ── Groq API (무료, Llama 3.1) ───────────────────────────────────────────
-    if [[ -n "$groq_key" ]]; then
+    # ── OpenRouter API (무료 모델 사용) ──────────────────────────────────────
+    local or_key="${OPENROUTER_API_KEY:-}"
+    if [[ -n "$or_key" ]]; then
         local payload
         payload=$(python3 -c "
 import json, sys
 title = sys.argv[1]; body = sys.argv[2]
 print(json.dumps({
-    'model': 'llama-3.1-8b-instant',
+    'model': 'google/gemma-4-31b-it:free',
     'messages': [
         {'role': 'system', 'content': 'MBSE 전문가로서 핵심만 3줄 한국어로 요약하세요. 각 줄은 •로 시작하세요.'},
         {'role': 'user', 'content': f'제목: {title}\n\n내용: {body[:2000]}'}
@@ -293,9 +294,9 @@ print(json.dumps({
 }))" "$title" "$body")
 
         local response
-        response=$(curl -s -X POST "https://api.groq.com/openai/v1/chat/completions" \
+        response=$(curl -s -X POST "https://openrouter.ai/api/v1/chat/completions" \
             -H "Content-Type: application/json" \
-            -H "Authorization: Bearer $groq_key" \
+            -H "Authorization: Bearer $or_key" \
             --max-time 30 \
             -d "$payload" 2>/dev/null)
 
@@ -305,7 +306,7 @@ try:
     d = json.loads(sys.stdin.read())
     print(d['choices'][0]['message']['content'].strip())
 except Exception as e:
-    print(f'[ai_summarize] Groq 파싱 오류: {e}', file=sys.stderr)
+    print(f'[ai_summarize] OpenRouter 파싱 오류: {e}', file=sys.stderr)
     sys.exit(1)
 " <<< "$response" && return 0
     fi

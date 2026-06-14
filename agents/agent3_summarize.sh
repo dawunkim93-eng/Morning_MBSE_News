@@ -38,7 +38,7 @@ echo "[agent3] Claude API로 요약 중..." >&2
 # 복잡한 JSON 처리와 HTTP 요청을 Python으로 수행
 python3 - "$NEWS_IN" "$PAPERS_IN" "$OUTPUT" \
          "$MAX_NEWS" "$MAX_PAPERS" \
-         "${GROQ_API_KEY:-}" \
+         "${OPENROUTER_API_KEY:-}" \
          "${ANTHROPIC_API_KEY:-}" \
          "${CLAUDE_MODEL:-claude-haiku-4-5-20251001}" \
          "${DRY_RUN:-0}" <<'PYEOF'
@@ -48,7 +48,7 @@ import sys, json, re, urllib.request, urllib.error
 news_path, papers_path, output_path = sys.argv[1], sys.argv[2], sys.argv[3]
 max_news      = int(sys.argv[4])
 max_papers    = int(sys.argv[5])
-groq_key      = sys.argv[6]
+or_key        = sys.argv[6]
 anthropic_key = sys.argv[7]
 model         = sys.argv[8]
 dry_run       = sys.argv[9] == "1"
@@ -93,10 +93,10 @@ def ai_summarize(title: str, body: str) -> str:
     system_prompt = "MBSE 전문가로서 핵심만 3줄 한국어로 요약하세요. 각 줄은 •로 시작하세요."
     user_content  = f"제목: {title}\n\n내용: {body[:2000]}"
 
-    # ── Groq API (무료, Llama 3.1) ─────────────────────────────────────────
-    if groq_key:
+    # ── OpenRouter API (무료 모델) ──────────────────────────────────────────
+    if or_key:
         payload = json.dumps({
-            "model":    "llama-3.1-8b-instant",
+            "model":    "google/gemma-4-31b-it:free",
             "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user",   "content": user_content}
@@ -104,10 +104,10 @@ def ai_summarize(title: str, body: str) -> str:
             "max_tokens": 300
         }).encode()
         req = urllib.request.Request(
-            "https://api.groq.com/openai/v1/chat/completions",
+            "https://openrouter.ai/api/v1/chat/completions",
             data=payload,
             headers={"Content-Type": "application/json",
-                     "Authorization": f"Bearer {groq_key}"},
+                     "Authorization": f"Bearer {or_key}"},
             method="POST"
         )
         try:
@@ -116,9 +116,9 @@ def ai_summarize(title: str, body: str) -> str:
                 return d["choices"][0]["message"]["content"].strip()
         except urllib.error.HTTPError as e:
             err = e.read().decode('utf-8', errors='replace')
-            print(f"[agent3] Groq 오류: HTTP {e.code}: {err[:200]}", file=sys.stderr)
+            print(f"[agent3] OpenRouter 오류: HTTP {e.code}: {err[:200]}", file=sys.stderr)
         except Exception as e:
-            print(f"[agent3] Groq 오류: {e}", file=sys.stderr)
+            print(f"[agent3] OpenRouter 오류: {e}", file=sys.stderr)
 
     # ── Anthropic 폴백 ──────────────────────────────────────────────────────
     if anthropic_key:
