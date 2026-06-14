@@ -268,59 +268,87 @@ deduplicate() {
 # AI 함수
 # ═════════════════════════════════════════════════════════════════════════════
 
-claude_summarize() {
-    # 인자: <텍스트>
-    # 설명: Anthropic Claude API를 호출해 텍스트를 3줄 한국어로 요약한다.
-    #       각 줄은 • 기호로 시작한다.
-    local text="$1"
-    local model="${CLAUDE_MODEL:-claude-haiku-4-5-20251001}"
-    local api_key="${ANTHROPIC_API_KEY:-}"
+ai_summarize() {
+    # 인자: <제목> <본문>
+    # 설명: AI API를 호출해 텍스트를 3줄 한국어로 요약한다. 각 줄은 • 기호로 시작한다.
+    #       우선순위: Groq (무료) → Anthropic → 더미 요약
+    local title="$1"
+    local body="${2:-}"
+    local groq_key="${GROQ_API_KEY:-}"
+    local anthropic_key="${ANTHROPIC_API_KEY:-}"
 
-    [[ -z "$api_key" ]] && {
-        echo "[claude_summarize] ANTHROPIC_API_KEY 미설정" >&2
-        return 1
-    }
-
-    # Python으로 JSON 페이로드 안전하게 생성 (특수문자 이스케이프)
-    local payload
-    payload=$(python3 -c "
+    # ── Groq API (무료, Llama 3.1) ───────────────────────────────────────────
+    if [[ -n "$groq_key" ]]; then
+        local payload
+        payload=$(python3 -c "
 import json, sys
-text  = sys.argv[1]
-model = sys.argv[2]
-payload = {
-    'model': model,
-    'max_tokens': 300,
-    'system': '당신은 MBSE 전문가입니다. 핵심만 3줄로 요약하세요. 각 줄은 •로 시작하세요.',
-    'messages': [{'role': 'user', 'content': text}]
-}
-print(json.dumps(payload))
-" "$text" "$model")
+title = sys.argv[1]; body = sys.argv[2]
+print(json.dumps({
+    'model': 'llama-3.1-8b-instant',
+    'messages': [
+        {'role': 'system', 'content': 'MBSE 전문가로서 핵심만 3줄 한국어로 요약하세요. 각 줄은 •로 시작하세요.'},
+        {'role': 'user', 'content': f'제목: {title}\n\n내용: {body[:2000]}'}
+    ],
+    'max_tokens': 300
+}))" "$title" "$body")
 
-    # Claude API 호출
-    local response
-    response=$(curl -s -X POST "https://api.anthropic.com/v1/messages" \
-        -H "Content-Type: application/json" \
-        -H "x-api-key: $api_key" \
-        -H "anthropic-version: 2023-06-01" \
-        --max-time 30 \
-        -d "$payload" 2>/dev/null)
+        local response
+        response=$(curl -s -X POST "https://api.groq.com/openai/v1/chat/completions" \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $groq_key" \
+            --max-time 30 \
+            -d "$payload" 2>/dev/null)
 
-    # 응답 JSON에서 텍스트 내용 추출
-    python3 -c "
+        python3 -c "
+import json, sys
+try:
+    d = json.loads(sys.stdin.read())
+    print(d['choices'][0]['message']['content'].strip())
+except Exception as e:
+    print(f'[ai_summarize] Groq 파싱 오류: {e}', file=sys.stderr)
+    sys.exit(1)
+" <<< "$response" && return 0
+    fi
+
+    # ── Anthropic 폴백 ────────────────────────────────────────────────────────
+    if [[ -n "$anthropic_key" ]]; then
+        local model="${CLAUDE_MODEL:-claude-haiku-4-5-20251001}"
+        local payload
+        payload=$(python3 -c "
+import json, sys
+title = sys.argv[1]; body = sys.argv[2]; model = sys.argv[3]
+print(json.dumps({
+    'model': model, 'max_tokens': 300,
+    'system': 'MBSE 전문가로서 핵심만 3줄 한국어로 요약하세요. 각 줄은 •로 시작하세요.',
+    'messages': [{'role': 'user', 'content': f'제목: {title}\n\n내용: {body[:2000]}'}]
+}))" "$title" "$body" "$model")
+
+        local response
+        response=$(curl -s -X POST "https://api.anthropic.com/v1/messages" \
+            -H "Content-Type: application/json" \
+            -H "x-api-key: $anthropic_key" \
+            -H "anthropic-version: 2023-06-01" \
+            --max-time 30 \
+            -d "$payload" 2>/dev/null)
+
+        python3 -c "
 import json, sys
 try:
     d = json.loads(sys.stdin.read())
     if 'content' in d and d['content']:
         print(d['content'][0]['text'].strip())
     else:
-        err = d.get('error', {}).get('message', '알 수 없는 오류')
-        print(f'오류: {err}', file=sys.stderr)
         sys.exit(1)
 except Exception as e:
-    print(f'파싱 오류: {e}', file=sys.stderr)
     sys.exit(1)
-" <<< "$response"
+" <<< "$response" && return 0
+    fi
+
+    # ── 더미 폴백 (API 키 없음) ───────────────────────────────────────────────
+    echo "• API 키 미설정 — 요약 생략"
+    echo "• GROQ_API_KEY 또는 ANTHROPIC_API_KEY 를 설정하세요"
 }
+export -f ai_summarize
 
 # ═════════════════════════════════════════════════════════════════════════════
 # 텔레그램 함수

@@ -38,6 +38,7 @@ echo "[agent3] Claude API로 요약 중..." >&2
 # 복잡한 JSON 처리와 HTTP 요청을 Python으로 수행
 python3 - "$NEWS_IN" "$PAPERS_IN" "$OUTPUT" \
          "$MAX_NEWS" "$MAX_PAPERS" \
+         "${GROQ_API_KEY:-}" \
          "${ANTHROPIC_API_KEY:-}" \
          "${CLAUDE_MODEL:-claude-haiku-4-5-20251001}" \
          "${DRY_RUN:-0}" <<'PYEOF'
@@ -45,11 +46,12 @@ import sys, json, re, urllib.request, urllib.error
 
 # 인자 파싱
 news_path, papers_path, output_path = sys.argv[1], sys.argv[2], sys.argv[3]
-max_news   = int(sys.argv[4])
-max_papers = int(sys.argv[5])
-api_key    = sys.argv[6]
-model      = sys.argv[7]
-dry_run    = sys.argv[8] == "1"
+max_news      = int(sys.argv[4])
+max_papers    = int(sys.argv[5])
+groq_key      = sys.argv[6]
+anthropic_key = sys.argv[7]
+model         = sys.argv[8]
+dry_run       = sys.argv[9] == "1"
 
 # ── 카테고리 분류 규칙 ─────────────────────────────────────────────────────────
 # 각 카테고리를 나타내는 키워드 패턴 (우선순위 순)
@@ -79,40 +81,72 @@ def keyword_score(text: str) -> int:
         r'systems.engineering|model.based|digital.twin|INCOSE|Cameo|Capella', re.I)
     return len(core.findall(text)) * 3 + len(related.findall(text))
 
-def claude_summarize(title: str, body: str) -> str:
+def ai_summarize(title: str, body: str) -> str:
     """
-    Claude API를 호출해 제목+내용을 3줄 한국어로 요약한다.
-    DRY_RUN 모드이거나 API 키가 없으면 더미 요약을 반환한다.
+    AI API로 제목+내용을 3줄 한국어로 요약한다.
+    우선순위: Groq (무료) → Anthropic → 더미
+    skills.sh 의 ai_summarize() 와 동일한 로직을 Python 으로 구현한 버전.
     """
-    if dry_run or not api_key:
-        # 테스트 모드: 실제 API 호출 없이 더미 요약 반환
-        return f"• [DRY-RUN] {title[:80]}\n• 요약 생략 (DRY_RUN 모드)\n• API 키 없음"
+    if dry_run:
+        return f"• [DRY-RUN] {title[:80]}\n• 요약 생략 (DRY_RUN 모드)"
 
-    text    = f"제목: {title}\n\n내용: {body[:2000]}"  # 초록은 2000자로 제한
-    payload = json.dumps({
-        "model":      model,
-        "max_tokens": 300,
-        "system":     "당신은 MBSE 전문가입니다. 핵심만 3줄로 요약하세요. 각 줄은 •로 시작하세요.",
-        "messages":   [{"role": "user", "content": text}]
-    }).encode()
+    system_prompt = "MBSE 전문가로서 핵심만 3줄 한국어로 요약하세요. 각 줄은 •로 시작하세요."
+    user_content  = f"제목: {title}\n\n내용: {body[:2000]}"
 
-    req = urllib.request.Request(
-        "https://api.anthropic.com/v1/messages",
-        data=payload,
-        headers={
-            "Content-Type":    "application/json",
-            "x-api-key":       api_key,
-            "anthropic-version": "2023-06-01",
-        },
-        method="POST"
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            d = json.loads(resp.read())
-            return d["content"][0]["text"].strip()
-    except Exception as e:
-        print(f"[agent3] 요약 오류: {e}", file=sys.stderr)
-        return f"• 요약 실패: {e}"
+    # ── Groq API (무료, Llama 3.1) ─────────────────────────────────────────
+    if groq_key:
+        payload = json.dumps({
+            "model":    "llama-3.1-8b-instant",
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user",   "content": user_content}
+            ],
+            "max_tokens": 300
+        }).encode()
+        req = urllib.request.Request(
+            "https://api.groq.com/openai/v1/chat/completions",
+            data=payload,
+            headers={"Content-Type": "application/json",
+                     "Authorization": f"Bearer {groq_key}"},
+            method="POST"
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                d = json.loads(resp.read())
+                return d["choices"][0]["message"]["content"].strip()
+        except urllib.error.HTTPError as e:
+            err = e.read().decode('utf-8', errors='replace')
+            print(f"[agent3] Groq 오류: HTTP {e.code}: {err[:200]}", file=sys.stderr)
+        except Exception as e:
+            print(f"[agent3] Groq 오류: {e}", file=sys.stderr)
+
+    # ── Anthropic 폴백 ──────────────────────────────────────────────────────
+    if anthropic_key:
+        payload = json.dumps({
+            "model":    model,
+            "max_tokens": 300,
+            "system":   system_prompt,
+            "messages": [{"role": "user", "content": user_content}]
+        }).encode()
+        req = urllib.request.Request(
+            "https://api.anthropic.com/v1/messages",
+            data=payload,
+            headers={"Content-Type": "application/json",
+                     "x-api-key": anthropic_key,
+                     "anthropic-version": "2023-06-01"},
+            method="POST"
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                d = json.loads(resp.read())
+                return d["content"][0]["text"].strip()
+        except urllib.error.HTTPError as e:
+            err = e.read().decode('utf-8', errors='replace')
+            print(f"[agent3] Anthropic 오류: HTTP {e.code}: {err[:200]}", file=sys.stderr)
+        except Exception as e:
+            print(f"[agent3] Anthropic 오류: {e}", file=sys.stderr)
+
+    return "• API 키 미설정 — 요약 생략"
 
 def load(path):
     """JSON 파일 로드, 실패 시 빈 배열 반환"""
@@ -134,7 +168,7 @@ for item in news:
     text  = f"{item['title']} {body}"
     score = min(keyword_score(text), 10)   # 최대 10점으로 제한
 
-    summary = claude_summarize(item['title'], body)
+    summary = ai_summarize(item['title'], body)
 
     results["news"].append({
         **item,
@@ -149,7 +183,7 @@ for item in papers:
     text  = f"{item['title']} {body}"
     score = min(keyword_score(text), 10)
 
-    summary = claude_summarize(item['title'], body)
+    summary = ai_summarize(item['title'], body)
 
     results["papers"].append({
         **item,
