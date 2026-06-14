@@ -160,42 +160,36 @@ news   = load(news_path)
 papers = load(papers_path)
 
 results = {"news": [], "papers": []}
-print(f"[agent3] 뉴스 {len(news)}건, 논문 {len(papers)}건 요약 시작...", file=sys.stderr)
+print(f"[agent3] 뉴스 {len(news)}건, 논문 {len(papers)}건 점수 계산 중...", file=sys.stderr)
 
-# ── 뉴스 처리 ──────────────────────────────────────────────────────────────────
-for item in news:
-    body  = item.get('summary', '') or item.get('abstract', '')
-    text  = f"{item['title']} {body}"
-    score = min(keyword_score(text), 10)   # 최대 10점으로 제한
+# ── Step 1: 전체 점수 계산 (API 호출 없음) ────────────────────────────────────
+def score_items(items, body_key):
+    scored = []
+    for item in items:
+        body = item.get(body_key, '') or ''
+        text = f"{item['title']} {body}"
+        scored.append({
+            **item,
+            "body":     body,
+            "category": categorize(text),
+            "score":    min(keyword_score(text), 10),
+            "summary":  "",
+        })
+    return scored
 
-    summary = ai_summarize(item['title'], body)
+scored_news   = sorted(score_items(news,   'summary'),  key=lambda x: x["score"], reverse=True)[:max_news]
+scored_papers = sorted(score_items(papers, 'abstract'), key=lambda x: x["score"], reverse=True)[:max_papers]
 
-    results["news"].append({
-        **item,
-        "summary":  summary,
-        "category": categorize(text),
-        "score":    score,
-    })
+# ── Step 2: 상위 N건만 AI 요약 (API 호출 최소화) ─────────────────────────────
+print(f"[agent3] 상위 뉴스 {len(scored_news)}건, 논문 {len(scored_papers)}건 요약 시작...", file=sys.stderr)
 
-# ── 논문 처리 ──────────────────────────────────────────────────────────────────
-for item in papers:
-    body  = item.get('abstract', '')
-    text  = f"{item['title']} {body}"
-    score = min(keyword_score(text), 10)
+for item in scored_news:
+    item["summary"] = ai_summarize(item["title"], item.pop("body"))
+    results["news"].append(item)
 
-    summary = ai_summarize(item['title'], body)
-
-    results["papers"].append({
-        **item,
-        "summary":  summary,
-        "category": categorize(text),
-        "score":    score,
-    })
-
-# ── 정렬 및 상위 N건 유지 ─────────────────────────────────────────────────────
-# 점수 내림차순으로 정렬 후 상위 MAX_NEWS / MAX_PAPERS 건만 유지
-results["news"]   = sorted(results["news"],   key=lambda x: x["score"], reverse=True)[:max_news]
-results["papers"] = sorted(results["papers"], key=lambda x: x["score"], reverse=True)[:max_papers]
+for item in scored_papers:
+    item["summary"] = ai_summarize(item["title"], item.pop("body"))
+    results["papers"].append(item)
 
 with open(output_path, "w") as f:
     json.dump(results, f, ensure_ascii=False, indent=2)
