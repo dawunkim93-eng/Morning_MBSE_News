@@ -2,7 +2,7 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # 파일    : agents/agent4_send.sh
 # 설명    : 텔레그램 발송·캐시 저장·로그 기록 에이전트.
-#           Phase 2 에서 만들어진 요약 JSON을 MarkdownV2 형식으로 변환하고
+#           Phase 2 에서 만들어진 요약 JSON을 HTML 형식으로 변환하고
 #           텔레그램으로 발송한다. 발송 성공 후 URL을 캐시에 저장하고
 #           로그 파일에 실행 결과를 기록한다.
 # ─────────────────────────────────────────────────────────────────────────────
@@ -11,6 +11,7 @@
 #   v1.0   2026-06-10   최초 작성 — MarkdownV2 포맷, 텔레그램 발송, 캐시/로그 구현
 #   v1.1   2026-06-12   버그 수정 — mdv2() 특수문자 목록에 '-' 추가 (400 에러 수정)
 #   v1.2   2026-06-13   버그 수정 — HTTPError 시 Telegram 응답 본문 출력, urllib.error 추가
+#   v1.3   2026-06-14   포맷 변경 — MarkdownV2 → HTML (이스케이프 단순화, 400 오류 방지)
 # ─────────────────────────────────────────────────────────────────────────────
 #
 # 입력:
@@ -51,30 +52,18 @@ chat_id    = sys.argv[4]
 log_file   = sys.argv[5]
 cache_file = sys.argv[6]
 
-# ── MarkdownV2 이스케이프 유틸리티 ────────────────────────────────────────────
+# ── HTML 이스케이프 유틸리티 ──────────────────────────────────────────────────
+# HTML 모드는 <, >, & 세 글자만 이스케이프하면 되어 MarkdownV2보다 훨씬 안정적이다.
 
-def mdv2(text: str) -> str:
-    """
-    일반 텍스트를 MarkdownV2 형식으로 이스케이프한다.
-    링크 구문([text](url)) 내부가 아닌 평문 텍스트에만 사용한다.
+def html_escape(text: str) -> str:
+    """일반 텍스트를 Telegram HTML 모드용으로 이스케이프한다."""
+    return text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
 
-    Telegram MarkdownV2 이스케이프 대상 전체: _ * [ ] ( ) ~ ` > # + - = | { } . ! \
-    주의: '-' 를 빠뜨리면 날짜(2026-06-12)나 하이픈 포함 제목에서 400 에러 발생
-    """
-    special = r'\_*[]()~`>#+-=|{}.!'   # v1.1: '-' 추가
-    result  = ''
-    for ch in text:
-        result += ('\\' + ch) if ch in special else ch
-    return result
-
-def mdv2_link(title: str, url: str) -> str:
-    """
-    MarkdownV2 링크 형식 [제목](URL) 을 생성한다.
-    제목에서 [ ] 를 이스케이프, URL에서 ) 를 이스케이프한다.
-    """
-    safe_title = title.replace('[', '\\[').replace(']', '\\]')
-    safe_url   = url.replace(')', '\\)')
-    return f"[{safe_title}]({safe_url})"
+def html_link(title: str, url: str) -> str:
+    """HTML 링크 <a href="URL">제목</a> 을 생성한다."""
+    safe_title = html_escape(title)
+    safe_url   = url.replace('"', '%22')
+    return f'<a href="{safe_url}">{safe_title}</a>'
 
 def first_line(summary: str) -> str:
     """요약 텍스트의 첫 번째 비어있지 않은 줄을 반환한다."""
@@ -93,38 +82,38 @@ papers = data.get("papers", [])
 today  = datetime.date.today().isoformat()  # YYYY-MM-DD
 
 # ── 메시지 조립 ───────────────────────────────────────────────────────────────
-# MarkdownV2 형식으로 헤더, 뉴스 섹션, 논문 섹션을 구성
+# HTML 형식으로 헤더, 뉴스 섹션, 논문 섹션을 구성
 lines = [
-    f"🛰 *MBSE 데일리 브리핑* — {mdv2(today)}",
+    f"🛰 <b>MBSE 데일리 브리핑</b> — {html_escape(today)}",
     "",
 ]
 
 # 뉴스 섹션
 if news:
-    lines.append(f"*📰 뉴스 \\({len(news)}건\\)*")
+    lines.append(f"<b>📰 뉴스 ({len(news)}건)</b>")
     for i, item in enumerate(news, 1):
-        cat     = mdv2(f"#{item.get('category', '')}")
-        link    = mdv2_link(item['title'], item['url'])
-        summary = mdv2(first_line(item.get('summary', '')))
-        lines.append(f"{i}\\. {link} {cat}")
-        if summary:
-            lines.append(f"   └ {summary}")   # 요약 첫 줄
-    lines.append("")
-
-# 논문 섹션
-if papers:
-    lines.append(f"*📄 논문 \\({len(papers)}건\\)*")
-    for i, item in enumerate(papers, 1):
-        cat     = mdv2(f"#{item.get('category', '')}")
-        link    = mdv2_link(item['title'], item['url'])
-        summary = mdv2(first_line(item.get('summary', '')))
-        lines.append(f"{i}\\. {link} {cat}")
+        cat     = html_escape(f"#{item.get('category', '')}")
+        link    = html_link(item['title'], item['url'])
+        summary = html_escape(first_line(item.get('summary', '')))
+        lines.append(f"{i}. {link} {cat}")
         if summary:
             lines.append(f"   └ {summary}")
     lines.append("")
 
-lines.append("_Powered by Claude_")
-message = "\n".join(lines)  # 완성된 MarkdownV2 메시지
+# 논문 섹션
+if papers:
+    lines.append(f"<b>📄 논문 ({len(papers)}건)</b>")
+    for i, item in enumerate(papers, 1):
+        cat     = html_escape(f"#{item.get('category', '')}")
+        link    = html_link(item['title'], item['url'])
+        summary = html_escape(first_line(item.get('summary', '')))
+        lines.append(f"{i}. {link} {cat}")
+        if summary:
+            lines.append(f"   └ {summary}")
+    lines.append("")
+
+lines.append("<i>Powered by Claude</i>")
+message = "\n".join(lines)  # 완성된 HTML 메시지
 
 # ── 텔레그램 발송 ─────────────────────────────────────────────────────────────
 status = "skipped"
@@ -146,7 +135,7 @@ else:
     encoded = urllib.parse.quote(message)
     req = urllib.request.Request(
         f"https://api.telegram.org/bot{token}/sendMessage",
-        data=f"chat_id={chat_id}&text={encoded}&parse_mode=MarkdownV2".encode(),
+        data=f"chat_id={chat_id}&text={encoded}&parse_mode=HTML".encode(),
         headers={"Content-Type": "application/x-www-form-urlencoded"},
         method="POST"
     )
