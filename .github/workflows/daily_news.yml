@@ -2,7 +2,7 @@ name: Daily MBSE News
 
 on:
   schedule:
-    - cron: '45 21 * * *'   # UTC 21:45 = KST 06:45 (정시 혼잡 회피)
+    - cron: '0 22 * * *'    # UTC 22:00 = KST 07:00
   workflow_dispatch:
 
 concurrency:
