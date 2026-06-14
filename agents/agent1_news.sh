@@ -51,7 +51,7 @@ incose_html=$(web_fetch "https://www.incose.org/news-and-events/news") || incose
 
 if [[ -n "$incose_html" ]]; then
     # ※ pipe+heredoc 충돌 방지: HTML을 임시 파일로 전달 (sys.argv[1])
-    local _html_tmp
+    # local 은 함수 안에서만 유효 — 메인 스크립트 바디에서는 직접 대입
     _html_tmp=$(mktemp)
     printf '%s' "$incose_html" > "$_html_tmp"
     python3 - "$_html_tmp" "$SCRIPT_DIR/cache/seen_urls.txt" <<'PYEOF' >> "$TSV_TMP"

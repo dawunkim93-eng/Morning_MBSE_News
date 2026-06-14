@@ -36,7 +36,7 @@ echo "[agent2] 논문 소스 병렬 수집 시작..." >&2
     xml=$(web_fetch "$arxiv_url") || exit 0
 
     # ※ pipe+heredoc 충돌 방지: XML을 임시 파일로 전달
-    local _xml_tmp
+    # 서브쉘(...)에서는 local 사용 불가 — 직접 대입
     _xml_tmp=$(mktemp)
     printf '%s' "$xml" > "$_xml_tmp"
     python3 - "$_xml_tmp" <<'PYEOF' > "$ARXIV_TMP"
@@ -76,7 +76,7 @@ PID_ARXIV=$!  # arXiv 백그라운드 프로세스 PID
     json=$(web_fetch "$sem_url") || exit 0
 
     # ※ pipe+heredoc 충돌 방지: JSON을 임시 파일로 전달
-    local _json_tmp
+    # 서브쉘(...)에서는 local 사용 불가 — 직접 대입
     _json_tmp=$(mktemp)
     printf '%s' "$json" > "$_json_tmp"
     python3 - "$_json_tmp" <<'PYEOF' > "$SEMANTIC_TMP"
