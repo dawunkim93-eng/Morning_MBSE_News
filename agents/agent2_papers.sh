@@ -20,7 +20,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "$SCRIPT_DIR/skills.sh"
 
 # ── 설정 ────────────────────────────────────────────────────────────────────
-OUTPUT="/tmp/papers_results.json"      # Phase 2 에이전트가 읽을 결과 파일
+OUTPUT="$SHARED_TMP/papers_results.json" # Phase 2 에이전트가 읽을 결과 파일
 ARXIV_TMP=$(mktemp)                    # arXiv 결과 임시 파일
 SEMANTIC_TMP=$(mktemp)                 # Semantic Scholar 결과 임시 파일
 

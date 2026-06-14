@@ -26,7 +26,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "$SCRIPT_DIR/skills.sh"
 
 # ── 설정 ────────────────────────────────────────────────────────────────────
-OUTPUT="/tmp/news_results.json"        # Phase 2 에이전트가 읽을 결과 파일
+OUTPUT="$SHARED_TMP/news_results.json" # Phase 2 에이전트가 읽을 결과 파일
 TSV_TMP=$(mktemp)                      # 필터링 작업용 임시 TSV 파일
 
 # 뉴스를 수집할 Google News RSS 피드 URL 목록
@@ -58,7 +58,7 @@ if [[ -n "$incose_html" ]]; then
 import sys, re
 html_file  = sys.argv[1] if len(sys.argv) > 1 else ""
 cache_file = sys.argv[2] if len(sys.argv) > 2 else ""
-with open(html_file) as f:
+with open(html_file, encoding='utf-8', errors='replace') as f:
     html = f.read()
 
 # 기존 캐시 URL 로드 (중복 수집 방지)

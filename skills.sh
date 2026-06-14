@@ -29,6 +29,18 @@ set -euo pipefail  # 오류 발생 시 즉시 종료, 미정의 변수 오류 �
 # set -a/+a 로 감싸면 .env의 변수가 자동으로 export 됨
 [[ -f "$SCRIPT_DIR/.env" ]] && set -a && source "$SCRIPT_DIR/.env" && set +a
 
+# ── Windows 호환: python3 명령어가 없으면 python 으로 대체 ────────────────────
+if ! command -v python3 &>/dev/null || ! python3 --version &>/dev/null 2>&1; then
+    python3() { python "$@"; }
+    export -f python3
+fi
+
+# ── Python과 공유 가능한 임시 디렉터리 (Windows /tmp/ 경로 불일치 방지) ──────
+# Bash의 /tmp/ 는 MSYS2 경로이지만 Windows Python은 이를 인식하지 못한다.
+# Python의 tempfile.gettempdir()로 양쪽이 모두 접근 가능한 경로를 구한다.
+SHARED_TMP="$(python3 -c 'import tempfile, pathlib; print(pathlib.Path(tempfile.gettempdir()).as_posix())')"
+export SHARED_TMP
+
 # ═════════════════════════════════════════════════════════════════════════════
 # 네트워크 함수
 # ═════════════════════════════════════════════════════════════════════════════

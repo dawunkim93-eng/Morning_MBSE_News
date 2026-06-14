@@ -28,7 +28,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "$SCRIPT_DIR/skills.sh"
 
 # ── 설정 ────────────────────────────────────────────────────────────────────
-INPUT="/tmp/summary_results.json"          # agent3 출력 파일
+INPUT="$SHARED_TMP/summary_results.json"   # agent3 출력 파일
 LOG_DIR="$SCRIPT_DIR/logs"
 mkdir -p "$LOG_DIR"
 LOG_FILE="$LOG_DIR/$(date +%Y-%m-%d).log"  # 날짜별 로그 파일

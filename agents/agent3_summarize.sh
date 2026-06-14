@@ -25,9 +25,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "$SCRIPT_DIR/skills.sh"
 
 # ── 설정 ────────────────────────────────────────────────────────────────────
-NEWS_IN="/tmp/news_results.json"          # agent1 출력 파일
-PAPERS_IN="/tmp/papers_results.json"      # agent2 출력 파일
-OUTPUT="/tmp/summary_results.json"        # agent4 가 읽을 결과 파일
+NEWS_IN="$SHARED_TMP/news_results.json"    # agent1 출력 파일
+PAPERS_IN="$SHARED_TMP/papers_results.json" # agent2 출력 파일
+OUTPUT="$SHARED_TMP/summary_results.json"  # agent4 가 읽을 결과 파일
 
 MAX_NEWS="${MAX_NEWS_ITEMS:-5}"           # 최종 전송할 뉴스 최대 건수
 MAX_PAPERS="${MAX_PAPER_ITEMS:-5}"        # 최종 전송할 논문 최대 건수
