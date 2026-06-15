@@ -56,10 +56,15 @@ try:
         url      = l.text.strip()              if l is not None else ''
         date     = p.text[:10]                 if p is not None else ''
         abstract = s.text.strip().replace('\n', ' ') if s is not None else ''
+        authors  = ', '.join(
+            a.find('atom:name', ns).text.strip()
+            for a in entry.findall('atom:author', ns)
+            if a.find('atom:name', ns) is not None
+        )
         if title and url:
-            # arXiv 논문은 항상 포함(citation_count=99 로 필터 통과)
             items.append({'title': title, 'url': url, 'date': date,
-                          'abstract': abstract, 'source': 'arxiv', 'citation_count': 99})
+                          'abstract': abstract, 'authors': authors,
+                          'source': 'arxiv', 'citation_count': 99})
     print(json.dumps(items, ensure_ascii=False))
 except Exception as e:
     print(f'[agent2-arxiv] 오류: {e}', file=sys.stderr)
