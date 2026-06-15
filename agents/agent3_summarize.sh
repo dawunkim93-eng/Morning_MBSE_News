@@ -175,7 +175,17 @@ scored_papers = [enrich(i, 'abstract') for i in papers]
 today_news_raw   = sorted([i for i in scored_news   if in_window(i)], key=lambda x: x['score'], reverse=True)[:max_news]
 today_papers_raw = sorted([i for i in scored_papers if in_window(i)], key=lambda x: x['score'], reverse=True)[:max_papers]
 
-fallback_news_raw = sorted([i for i in scored_news if not in_window(i)], key=lambda x: x['score'], reverse=True)[:3]
+six_months_ago = (now_kst - timedelta(days=180)).replace(tzinfo=timezone.utc)
+def in_six_months(item: dict) -> bool:
+    dt = parse_date(item.get('date', ''))
+    if dt is None: return False
+    if dt.tzinfo is None: dt = dt.replace(tzinfo=timezone.utc)
+    return dt >= six_months_ago
+
+fallback_news_raw = sorted(
+    [i for i in scored_news if not in_window(i) and in_six_months(i)],
+    key=lambda x: x['score'], reverse=True
+)[:3]
 # 폴백 논문: 날짜 최신순 1건
 _fp = [i for i in scored_papers if not in_window(i)]
 _fp.sort(key=lambda x: parse_date(x.get('date','')) or datetime(2000,1,1,tzinfo=timezone.utc), reverse=True)

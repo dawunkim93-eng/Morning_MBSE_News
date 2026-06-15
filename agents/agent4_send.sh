@@ -124,14 +124,13 @@ if today_papers:
     for item in today_papers:
         lines.extend(format_paper(item))
         lines.append("")
-else:
+elif fallback_papers:
     lines.append("어제~오늘 범위 내 신규 논문은 없으나, 이번 달 가장 최근에 등록된 MBSE 관련 논문 1건을 아래에 안내합니다.")
     lines.append("")
-    if fallback_papers:
-        lines.extend(format_paper(fallback_papers[0]))
-        lines.append("")
-    else:
-        lines.append("최근 관련 논문을 찾지 못했습니다.")
+    lines.extend(format_paper(fallback_papers[0]))
+    lines.append("")
+else:
+    lines.append("오늘은 새로운 MBSE 관련 논문이 없습니다.")
 
 lines.append("<i>Powered by OpenRouter · 매일 오전 07:00 KST</i>")
 message = "\n".join(lines)

@@ -30,28 +30,32 @@ echo "[agent2] 논문 소스 병렬 수집 시작..." >&2
 # bash 백그라운드(&)로 두 소스를 동시에 요청해 총 대기 시간을 단축
 
 (
-    # arXiv: MBSE OR SysML OR "systems engineering" 최신 논문 15편
-    arxiv_url="https://export.arxiv.org/api/query?search_query=all:MBSE+OR+all:SysML+OR+all:%22systems+engineering%22&sortBy=submittedDate&sortOrder=descending&max_results=15"
-    echo "[agent2] arXiv 요청: $arxiv_url" >&2
-    xml=$(web_fetch "$arxiv_url") || exit 0
+    # arXiv: curl 대신 Python urllib 사용 (GitHub Actions에서 더 안정적)
+    echo "[agent2] arXiv 요청 (Python urllib)..." >&2
+    python3 - "$ARXIV_TMP" <<'PYEOF'
+import sys, json, urllib.request, xml.etree.ElementTree as ET
 
-    # ※ pipe+heredoc 충돌 방지: XML을 임시 파일로 전달
-    # 서브쉘(...)에서는 local 사용 불가 — 직접 대입
-    _xml_tmp=$(mktemp)
-    printf '%s' "$xml" > "$_xml_tmp"
-    python3 - "$_xml_tmp" <<'PYEOF' > "$ARXIV_TMP"
-import sys, json, xml.etree.ElementTree as ET
+arxiv_url = (
+    "https://export.arxiv.org/api/query"
+    "?search_query=all:MBSE+OR+all:SysML+OR+all:%22systems+engineering%22"
+    "&sortBy=submittedDate&sortOrder=descending&max_results=20"
+)
 ns = {'atom': 'http://www.w3.org/2005/Atom'}
+out_path = sys.argv[1]
 try:
-    with open(sys.argv[1]) as f:
-        content = f.read()
+    req = urllib.request.Request(
+        arxiv_url,
+        headers={'User-Agent': 'MBSE-News-Bot/1.0 (daily briefing; contact via GitHub)'}
+    )
+    with urllib.request.urlopen(req, timeout=30) as r:
+        content = r.read().decode('utf-8')
     root  = ET.fromstring(content)
     items = []
     for entry in root.findall('atom:entry', ns):
         t = entry.find('atom:title',     ns)
-        l = entry.find('atom:id',        ns)  # arXiv에서는 id 가 URL
+        l = entry.find('atom:id',        ns)
         p = entry.find('atom:published', ns)
-        s = entry.find('atom:summary',   ns)  # 논문 초록
+        s = entry.find('atom:summary',   ns)
         title    = t.text.strip().replace('\n', ' ') if t is not None else ''
         url      = l.text.strip()              if l is not None else ''
         date     = p.text[:10]                 if p is not None else ''
@@ -65,12 +69,14 @@ try:
             items.append({'title': title, 'url': url, 'date': date,
                           'abstract': abstract, 'authors': authors,
                           'source': 'arxiv', 'citation_count': 99})
-    print(json.dumps(items, ensure_ascii=False))
+    with open(out_path, 'w') as f:
+        json.dump(items, f, ensure_ascii=False)
+    print(f'[agent2-arxiv] {len(items)}건 수집', file=sys.stderr)
 except Exception as e:
     print(f'[agent2-arxiv] 오류: {e}', file=sys.stderr)
-    print('[]')  # 실패 시 빈 배열 반환
+    with open(out_path, 'w') as f:
+        f.write('[]')
 PYEOF
-    rm -f "$_xml_tmp"
 ) &
 PID_ARXIV=$!  # arXiv 백그라운드 프로세스 PID
 
