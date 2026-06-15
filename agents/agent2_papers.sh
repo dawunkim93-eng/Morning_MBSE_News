@@ -37,7 +37,9 @@ import sys, json, urllib.request, xml.etree.ElementTree as ET
 
 arxiv_url = (
     "https://export.arxiv.org/api/query"
-    "?search_query=all:MBSE+OR+all:SysML+OR+all:%22systems+engineering%22"
+    "?search_query=ti:MBSE+OR+abs:MBSE+OR+ti:SysML+OR+abs:SysML"
+    "+OR+ti:%22model-based+systems+engineering%22"
+    "+OR+abs:%22model-based+systems+engineering%22"
     "&sortBy=submittedDate&sortOrder=descending&max_results=20"
 )
 ns = {'atom': 'http://www.w3.org/2005/Atom'}
@@ -165,8 +167,8 @@ for item in all_items:
     if item.get('source') == 'semantic' and cites < 2:
         continue
 
-    # 키워드 관련성 필터
-    if not KEYWORDS.search(title + ' ' + abstract):
+    # 키워드 관련성 필터 (arXiv는 검색쿼리에서 이미 필터됨 — 건너뜀)
+    if item.get('source') != 'arxiv' and not KEYWORDS.search(title + ' ' + abstract):
         continue
 
     # URL/제목 중복 및 캐시 확인
