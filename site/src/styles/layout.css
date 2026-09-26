@@ -1,0 +1,217 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   레이아웃 — 헤더·히어로·필터바·섹션
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── 상단 헤더 (고정) ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--bg-root) 85%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border-faint);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* ── 브랜드 ── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-logo {
+  width: 28px;
+  height: 28px;
+}
+
+.brand-name {
+  font-size: 17px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+}
+.brand-name .accent { color: var(--accent); }
+
+.brand-tagline {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  border-left: 1px solid var(--border);
+  padding-left: 10px;
+}
+
+/* ── 네비 탭 ── */
+.nav-tabs {
+  display: flex;
+  gap: 2px;
+  margin-left: auto;
+}
+
+.nav-tab {
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  font-weight: 600;
+  transition: background 0.12s, color 0.12s;
+}
+
+.nav-tab:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.nav-tab.active {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 13%, transparent);
+}
+
+/* ── 검색바 (상단 고정) ── */
+.search-box {
+  flex: 1;
+  max-width: 300px;
+  position: relative;
+}
+
+.search-input {
+  width: 100%;
+  padding: 7px 12px 7px 32px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.12s;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 13px;
+  pointer-events: none;
+}
+
+/* ── 히어로 (홈 헤더) ── */
+.hero {
+  padding: 36px 0 20px;
+}
+
+.hero-title {
+  margin: 0 0 6px;
+  font-size: 26px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.hero-date {
+  color: var(--text-secondary);
+  font-size: 13.5px;
+}
+
+.hero-meta {
+  display: inline-flex;
+  gap: 10px;
+  margin-top: 10px;
+  color: var(--text-secondary);
+  font-size: 12.5px;
+}
+
+/* ── 섹션 제목 ── */
+.section-title {
+  margin: 28px 0 14px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .count {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 13px;
+}
+
+/* ── 필터바 ── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+  margin-bottom: 14px;
+}
+
+.chip {
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 12.5px;
+  font-weight: 600;
+  transition: all 0.12s;
+}
+
+.chip:hover {
+  color: var(--text-primary);
+  border-color: var(--text-muted);
+}
+
+.chip.active {
+  color: var(--bg-root);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ── 빈 상태 ── */
+.empty-state {
+  padding: 48px 0;
+  text-align: center;
+  color: var(--text-secondary);
+}
+.empty-state .icon { font-size: 32px; margin-bottom: 8px; }
+
+/* ── 푸터 ── */
+.site-footer {
+  margin-top: 48px;
+  padding: 20px 0 32px;
+  border-top: 1px solid var(--border-faint);
+  color: var(--text-muted);
+  font-size: 12.5px;
+  text-align: center;
+}
+
+/* ── 모바일 ── */
+@media (max-width: 640px) {
+  .brand-tagline { display: none; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .header-inner { flex-wrap: wrap; }
+  .search-box { order: 3; width: 100%; max-width: none; }
+}

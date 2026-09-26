@@ -1,0 +1,162 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   카드 시스템 — 카테고리 태그·출처 뱃지·초록 접이식
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.item-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-faint);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.15s ease;
+}
+
+.item-card:hover {
+  border-color: var(--border);
+}
+
+/* ── 카드 헤더: 태그 + 뱃지 + 날짜 ── */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* 카테고리 색상 태그 */
+.cat-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid currentColor;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+.cat-sysml     { color: var(--cat-sysml); }
+.cat-uaf       { color: var(--cat-uaf); }
+.cat-tool      { color: var(--cat-tool); }
+.cat-standard  { color: var(--cat-standard); }
+.cat-research  { color: var(--cat-research); }
+.cat-digital   { color: var(--cat-digital); }
+.cat-industry  { color: var(--cat-industry); }
+
+/* 출처 뱃지 */
+.src-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: color-mix(in srgb, currentColor 15%, transparent);
+}
+.src-omg      { color: var(--src-omg); }
+.src-incose   { color: var(--src-incose); }
+.src-arxiv    { color: var(--src-arxiv); }
+.src-news     { color: var(--src-news); }
+
+/* ── 제목 ── */
+.card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+.card-title a {
+  color: var(--text-primary);
+}
+.card-title a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── 요약/초록 (3줄 접이식) ── */
+.card-body {
+  position: relative;
+}
+
+.card-text {
+  color: var(--text-secondary);
+  font-size: 13.5px;
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+/* 펼침 상태 — clamp 해제 */
+.card-body.expanded .card-text {
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+.card-body.expanded .card-text {
+  cursor: default;
+  color: var(--text-secondary);
+}
+
+.expand-hint {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  margin-top: 4px;
+  user-select: none;
+}
+.card-body.expanded .expand-hint { display: none; }
+
+/* ── 카드 푸터: 날짜 + 점수 ── */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 6px;
+  border-top: 1px solid var(--border-faint);
+}
+
+.card-date {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+
+.card-score {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 1px 7px;
+  border: 1px solid var(--border-faint);
+  border-radius: 4px;
+}
+.card-score.high { color: var(--cat-tool); border-color: color-mix(in srgb, var(--cat-tool) 40%, transparent); }
+
+/* ── 오늘/참고 구분 ── */
+.today-flag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--cat-digital);
+  padding: 1px 7px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--cat-digital) 14%, transparent);
+}
+.fallback-flag {
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 1px 7px;
+  background: var(--bg-input);
+  border-radius: 4px;
+}
+
+/* ── 그리드 ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--gap);
+}

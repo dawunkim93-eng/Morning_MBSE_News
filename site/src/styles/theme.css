@@ -1,0 +1,86 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   MBSE Letters — 다크 엔지니어링 테마
+   배경 #0d1117 (GitHub 다크 계열), 카테고리별 액센트 색상 시스템
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── 배경 레이어 ── */
+  --bg-root:     #0d1117;   /* 페이지 배경 */
+  --bg-card:     #161b22;   /* 카드/패널 배경 */
+  --bg-hover:    #1c2128;   /* 호버 배경 */
+  --bg-input:    #21262d;   /* 입력창 배경 */
+  --border:      #30363d;   /* 경계선 */
+  --border-faint: #21262d;  /* 희미한 구분선 */
+
+  /* ── 텍스트 ── */
+  --text-primary:   #e6edf3;  /* 본문 */
+  --text-secondary: #8b949e;  /* 보조 (날짜·메타) */
+  --text-muted:     #6e7681;  /* 비활성 */
+
+  /* ── 액센트 ── */
+  --accent:      #58a6ff;    /* 브랜드 파랑 */
+  --accent-hover:#79b8ff;
+
+  /* ── 카테고리 색상 (태그) ── */
+  --cat-sysml:     #58a6ff;  /* blue */
+  --cat-uaf:       #d2a8ff;  /* purple */
+  --cat-tool:      #3fb950;  /* green */
+  --cat-standard:  #f0883e;  /* orange */
+  --cat-research:  #8b949e;  /* gray */
+  --cat-digital:   #39c5cf;  /* cyan */
+  --cat-industry:  #e3b341;  /* yellow */
+
+  /* ── 출처 뱃지 ── */
+  --src-omg:       #bc8cff;  /* OMG 공식 — 보라 */
+  --src-incose:    #58a6ff;  /* INCOSE — 파랑 */
+  --src-arxiv:     #f85149;  /* arXiv — 빨강 */
+  --src-news:      #8b949e;  /* 일반 뉴스 — 중립 */
+
+  /* ── 타이포그래피 ── */
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR',
+               'Malgun Gothic', sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  /* ── 치수 ── */
+  --radius: 8px;
+  --radius-sm: 6px;
+  --gap: 16px;
+  --max-width: 1080px;
+}
+
+/* ── 리셋 & 베이스 ── */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg-root);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+}
+
+/* ── 모노스페이스 유틸 ── */
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+/* ── 스크롤바 ── */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-root); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
