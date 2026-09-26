@@ -1,0 +1,16 @@
+{
+  "type": "news_archive",
+  "month": "2023-01",
+  "count": 1,
+  "items": [
+    {
+      "title": "Object Management Group Attends NRF 2023",
+      "url": "https://www.omg.org/releases/pr2023/01-15-23.htm",
+      "date": "2023-01-15",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

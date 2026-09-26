@@ -1,0 +1,16 @@
+{
+  "type": "news_archive",
+  "month": "2023-03",
+  "count": 1,
+  "items": [
+    {
+      "title": "Object Management Group Hosts Workshop about Financial Industry Standards",
+      "url": "https://www.omg.org/releases/pr2023/03-07-23.htm",
+      "date": "2023-03-07",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 1,
+      "summary": ""
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "papers_archive",
+  "month": "2025-12",
+  "count": 2,
+  "items": [
+    {
+      "title": "Unified Smart Factory Model: A model-based Approach for Integrating Industry 4.0 and Sustainability for Manufacturing Systems",
+      "url": "http://arxiv.org/abs/2512.10631v2",
+      "date": "2025-12-11",
+      "abstract": "This paper presents the Unified Smart Factory Model (USFM), a comprehensive framework designed to translate high-level sustainability goals into measurable factory-level indicators with a systematic information map of manufacturing activities. The manufacturing activities were modelled as set of manufacturing, assembly and auxiliary processes using Object Process Methodology, a Model Based Systems Engineering (MBSE) language. USFM integrates Manufacturing Process and System, Data Process, and Key Performance Indicator (KPI) Selection and Assessment in a single framework. Through a detailed case study of Printed Circuit Board (PCB) assembly factory, the paper demonstrates how environmental sustainability KPIs can be selected, modelled, and mapped to the necessary data, highlighting energy consumption and environmental impact metrics. The model's systematic approach can reduce redundancy, minimize the risk of missing critical information, and enhance data collection. The paper concluded that the USFM bridges the gap between sustainability goals and practical implementation, providing significant benefits for industries specifically SMEs aiming to achieve sustainability targets.",
+      "authors": "Ishaan Kaushal, Amaresh Chakrabarti",
+      "source": "arxiv",
+      "category": "Research",
+      "score": 20
+    },
+    {
+      "title": "Verified Design of Robotic Autonomous Systems using Probabilistic Model Checking",
+      "url": "http://arxiv.org/abs/2601.10720v1",
+      "date": "2025-12-19",
+      "abstract": "Safety and reliability play a crucial role when designing Robotic Autonomous Systems (RAS). Early consideration of hazards, risks and mitigation actions -- already in the concept study phase -- are important steps in building a solid foundations for the subsequent steps in the system engineering life cycle. The complex nature of RAS, as well as the uncertain and dynamic environments the robots operate within, do not merely effect fault management and operation robustness, but also makes the task of system design concept selection, a hard problem to address. Approaches to tackle the mentioned challenges and their implications on system design, range from ad-hoc concept development and design practices, to systematic, statistical and analytical techniques of Model Based Systems Engineering. In this paper, we propose a methodology to apply a formal method, namely Probabilistic Model Checking (PMC), to enable systematic evaluation and analysis of a given set of system design concepts, ultimately leading to a set of Verified Designs (VD). We illustrate the application of the suggested methodology -- using PRISM as probabilistic model checker -- to a practical RAS concept selection use-case from agriculture robotics. Along the way, we also develop and present a domain-specific Design Evaluation Criteria for agri-RAS.",
+      "authors": "Atef Azaiez, David Alireza Anisi",
+      "source": "arxiv",
+      "category": "Research",
+      "score": 14
+    }
+  ]
+}

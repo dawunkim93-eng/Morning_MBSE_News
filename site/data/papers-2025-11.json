@@ -1,0 +1,27 @@
+{
+  "type": "papers_archive",
+  "month": "2025-11",
+  "count": 2,
+  "items": [
+    {
+      "title": "An Analysis of Early-Stage Functional Safety Analysis Methods and Their Integration into Model-Based Systems Engineering",
+      "url": "http://arxiv.org/abs/2511.02874v1",
+      "date": "2025-11-04",
+      "abstract": "As systems become increasingly complex, conducting effective safety analysis in the earlier phases of a system's lifecycle is essential to identify and mitigate risks before they escalate. To that end, this paper investigates the capabilities of key safety analysis techniques, namely: Failure Mode and Effects Analysis (FMEA), Functional Hazard Analysis (FHA), and Functional Failure Identification and Propagation (FFIP), along with the current state of the literature in terms of their integration into Model-Based Systems Engineering (MBSE). A two-phase approach is adopted. The first phase is focused on contrasting FMEA, FHA, and FFIP techniques, examining their procedures, along with a documentation of their relative strengths and limitations. Our analysis highlights FFIP's capability in identifying emergent system behaviors, second-order effects, and fault propagation; thus, suggesting it is better suited for the safety needs of modern interconnected systems. Second, we review the existing research on the efforts to integrate each of these methods into MBSE. We find that MBSE integration efforts primarily focus on FMEA, and integration of FHA and FFIP is nascent. Additionally, FMEA-MBSE integration efforts could be organized into four categories: model-to-model transformation, use of external customized algorithms, built-in MBSE packages, and manual use of standard MBSE diagrams. While our findings indicate a variety of MBSE integration approaches, there is no universally established framework or standard. This leaves room for an integration approach that could support the ongoing Digital Engineering transformation efforts by enabling a more synergistic lifecycle safety management methods and tools.",
+      "authors": "Jannatul Shefa, Taylan G. Topcu",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 20
+    },
+    {
+      "title": "AI- and Ontology-Based Enhancements to FMEA for Advanced Systems Engineering: Current Developments and Future Directions",
+      "url": "http://arxiv.org/abs/2511.17743v1",
+      "date": "2025-11-21",
+      "abstract": "This article presents a state-of-the-art review of recent advances aimed at transforming traditional Failure Mode and Effects Analysis (FMEA) into a more intelligent, data-driven, and semantically enriched process. As engineered systems grow in complexity, conventional FMEA methods, largely manual, document-centric, and expert-dependent, have become increasingly inadequate for addressing the demands of modern systems engineering. We examine how techniques from Artificial Intelligence (AI), including machine learning and natural language processing, can transform FMEA into a more dynamic, data-driven, intelligent, and model-integrated process by automating failure prediction, prioritisation, and knowledge extraction from operational data. In parallel, we explore the role of ontologies in formalising system knowledge, supporting semantic reasoning, improving traceability, and enabling cross-domain interoperability. The review also synthesises emerging hybrid approaches, such as ontology-informed learning and large language model integration, which further enhance explainability and automation. These developments are discussed within the broader context of Model-Based Systems Engineering (MBSE) and function modelling, showing how AI and ontologies can support more adaptive and resilient FMEA workflows. We critically analyse a range of tools, case studies, and integration strategies, while identifying key challenges related to data quality, explainability, standardisation, and interdisciplinary adoption. By leveraging AI, systems engineering, and knowledge representation using ontologies, this review offers a structured roadmap for embedding FMEA within intelligent, knowledge-rich engineering environments.",
+      "authors": "Haytham Younus, Sohag Kabir, Felician Campean, Pascal Bonnaud, David Delaux",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 20
+    }
+  ]
+}

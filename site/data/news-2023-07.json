@@ -1,0 +1,25 @@
+{
+  "type": "news_archive",
+  "month": "2023-07",
+  "count": 2,
+  "items": [
+    {
+      "title": "Object Management Group Approves SysML V2, Beta Specifications",
+      "url": "https://www.omg.org/releases/pr2023/07-10-23.htm",
+      "date": "2023-07-10",
+      "source": "omg_press",
+      "category": "SysML",
+      "score": 17,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Paper Debunks Cloud Myths",
+      "url": "https://www.omg.org/releases/pr2023/07-17-23.htm",
+      "date": "2023-07-17",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "news_archive",
+  "month": "2021-09",
+  "count": 2,
+  "items": [
+    {
+      "title": "Object Management Group Announces Application Programming Interfaces for Knowledge-based Systems and Platforms Beta V1.0",
+      "url": "https://www.omg.org/releases/pr2021/09-14-21.htm",
+      "date": "2021-09-14",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group RAAML Beta Version 1.0 Specification Defines Extensions to SysML",
+      "url": "https://www.omg.org/releases/pr2021/09-15-21.htm",
+      "date": "2021-09-15",
+      "source": "omg_press",
+      "category": "SysML",
+      "score": 8,
+      "summary": ""
+    }
+  ]
+}

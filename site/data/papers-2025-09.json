@@ -1,0 +1,47 @@
+{
+  "type": "papers_archive",
+  "month": "2025-09",
+  "count": 4,
+  "items": [
+    {
+      "title": "UrbanTwin: Synthetic Roadside LiDAR Datasets",
+      "url": "http://arxiv.org/abs/2509.06781v3",
+      "date": "2025-09-08",
+      "abstract": "This article presents UrbanTwin datasets, high-fidelity, realistic replicas of three public roadside lidar datasets: LUMPI, V2X-Real-IC, and TUMTraf-I. Each UrbanTwin dataset contains 10K annotated frames corresponding to one of the public datasets. Annotations include 3D bounding boxes, instance segmentation labels, and tracking IDs for six object classes, along with semantic segmentation labels for nine classes. These datasets are synthesized using emulated lidar sensors within realistic digital twins, modeled based on surrounding geometry, road alignment at lane level, and the lane topology and vehicle movement patterns at intersections of the actual locations corresponding to each real dataset. Due to the precise digital twin modeling, the synthetic datasets are well aligned with their real counterparts, offering strong standalone and augmentative value for training deep learning models on tasks such as 3D object detection, tracking, and semantic and instance segmentation. We evaluate the alignment of the synthetic replicas through statistical and structural similarity analysis with real data, and further demonstrate their utility by training 3D object detection models solely on synthetic data and testing them on real, unseen data. The high similarity scores and improved detection performance, compared to models trained on real data, indicate that the UrbanTwin datasets effectively enhance existing benchmark datasets by increasing sample size and scene diversity. In addition, the digital twins can be adapted to test custom scenarios by modifying the design and dynamics of the simulations. To our knowledge, these are the first digitally synthesized datasets that can replace in-domain real-world datasets for lidar perception tasks. UrbanTwin datasets are publicly available at https://dataverse.harvard.edu/dataverse/ucf-ut.",
+      "authors": "Muhammad Shahbaz, Shaurya Agarwal",
+      "source": "arxiv",
+      "category": "Digital",
+      "score": 9
+    },
+    {
+      "title": "Reasonable Experiments in Model-Based Systems Engineering",
+      "url": "http://arxiv.org/abs/2509.10649v1",
+      "date": "2025-09-12",
+      "abstract": "With the current trend in Model-Based Systems Engineering towards Digital Engineering and early Validation & Verification, experiments are increasingly used to estimate system parameters and explore design decisions. Managing such experimental configuration metadata and results is of utmost importance in accelerating overall design effort. In particular, we observe it is important to 'intelligent-ly' reuse experiment-related data to save time and effort by not performing potentially superfluous, time-consuming, and resource-intensive experiments. In this work, we present a framework for managing experiments on digital and/or physical assets with a focus on case-based reasoning with domain knowledge to reuse experimental data efficiently by deciding whether an already-performed experiment (or associated answer) can be reused to answer a new (potentially different) question from the engineer/user without having to set up and perform a new experiment. We provide the general architecture for such an experiment manager and validate our approach using an industrial vehicular energy system-design case study.",
+      "authors": "Johan Cederbladh, Loek Cleophas, Eduard Kamburjan, Lucas Lima, Rakshit Mittal, Hans Vangheluwe",
+      "source": "arxiv",
+      "category": "Research",
+      "score": 20
+    },
+    {
+      "title": "Bridging Engineering and AI Planning through Model-Based Knowledge Transformation for the Validation of Automated Production System Variants",
+      "url": "http://arxiv.org/abs/2509.12091v1",
+      "date": "2025-09-15",
+      "abstract": "Engineering models created in Model-Based Systems Engineering (MBSE) environments contain detailed information about system structure and behavior. However, they typically lack symbolic planning semantics such as preconditions, effects, and constraints related to resource availability and timing. This limits their ability to evaluate whether a given system variant can fulfill specific tasks and how efficiently it performs compared to alternatives.   To address this gap, this paper presents a model-driven method that enables the specification and automated generation of symbolic planning artifacts within SysML-based engineering models. A dedicated SysML profile introduces reusable stereotypes for core planning constructs. These are integrated into existing model structures and processed by an algorithm that generates a valid domain file and a corresponding problem file in Planning Domain Definition Language (PDDL). In contrast to previous approaches that rely on manual transformations or external capability models, the method supports native integration and maintains consistency between engineering and planning artifacts.   The applicability of the method is demonstrated through a case study from aircraft assembly. The example illustrates how existing engineering models are enriched with planning semantics and how the proposed workflow is applied to generate consistent planning artifacts from these models. The generated planning artifacts enable the validation of system variants through AI planning.",
+      "authors": "Hamied Nabizada, Lasse Beers, Alain Chahine, Felix Gehlhoff, Oliver Niggemann, Alexander Fay",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 20
+    },
+    {
+      "title": "A Weighted Least Squares Error Hetero-functional Graph State Estimator of the American Multi-modal Energy System",
+      "url": "http://arxiv.org/abs/2509.19045v1",
+      "date": "2025-09-23",
+      "abstract": "As one of the most pressing challenges of the 21st century, global climate change demands a host of changes across at least four critical energy infrastructures: the electric grid, the natural gas system, the oil system, and the coal system. In the context of the United States, this paper refers to this system-of-systems as ``The American Multi-Modal Energy System (AMES)\". These combined changes necessitate an understanding of the AMES interdependencies, both structurally and behaviorally, to develop and enact effective policies. This work focuses on behavioral analysis methods to provide examples of how to analyze system behavior and the critical matter and energy flows through the system. Building upon past works, two regions of the AMES are modeled, and their behavior is analyzed using Hetero-functional Graph Theory (HFGT). More specifically, the work presents a weighted least square error state estimation model of the AMES. State estimation has played a major role in the operation and development of the American Electric Power System. This work extends the state estimation analysis beyond the single-operand electric grid environment into the heterogeneous environment of the AMES. Employing a data-driven and model-based systems engineering approach in combination with HFGT, a Weighted Least Squares Error Hetero-functional Graph State Estimation (WLSEHFGSE) optimization program is developed to estimate the optimal flows of mass and energy through the AMES. This work is the first to integrate state estimation methods with HFGT. Furthermore, it demonstrates how such a WLSEHFGSE recovers the mass and energy flows in a system-of-systems like the AMES with asset-level granularity.",
+      "authors": "Dakota Thompson, Amro M. Farid",
+      "source": "arxiv",
+      "category": "Research",
+      "score": 19
+    }
+  ]
+}

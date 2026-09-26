@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2011-04",
+  "count": 1,
+  "items": [
+    {
+      "title": "Model based system engineering approach of a lightweight embedded TCP/IP",
+      "url": "http://arxiv.org/abs/1104.5387v1",
+      "date": "2011-04-28",
+      "abstract": "The use of embedded software is growing very rapidly. Accessing the internet is a necessary service which has large range of applications in many fields. The Internet is based on TCP/IP which is a very important stack. Although TCP/IP is very important there is not a software engineering model describing it. The common method in modeling and describing TCP/IP is RFCs which is not sufficient for software engineer and developers. Therefore there is a need for software engineering approach to help engineers and developers to customize their own web based applications for embedded systems. This research presents a model based system engineering approach of lightweight TCP/IP. The model contains the necessary phases for developing a lightweight TCP/IP for embedded systems. The proposed model is based on SysML as a model based system engineering language.",
+      "authors": "M. Z. Rashed, Ahmed E. Hassan, Ahmed I. Sharaf",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 8
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "news_archive",
+  "month": "2025-04",
+  "count": 1,
+  "items": [
+    {
+      "title": "Object Management Group Publishes the SPECTRA-CA Specification for Public Comments",
+      "url": "https://www.omg.org/releases/pr2025/04-29-25.htm",
+      "date": "2025-04-29",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

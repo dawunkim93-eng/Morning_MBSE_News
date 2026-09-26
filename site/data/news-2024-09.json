@@ -1,0 +1,25 @@
+{
+  "type": "news_archive",
+  "month": "2024-09",
+  "count": 2,
+  "items": [
+    {
+      "title": "Object Management Group Publishes Aviation and Aerospace Journal of Innovation",
+      "url": "https://www.omg.org/releases/pr2024/09-03-24.htm",
+      "date": "2024-09-03",
+      "source": "omg_press",
+      "category": "Industry",
+      "score": 2,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Publishes the Data Products Ontology Specification for Public Comments",
+      "url": "https://www.omg.org/releases/pr2024/09-24-24.htm",
+      "date": "2024-09-24",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 2,
+      "summary": ""
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "type": "news_archive",
+  "month": "2021-01",
+  "count": 4,
+  "items": [
+    {
+      "title": "Object Management Group Issues Request for Proposal for Linked Encrypted Transaction Streams Specification",
+      "url": "https://www.omg.org/releases/pr2021/01-19-21.htm",
+      "date": "2021-01-19",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Announces Kaiko to Expand Financial Instruments Global Identifier&reg; (FIGI&reg;) Standard for Crypto Assets",
+      "url": "https://www.omg.org/releases/pr2021/01-20-21.htm",
+      "date": "2021-01-20",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 1,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Issues Request for Information for Disposable Self-Sovereign Identity Standard",
+      "url": "https://www.omg.org/releases/pr2021/01-21-21.htm",
+      "date": "2021-01-21",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 1,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group New Business Processing Modeling Standard to Track Pedigree and Provenance",
+      "url": "https://www.omg.org/releases/pr2021/01-28-21.htm",
+      "date": "2021-01-28",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 1,
+      "summary": ""
+    }
+  ]
+}

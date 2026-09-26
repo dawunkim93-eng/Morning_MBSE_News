@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2019-09",
+  "count": 1,
+  "items": [
+    {
+      "title": "Architecture Definition in Complex System Design Using Model Theory",
+      "url": "http://arxiv.org/abs/1909.06809v5",
+      "date": "2019-09-15",
+      "abstract": "Architecture Definition, which is central to system design, is one of the two most used technical processes in the practice of model-based systems engineering. In this paper a fundamental approach to architecture definition is presented and demonstrated. The success of its application to engineering problems depends on a precise but practical definition of the term architecture. In the standard for Architecture Description, ISO/IEC/IEEE 42010:2011, a definition was adopted that has been subsumed into later standards. In 2018 the working group JTC1/SC7/WG42 on System Architecture began a review of the adopted definition, holding sessions late in the year. This paper extends and complements a position paper submitted during the meetings; in which Tarski model theory and ISO/IEC 24707:2018 (logic-based languages) were used to better understand relationships between system models and concepts related to architecture. Independent from the working group, it now contributes intuitive fundamental definitions of the terms architecture and system that are used to specify a mathematically based technical process for architecture definition. The engineering utility and benefits to complex system design are demonstrated in a diesel engine emissions reduction case study.",
+      "authors": "Charles E. Dickerson, Michael K. Wilkinson, Eugenie Hunsicker, Siyuan Ji, Mole Li, Yves Bernard, Graham Bleakley, Peter Denno",
+      "source": "arxiv",
+      "category": "Standard",
+      "score": 20
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "news_archive",
+  "month": "2025-02",
+  "count": 2,
+  "items": [
+    {
+      "title": "Object Management Group Publishes Journal of Innovation Data Edition",
+      "url": "https://www.omg.org/releases/pr2025/02-04-25.htm",
+      "date": "2025-02-04",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Paper Discusses AI and the Cloud",
+      "url": "https://www.omg.org/releases/pr2025/02-24-25.htm",
+      "date": "2025-02-24",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

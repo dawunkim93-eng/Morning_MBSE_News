@@ -1,0 +1,16 @@
+{
+  "type": "news_archive",
+  "month": "2021-05",
+  "count": 1,
+  "items": [
+    {
+      "title": "Object Management Group to Co-Host Digital Infrastructure Forum with the Open Civic Foundation",
+      "url": "https://www.omg.org/releases/pr2021/05-17-21.htm",
+      "date": "2021-05-17",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

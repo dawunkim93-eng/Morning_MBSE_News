@@ -1,0 +1,43 @@
+{
+  "type": "news_archive",
+  "month": "2023-11",
+  "count": 4,
+  "items": [
+    {
+      "title": "Object Management Group Announces Certified Professional Directory",
+      "url": "https://www.omg.org/releases/pr2023/11-02-23.htm",
+      "date": "2023-11-02",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "CISQ Announces Automated Technical Debt Measure Specification V2",
+      "url": "https://www.omg.org/releases/pr2023/11-07-23.htm",
+      "date": "2023-11-07",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Announces Version 3 Beta of the Open Architecture Radar Interface Standard 2",
+      "url": "https://www.omg.org/releases/pr2023/11-28-23.htm",
+      "date": "2023-11-28",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 1,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Announces Managed Communities Program",
+      "url": "https://www.omg.org/releases/pr2023/11-30-23.htm",
+      "date": "2023-11-30",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}
