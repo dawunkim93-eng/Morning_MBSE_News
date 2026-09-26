@@ -1,217 +1,359 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   레이아웃 — 헤더·히어로·필터바·섹션
+   레이아웃 — 2열 셸 (좌측 사이드바 + 메인 피드), 히어로 패널, 섹션, 필터
    ═══════════════════════════════════════════════════════════════════════ */
 
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 20px;
+/* ── 앱 셸: 사이드바 + 메인 ── */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
 }
 
-/* ── 상단 헤더 (고정) ── */
-.site-header {
+/* ── 사이드바 (240-280px, Canvas + 우측 1px Fog 보더) ── */
+.sidebar {
+  width: var(--sidebar-width);
+  flex-shrink: 0;
+  background: var(--color-canvas);
+  border-right: 1px solid var(--color-fog);
+  display: flex;
+  flex-direction: column;
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: color-mix(in srgb, var(--bg-root) 85%, transparent);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border-faint);
+  height: 100vh;
+  overflow-y: auto;
+  padding: var(--spacing-20) var(--spacing-16);
+  gap: var(--spacing-20);
 }
 
-.header-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 12px 20px;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-/* ── 브랜드 ── */
+/* ── 브랜드 (사이드바 상단) ── */
 .brand {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: var(--spacing-8) var(--spacing-12);
   cursor: pointer;
   user-select: none;
 }
 
-.brand-logo {
-  width: 28px;
-  height: 28px;
-}
+.brand-logo { width: 30px; height: 30px; }
 
 .brand-name {
-  font-size: 17px;
-  font-weight: 750;
-  letter-spacing: -0.01em;
+  font-size: var(--text-subheading);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  color: var(--color-ink-black);
 }
-.brand-name .accent { color: var(--accent); }
+.brand-name .accent { color: var(--color-blueprint-blue); }
 
-.brand-tagline {
-  font-size: 11.5px;
-  color: var(--text-secondary);
-  font-family: var(--font-mono);
-  border-left: 1px solid var(--border);
-  padding-left: 10px;
-}
-
-/* ── 네비 탭 ── */
-.nav-tabs {
+/* ── 고스트 네비 버튼 ── */
+.sidebar-nav {
   display: flex;
+  flex-direction: column;
   gap: 2px;
-  margin-left: auto;
 }
 
-.nav-tab {
-  padding: 6px 14px;
-  border-radius: var(--radius-sm);
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
   border: none;
+  border-radius: var(--radius-buttons);
   background: transparent;
-  color: var(--text-secondary);
-  font-size: 13.5px;
-  font-weight: 600;
-  transition: background 0.12s, color 0.12s;
+  color: var(--color-ink-black);
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
+  text-align: left;
+  transition: background 0.12s;
 }
 
-.nav-tab:hover {
-  color: var(--text-primary);
-  background: var(--bg-hover);
+.nav-item:hover { background: var(--color-paper); }
+
+/* 활성: Paper 채움 + 블루 좌측 인디케이터 3px */
+.nav-item.active {
+  background: var(--color-paper);
+  border-left: 3px solid var(--color-blueprint-blue);
+  border-radius: var(--radius-buttons);
+  color: var(--color-blueprint-blue);
 }
 
-.nav-tab.active {
-  color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 13%, transparent);
+.nav-item .nav-icon {
+  width: 18px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--color-ink-black);
 }
+.nav-item.active .nav-icon { color: var(--color-blueprint-blue); }
 
-/* ── 검색바 (상단 고정) ── */
+/* ── 사이드바 검색 (Paper 배경, 포커스 시 Canvas 전환) ── */
 .search-box {
-  flex: 1;
-  max-width: 300px;
   position: relative;
+  padding: 0 var(--spacing-12);
 }
 
 .search-input {
   width: 100%;
-  padding: 7px 12px 7px 32px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--bg-input);
-  color: var(--text-primary);
-  font-size: 13px;
+  padding: 8px 12px 8px 34px;
+  border-radius: var(--radius-buttons);
+  border: 1px solid var(--color-fog);
+  background: var(--color-paper);
+  color: var(--color-ink-black);
+  font-size: var(--text-body-sm);
   outline: none;
-  transition: border-color 0.12s;
+  /* 포커스 링 없음 — 배경/보더의 조용한 전환 */
+  transition: background 0.12s, border-color 0.12s;
 }
 
+.search-input::placeholder { color: var(--color-slate); }
+
 .search-input:focus {
-  border-color: var(--accent);
+  background: var(--color-canvas);
+  border-color: var(--color-stone);
 }
 
 .search-icon {
   position: absolute;
-  left: 10px;
+  left: 22px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--text-muted);
+  color: var(--color-slate);
   font-size: 13px;
   pointer-events: none;
 }
 
-/* ── 히어로 (홈 헤더) ── */
-.hero {
-  padding: 36px 0 20px;
+/* ── 공지 카드 ("What's New" 스타일) ── */
+.announcement {
+  margin: auto var(--spacing-8) 0;
+  background: var(--color-canvas);
+  border: 1px solid var(--color-fog);
+  border-radius: var(--radius-cards);
+  padding: var(--spacing-16);
 }
 
-.hero-title {
+.announcement-title {
   margin: 0 0 6px;
-  font-size: 26px;
-  font-weight: 750;
-  letter-spacing: -0.02em;
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-ink-black);
 }
 
-.hero-date {
-  color: var(--text-secondary);
-  font-size: 13.5px;
+.announcement-body {
+  margin: 0;
+  font-size: var(--text-caption);
+  line-height: 1.5;
+  color: var(--color-slate);
 }
 
-.hero-meta {
-  display: inline-flex;
-  gap: 10px;
-  margin-top: 10px;
-  color: var(--text-secondary);
-  font-size: 12.5px;
+.announcement-body a { color: var(--color-blueprint-blue); }
+
+/* ── 사이드바 푸터 ── */
+.sidebar-footer {
+  margin-top: var(--spacing-8);
+  padding: 0 var(--spacing-12);
+  font-size: 10px;
+  color: var(--color-slate);
 }
 
-/* ── 섹션 제목 ── */
-.section-title {
-  margin: 28px 0 14px;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text-primary);
+/* ── 메인 컬럼 ── */
+.main-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-inner {
+  max-width: var(--page-max-width);
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-32) var(--spacing-32) var(--spacing-64);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-48);
+  flex: 1;
+}
+
+/* ── 히어로 패널 (18px radius, 2열 내부 분할) ── */
+.hero-panel {
+  background: var(--color-canvas);
+  border: 1px solid var(--color-fog);
+  border-radius: var(--radius-heropanel);
+  padding: var(--spacing-32);
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-.section-title .count {
-  color: var(--text-secondary);
-  font-weight: 500;
-  font-size: 13px;
+  gap: var(--spacing-32);
 }
 
-/* ── 필터바 ── */
+.hero-text { flex: 1; min-width: 0; }
+
+.hero-headline {
+  margin: 0 0 var(--spacing-12);
+  font-size: var(--text-heading);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-ink-black);
+}
+
+.hero-body {
+  margin: 0 0 var(--spacing-20);
+  font-size: var(--text-body);
+  color: var(--color-slate);
+  line-height: var(--leading-body);
+}
+
+/* Primary CTA — 뷰포트당 1개만 블루 채움 */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: 8px 16px;
+  border-radius: var(--radius-buttons);
+  border: none;
+  background: var(--color-blueprint-blue);
+  color: #fff;
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-semibold);
+  transition: background 0.12s;
+}
+
+.btn-primary:hover { background: var(--color-blueprint-hover); }
+
+.hero-illustration {
+  width: 220px;
+  height: 180px;
+  flex-shrink: 0;
+  border-radius: var(--radius-cards);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── 섹션 헤더 ("NEW & POPULAR" 스타일: 4px 점 + uppercase 라벨) ── */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 var(--spacing-16);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-blueprint-blue);
+}
+
+/* 4px 선행 점 */
+.section-label::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.section-count {
+  font-size: var(--text-caption);
+  color: var(--color-slate);
+}
+
+/* ── 필터 바 ── */
 .filter-bar {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--spacing-8);
   flex-wrap: wrap;
-  padding: 12px 0;
-  margin-bottom: 14px;
+  padding: 0 0 var(--spacing-16);
+  border-bottom: 1px solid var(--color-fog);
+  margin-bottom: var(--spacing-20);
 }
 
 .chip {
-  padding: 4px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
+  padding: 6px 10px;
+  border-radius: var(--radius-buttons);
+  border: 1px solid transparent;
   background: transparent;
-  color: var(--text-secondary);
-  font-size: 12.5px;
-  font-weight: 600;
+  color: var(--color-slate);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.02em;
   transition: all 0.12s;
 }
 
 .chip:hover {
-  color: var(--text-primary);
-  border-color: var(--text-muted);
+  color: var(--color-ink-black);
+  background: var(--color-paper);
 }
 
+/* 활성 칩: 블루 텍스트 + Paper 배경 (채움 대신 라벨 강조) */
 .chip.active {
-  color: var(--bg-root);
-  background: var(--accent);
-  border-color: var(--accent);
+  color: var(--color-blueprint-blue);
+  background: var(--color-paper);
 }
 
 /* ── 빈 상태 ── */
 .empty-state {
-  padding: 48px 0;
+  padding: var(--spacing-48) 0;
   text-align: center;
-  color: var(--text-secondary);
+  color: var(--color-slate);
+  font-size: var(--text-body-sm);
 }
-.empty-state .icon { font-size: 32px; margin-bottom: 8px; }
+.empty-state .icon { font-size: 24px; margin-bottom: var(--spacing-8); display: block; }
 
-/* ── 푸터 ── */
+/* ── 로딩 ── */
+.loading {
+  padding: var(--spacing-48) 0;
+  text-align: center;
+  color: var(--color-slate);
+}
+
+/* ── 푸터 (메인 하단) ── */
 .site-footer {
-  margin-top: 48px;
-  padding: 20px 0 32px;
-  border-top: 1px solid var(--border-faint);
-  color: var(--text-muted);
-  font-size: 12.5px;
+  padding: var(--spacing-20) 0 var(--spacing-32);
+  border-top: 1px solid var(--color-fog);
+  color: var(--color-slate);
+  font-size: var(--text-caption);
   text-align: center;
 }
+.site-footer div + div { margin-top: 4px; }
 
-/* ── 모바일 ── */
-@media (max-width: 640px) {
-  .brand-tagline { display: none; }
+/* ── 2열 카드 그리드 ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-16);
+}
+
+/* ── 모바일: 사이드바 붕괴 → 상단바 ── */
+@media (max-width: 768px) {
+  .app-shell { flex-direction: column; }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: column;
+    gap: var(--spacing-12);
+    padding: var(--spacing-12) var(--spacing-16);
+    border-bottom: 1px solid var(--color-fog);
+    overflow: visible;
+  }
+
+  .announcement, .sidebar-footer { display: none; }
+
+  .sidebar-nav { flex-direction: row; gap: var(--spacing-8); }
+  .nav-item { padding: 6px 12px; }
+
+  .search-box { padding: 0; }
+
+  .main-inner { padding: var(--spacing-20) var(--spacing-16); gap: var(--spacing-32); }
+
+  .hero-panel { flex-direction: column; align-items: stretch; }
+  .hero-illustration { display: none; }
+
   .cards-grid { grid-template-columns: 1fr; }
-  .header-inner { flex-wrap: wrap; }
-  .search-box { order: 3; width: 100%; max-width: none; }
 }

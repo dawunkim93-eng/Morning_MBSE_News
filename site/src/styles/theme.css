@@ -1,51 +1,68 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   MBSE Letters — 다크 엔지니어링 테마
-   배경 #0d1117 (GitHub 다크 계열), 카테고리별 액센트 색상 시스템
+   MBSE Letters — Hashnode 에디토리얼 테마 (라이트 뉴스룸)
+   단색 캔버스 + 단일 Blueprint Blue 액센트, 헤어라인 보더, 타이포그래피 중심
+   참고: design.md
    ═══════════════════════════════════════════════════════════════════════ */
 
 :root {
-  /* ── 배경 레이어 ── */
-  --bg-root:     #0d1117;   /* 페이지 배경 */
-  --bg-card:     #161b22;   /* 카드/패널 배경 */
-  --bg-hover:    #1c2128;   /* 호버 배경 */
-  --bg-input:    #21262d;   /* 입력창 배경 */
-  --border:      #30363d;   /* 경계선 */
-  --border-faint: #21262d;  /* 희미한 구분선 */
+  /* ── Colors ── */
+  --color-blueprint-blue: #1d52de;   /* 단일 액센트 — 링크·CTA·강조 배지 */
+  --color-blueprint-hover: #1741b0;  /* CTA 호버 (약간 어두운 블루) */
+  --color-ink-black: #16191c;        /* 본문·헤드라인·아이콘 스트로크 */
+  --color-carbon: #1c2024;           /* 2차 헤딩, 고강조 아이콘 */
+  --color-slate: #7b8187;            /* 메타데이터·도움말·타임스탬프 전용 */
+  --color-fog: #d1d4d9;              /* 헤어라인 보더 — 구조 정의 */
+  --color-paper: #f4f5f7;            /* 호버·태그·칩 배경 */
+  --color-stone: #e6e8eb;            /* 인셋 패널, 사이드바 틴트 */
+  --color-canvas: #f9fafb;           /* 페이지 배경, 카드 표면 */
+  --color-mint: #00bc7d;             /* 저빈도 장식 액센트 */
 
-  /* ── 텍스트 ── */
-  --text-primary:   #e6edf3;  /* 본문 */
-  --text-secondary: #8b949e;  /* 보조 (날짜·메타) */
-  --text-muted:     #6e7681;  /* 비활성 */
+  /* ── Font Families ──
+     Suisse Intl (상용) → Inter 대체. 한국어는 Pretendard (Inter와 짝이 맞는 그로테스크) */
+  --font-suisse-intl: 'Inter', 'Pretendard Variable', Pretendard,
+                      ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+                      'Segoe UI', Roboto, sans-serif;
+  --font-suisse-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* ── 액센트 ── */
-  --accent:      #58a6ff;    /* 브랜드 파랑 */
-  --accent-hover:#79b8ff;
+  /* ── Type Scale ── */
+  --text-caption: 12px;      --leading-caption: 1.5;
+  --text-body-sm: 14px;      --leading-body-sm: 1.43;
+  --text-body: 16px;         --leading-body: 1.5;
+  --text-subheading: 18px;   --leading-subheading: 1.38;
+  --text-heading-sm: 20px;   --leading-heading-sm: 1.33;
+  --text-heading: 30px;      --leading-heading: 1.2;   --tracking-heading: -0.75px;
 
-  /* ── 카테고리 색상 (태그) ── */
-  --cat-sysml:     #58a6ff;  /* blue */
-  --cat-uaf:       #d2a8ff;  /* purple */
-  --cat-tool:      #3fb950;  /* green */
-  --cat-standard:  #f0883e;  /* orange */
-  --cat-research:  #8b949e;  /* gray */
-  --cat-digital:   #39c5cf;  /* cyan */
-  --cat-industry:  #e3b341;  /* yellow */
+  /* ── Weights ── */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
-  /* ── 출처 뱃지 ── */
-  --src-omg:       #bc8cff;  /* OMG 공식 — 보라 */
-  --src-incose:    #58a6ff;  /* INCOSE — 파랑 */
-  --src-arxiv:     #f85149;  /* arXiv — 빨강 */
-  --src-news:      #8b949e;  /* 일반 뉴스 — 중립 */
+  /* ── Spacing (4px 베이스) ── */
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-28: 28px;
+  --spacing-32: 32px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
 
-  /* ── 타이포그래피 ── */
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR',
-               'Malgun Gothic', sans-serif;
-  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  /* ── Layout ── */
+  --page-max-width: 1200px;
+  --section-gap: 48px;
+  --card-padding: 16px;
+  --element-gap: 8px;
+  --sidebar-width: 264px;
 
-  /* ── 치수 ── */
-  --radius: 8px;
-  --radius-sm: 6px;
-  --gap: 16px;
-  --max-width: 1080px;
+  /* ── Border Radius (pill 금지 — 이 3종이 전체 radius 어휘) ── */
+  --radius-buttons: 10px;   /* 버튼·태그·입력 */
+  --radius-cards: 14px;     /* 피드 카드 */
+  --radius-heropanel: 18px; /* 히어로 패널 */
+
+  /* ── Shadow (유일하게 허용: 인셋 1px) ── */
+  --shadow-subtle: oklab(0 0 0 / 0.1) 0px 0px 0px 1px inset;
 }
 
 /* ── 리셋 & 베이스 ── */
@@ -53,34 +70,33 @@
 
 body {
   margin: 0;
-  background: var(--bg-root);
-  color: var(--text-primary);
-  font-family: var(--font-sans);
-  font-size: 15px;
-  line-height: 1.6;
+  background: var(--color-canvas);
+  color: var(--color-ink-black);
+  font-family: var(--font-suisse-intl);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-feature-settings: 'ss01' on, 'calt' on, 'kern' on, 'liga' on;
   -webkit-font-smoothing: antialiased;
 }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover { color: var(--accent-hover); text-decoration: underline; }
+a { color: var(--color-blueprint-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
+button { font-family: inherit; cursor: pointer; }
+input  { font-family: inherit; }
+
+/* ── 모노 마이크로 라벨 (10px, uppercase, 시스템/메타데이터 신호) ── */
+.mono-label {
+  font-family: var(--font-suisse-mono);
+  font-size: 10px;
+  line-height: 1.43;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-input {
-  font-family: inherit;
-}
-
-/* ── 모노스페이스 유틸 ── */
-.mono {
-  font-family: var(--font-mono);
-  font-size: 0.85em;
-}
-
-/* ── 스크롤바 ── */
+/* ── 스크롤바 (미묘하게) ── */
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: var(--bg-root); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
-::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+::-webkit-scrollbar-track { background: var(--color-canvas); }
+::-webkit-scrollbar-thumb { background: var(--color-fog); border-radius: var(--radius-buttons); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-slate); }

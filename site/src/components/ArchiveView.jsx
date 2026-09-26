@@ -14,7 +14,7 @@ export default function ArchiveView({ externalQuery = '' } = {}) {
   const [year, setYear] = useState(null)          // null = 전체
   const [query, setQuery] = useState(externalQuery)
 
-  // 외부(헤더 검색바)에서 검색어가 들어오면 동기화
+  // 외부(사이드바 검색바)에서 검색어가 들어오면 동기화
   useEffect(() => {
     if (externalQuery !== '') setQuery(externalQuery)
   }, [externalQuery])
@@ -45,17 +45,12 @@ export default function ArchiveView({ externalQuery = '' } = {}) {
   const totalCount = filtered.reduce((s, m) => s + m.items.length, 0)
 
   if (loading) {
-    return (
-      <div className="empty-state">
-        <div className="icon">⏳</div>
-        아카이브 로딩 중…
-      </div>
-    )
+    return <div className="loading">아카이브 로딩 중…</div>
   }
   if (error) {
     return (
       <div className="empty-state">
-        <div className="icon">⚠️</div>
+        <span className="icon">⚠️</span>
         아카이브 로드 실패: {String(error.message || error)}
       </div>
     )
@@ -63,27 +58,31 @@ export default function ArchiveView({ externalQuery = '' } = {}) {
 
   return (
     <div>
-      <div className="hero" style={{ paddingBottom: 8 }}>
-        <h1 className="hero-title">아카이브</h1>
-        <div className="hero-date">
-          뉴스 {newsMonths.reduce((s, m) => s + m.content.count, 0)}건 ·
-          논문 {papersMonths.reduce((s, m) => s + m.content.count, 0)}건
+      {/* ── 아카이브 히어로 (텍스트 전용 — CTA는 뷰포트당 1개 규칙상 없음) ── */}
+      <div className="hero-panel" style={{ alignItems: 'stretch', gap: 0 }}>
+        <div className="hero-text">
+          <h1 className="hero-headline">아카이브</h1>
+          <p className="hero-body" style={{ marginBottom: 0 }}>
+            뉴스 {newsMonths.reduce((s, m) => s + m.content.count, 0)}건 ·
+            논문 {papersMonths.reduce((s, m) => s + m.content.count, 0)}건 ·
+            카테고리·연도·키워드로 탐색하세요.
+          </p>
         </div>
       </div>
 
-      {/* ── 탭 ── */}
-      <div className="nav-tabs" style={{ margin: '0 0 4px' }}>
+      {/* ── 탭 (고스트 네비 스타일 가로 배치) ── */}
+      <div className="sidebar-nav" style={{ flexDirection: 'row', margin: '0 0 16px' }}>
         <button
-          className={`nav-tab ${tab === 'news' ? 'active' : ''}`}
+          className={`nav-item ${tab === 'news' ? 'active' : ''}`}
           onClick={() => setTab('news')}
         >
-          뉴스
+          <span className="nav-icon">✉</span> 뉴스
         </button>
         <button
-          className={`nav-tab ${tab === 'papers' ? 'active' : ''}`}
+          className={`nav-item ${tab === 'papers' ? 'active' : ''}`}
           onClick={() => setTab('papers')}
         >
-          논문
+          <span className="nav-icon">Σ</span> 논문
         </button>
       </div>
 
@@ -104,7 +103,7 @@ export default function ArchiveView({ externalQuery = '' } = {}) {
             {label}
           </button>
         ))}
-        <span style={{ width: 1, height: 20, background: 'var(--border)' }} />
+        <span style={{ width: 1, height: 20, background: 'var(--color-fog)' }} />
         <button
           className={`chip ${year === null ? 'active' : ''}`}
           onClick={() => setYear(null)}
@@ -114,7 +113,7 @@ export default function ArchiveView({ externalQuery = '' } = {}) {
         {years.map(y => (
           <button
             key={y}
-            className={`chip mono ${year === y ? 'active' : ''}`}
+            className={`chip mono-label ${year === y ? 'active' : ''}`}
             onClick={() => setYear(year === y ? null : y)}
           >
             {y}
@@ -125,14 +124,15 @@ export default function ArchiveView({ externalQuery = '' } = {}) {
       {/* ── 검색 결과 ── */}
       {totalCount === 0 ? (
         <div className="empty-state">
-          <div className="icon">🔍</div>
+          <span className="icon">🔍</span>
           조건에 맞는 항목이 없습니다.
         </div>
       ) : (
         filtered.map(({ month, items }) => (
-          <div key={month}>
-            <h2 className="section-title mono">
-              {month} <span className="count">{items.length}건</span>
+          <div key={month} style={{ marginBottom: 'var(--spacing-32)' }}>
+            <h2 className="section-header">
+              <span className="section-label mono-label">{month}</span>
+              <span className="section-count">{items.length}건</span>
             </h2>
             <div className="cards-grid">
               {items

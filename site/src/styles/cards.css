@@ -1,162 +1,221 @@
 /* ═══════════════════════════════════════════════════════════════════════
-   카드 시스템 — 카테고리 태그·출처 뱃지·초록 접이식
+   카드 — Hashnode Blog Post Card 해부학
+   Canvas + 1px Fog 보더 + 14px radius + 16px 패딩, 그림자 없음, 호버 틴트만
    ═══════════════════════════════════════════════════════════════════════ */
 
 .item-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-faint);
-  border-radius: var(--radius);
-  padding: 16px 18px;
+  display: flex;
+  gap: var(--spacing-12);
+  background: var(--color-canvas);
+  border: 1px solid var(--color-fog);
+  border-radius: var(--radius-cards);
+  padding: var(--card-padding);
+  transition: background 0.12s;
+}
+
+/* 호버: 리프트 없이 배경 틴트만 */
+.item-card:hover { background: var(--color-paper); }
+
+/* ── 48px 썸네일 타일 (카테고리 글리프 — 이미지 없는 콘텐츠 대체) ── */
+.card-thumb {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid var(--color-fog);
+  background: var(--color-paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+  color: var(--color-blueprint-blue);
+  user-select: none;
+}
+
+/* OMG 공식/INCOSE는 Ink로 표시 (아이콘은 인접 텍스트 색상 따름) */
+.card-thumb.thumb-omg,
+.card-thumb.thumb-incose {
+  color: var(--color-ink-black);
+  background: var(--color-stone);
+}
+
+/* ── 우측 컬럼 ── */
+.card-main {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  transition: border-color 0.15s ease;
+  gap: 6px;
 }
 
-.item-card:hover {
-  border-color: var(--border);
-}
-
-/* ── 카드 헤더: 태그 + 뱃지 + 날짜 ── */
-.card-header {
+/* ── 아이덴티티 행: 출처 · 날짜 (12px Slate) ── */
+.card-byline {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-/* 카테고리 색상 태그 */
-.cat-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 10px;
-  border-radius: 999px;
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  border: 1px solid currentColor;
-  background: color-mix(in srgb, currentColor 12%, transparent);
-}
-.cat-sysml     { color: var(--cat-sysml); }
-.cat-uaf       { color: var(--cat-uaf); }
-.cat-tool      { color: var(--cat-tool); }
-.cat-standard  { color: var(--cat-standard); }
-.cat-research  { color: var(--cat-research); }
-.cat-digital   { color: var(--cat-digital); }
-.cat-industry  { color: var(--cat-industry); }
-
-/* 출처 뱃지 */
-.src-badge {
-  display: inline-flex;
-  align-items: center;
   gap: 4px;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 600;
-  background: color-mix(in srgb, currentColor 15%, transparent);
+  font-size: var(--text-caption);
+  color: var(--color-slate);
+  white-space: nowrap;
+  overflow: hidden;
 }
-.src-omg      { color: var(--src-omg); }
-.src-incose   { color: var(--src-incose); }
-.src-arxiv    { color: var(--src-arxiv); }
-.src-news     { color: var(--src-news); }
 
-/* ── 제목 ── */
+.card-byline .src-name {
+  color: var(--color-ink-black);
+  font-weight: var(--font-weight-medium);
+}
+
+.card-byline .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-fog);
+  flex-shrink: 0;
+}
+
+/* ── 헤드라인 18px/600 Ink ── */
 .card-title {
   margin: 0;
-  font-size: 16px;
-  font-weight: 650;
-  line-height: 1.45;
-}
-.card-title a {
-  color: var(--text-primary);
-}
-.card-title a:hover {
-  color: var(--accent);
-  text-decoration: none;
+  font-size: var(--text-subheading);
+  line-height: 1.4;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-ink-black);
 }
 
-/* ── 요약/초록 (3줄 접이식) ── */
-.card-body {
-  position: relative;
-}
+.card-title a { color: var(--color-ink-black); }
+.card-title a:hover { color: var(--color-blueprint-blue); text-decoration: none; }
+
+/* ── 요약/초록 (3줄 클램프, 클릭 전개) ── */
+.card-body { position: relative; }
 
 .card-text {
-  color: var(--text-secondary);
-  font-size: 13.5px;
-  line-height: 1.65;
+  color: var(--color-slate);
+  font-size: var(--text-body-sm);
+  line-height: 1.5;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   cursor: pointer;
-  transition: color 0.15s;
 }
 
-/* 펼침 상태 — clamp 해제 */
 .card-body.expanded .card-text {
   -webkit-line-clamp: unset;
   display: block;
-}
-
-.card-body.expanded .card-text {
   cursor: default;
-  color: var(--text-secondary);
 }
 
 .expand-hint {
-  font-size: 11.5px;
-  color: var(--text-muted);
+  font-size: var(--text-caption);
+  color: var(--color-slate);
   margin-top: 4px;
   user-select: none;
 }
 .card-body.expanded .expand-hint { display: none; }
 
-/* ── 카드 푸터: 날짜 + 점수 ── */
-.card-footer {
+/* 저자 (논문) — 12px */
+.card-authors {
+  font-size: var(--text-caption);
+  color: var(--color-slate);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── 인터랙션 행 (12px Slate + 4px 아이콘 갭) ── */
+.card-meta {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
-  padding-top: 6px;
-  border-top: 1px solid var(--border-faint);
+  gap: var(--spacing-12);
+  font-size: var(--text-caption);
+  color: var(--color-slate);
 }
 
-.card-date {
-  color: var(--text-secondary);
-  font-size: 12px;
+.card-meta .meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.card-score {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-muted);
-  padding: 1px 7px;
-  border: 1px solid var(--border-faint);
-  border-radius: 4px;
-}
-.card-score.high { color: var(--cat-tool); border-color: color-mix(in srgb, var(--cat-tool) 40%, transparent); }
+.card-meta .meta-item:hover { color: var(--color-ink-black); }
 
-/* ── 오늘/참고 구분 ── */
-.today-flag {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--cat-digital);
-  padding: 1px 7px;
-  border-radius: 4px;
-  background: color-mix(in srgb, var(--cat-digital) 14%, transparent);
+/* ── TODAY/참고 플래그 ──
+   Hashnode Category Badge 스타일: 4px 선행 점 + 12px/500, 블루=강조 */
+.flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: var(--radius-buttons);
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.05em;
 }
-.fallback-flag {
-  font-size: 11px;
-  color: var(--text-muted);
-  padding: 1px 7px;
-  background: var(--bg-input);
-  border-radius: 4px;
+
+/* 4px 선행 점 */
+.flag::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
 }
+
+.flag-today {
+  color: var(--color-blueprint-blue);
+  background: var(--color-paper);
+}
+
+.flag-fallback {
+  color: var(--color-slate);
+  background: transparent;
+}
+
+/* ── 카테고리 배지 (4px 점 + 12px/500, 블루/슬레이트) ── */
+.cat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-caption);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.05em;
+}
+
+.cat-badge::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* 활성/피처드 카테고리: 블루, 중립: 슬레이트 */
+.cat-featured { color: var(--color-blueprint-blue); }
+.cat-neutral  { color: var(--color-slate); }
+
+/* ── 점수 필 (Suisse Mono 마이크로 라벨) ── */
+.score-pill {
+  font-family: var(--font-suisse-mono);
+  font-size: 10px;
+  line-height: 1.43;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-slate);
+}
+
+.score-pill.high { color: var(--color-blueprint-blue); }
 
 /* ── 그리드 ── */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: var(--gap);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-16);
+}
+
+@media (max-width: 768px) {
+  .cards-grid { grid-template-columns: 1fr; }
 }

@@ -1,14 +1,14 @@
-import { LATEST_DATE, useLatestBriefing } from '../hooks/useData.js'
+import { LATEST_DATE } from '../hooks/useData.js'
 import { formatDate } from '../utils/labels.js'
+import { HeroIllustration } from './HeroIllustration.jsx'
 import ItemCard from './ItemCard.jsx'
 
-export default function BriefingView() {
+export default function BriefingView({ onNavigate }) {
   const { briefing, loading, error } = useLatestBriefing()
 
   if (loading) {
     return (
-      <div className="empty-state">
-        <div className="icon">⏳</div>
+      <div className="loading">
         브리핑 로딩 중…
       </div>
     )
@@ -16,7 +16,7 @@ export default function BriefingView() {
   if (error) {
     return (
       <div className="empty-state">
-        <div className="icon">⚠️</div>
+        <span className="icon">⚠️</span>
         브리핑 로드 실패: {String(error.message || error)}
       </div>
     )
@@ -24,7 +24,7 @@ export default function BriefingView() {
   if (!briefing) {
     return (
       <div className="empty-state">
-        <div className="icon">📡</div>
+        <span className="icon">📡</span>
         아직 브리핑 데이터가 없습니다.
       </div>
     )
@@ -39,58 +39,70 @@ export default function BriefingView() {
 
   return (
     <div>
-      <div className="hero">
-        <h1 className="hero-title">오늘의 브리핑</h1>
-        <div className="hero-date">
-          {briefing.report_date_kr}
-          {briefing.window_start_kst && ` · 수집 범위 ${briefing.window_start_kst} 07:00 ~ ${briefing.window_end_kst} 07:00 KST`}
+      {/* ── 히어로 패널 (뷰포트당 유일한 블루 CTA) ── */}
+      <section className="hero-panel">
+        <div className="hero-text">
+          <h1 className="hero-headline">오늘의 브리핑</h1>
+          <p className="hero-body">
+            {briefing.report_date_kr} 발행 · 수집 범위{' '}
+            {briefing.window_start_kst} ~ {briefing.window_end_kst} KST.
+            뉴스 {todayNews.length}건, 논문 {todayPapers.length}건.
+          </p>
+          <button className="btn-primary" onClick={() => onNavigate?.('archive')}>
+            전체 아카이브 보기 →
+          </button>
         </div>
-        <div className="hero-meta mono">
-          <span>뉴스 {todayNews.length}건</span>
-          <span>논문 {todayPapers.length}건</span>
-          <span>생성 {briefing.generated_at?.slice(0, 16).replace('T', ' ') ?? ''}</span>
-        </div>
-      </div>
+        <HeroIllustration />
+      </section>
 
-      {/* ── 오늘의 뉴스 ── */}
-      <h2 className="section-title">
-        📰 뉴스 <span className="count">{todayNews.length}건</span>
-      </h2>
-      {todayNews.length > 0 ? (
-        <div className="cards-grid">
-          {todayNews.map(item => (
-            <ItemCard key={item.url} item={item} showTodayFlag />
-          ))}
-        </div>
-      ) : (
-        <div className="empty-state">
-          <div className="icon">🌙</div>
-          수집 범위 내 새 뉴스가 없습니다.
-        </div>
-      )}
+      {/* ── 뉴스 섹션 ── */}
+      <section>
+        <h2 className="section-header">
+          <span className="section-label">News</span>
+          <span className="section-count">{todayNews.length}건</span>
+        </h2>
+        {todayNews.length > 0 ? (
+          <div className="cards-grid">
+            {todayNews.map(item => (
+              <ItemCard key={item.url} item={item} showTodayFlag />
+            ))}
+          </div>
+        ) : (
+          <div className="empty-state">
+            <span className="icon">🌙</span>
+            수집 범위 내 새 뉴스가 없습니다.
+          </div>
+        )}
+      </section>
 
-      {/* ── 오늘의 논문 ── */}
-      <h2 className="section-title">
-        📄 신규 논문 <span className="count">{todayPapers.length}건</span>
-      </h2>
-      {todayPapers.length > 0 ? (
-        <div className="cards-grid">
-          {todayPapers.map(item => (
-            <ItemCard key={item.url} item={item} showTodayFlag />
-          ))}
-        </div>
-      ) : (
-        <div className="empty-state">
-          <div className="icon">📚</div>
-          수집 범위 내 신규 논문이 없습니다.
-        </div>
-      )}
+      {/* ── 논문 섹션 ── */}
+      <section>
+        <h2 className="section-header">
+          <span className="section-label">Papers</span>
+          <span className="section-count">{todayPapers.length}건</span>
+        </h2>
+        {todayPapers.length > 0 ? (
+          <div className="cards-grid">
+            {todayPapers.map(item => (
+              <ItemCard key={item.url} item={item} showTodayFlag />
+            ))}
+          </div>
+        ) : (
+          <div className="empty-state">
+            <span className="icon">📚</span>
+            수집 범위 내 신규 논문이 없습니다.
+          </div>
+        )}
+      </section>
 
       {/* ── 참고: 폴백 항목 ── */}
       {(refNews.length > 0 || refPapers.length > 0) && (
-        <>
-          <h2 className="section-title">
-            🗂 참고 — 최근 주목할 만한 소식 <span className="count">범위 밖</span>
+        <section>
+          <h2 className="section-header">
+            <span className="section-label" style={{ color: 'var(--color-slate)' }}>
+              Archive Picks
+            </span>
+            <span className="section-count">범위 밖 참고 항목</span>
           </h2>
           <div className="cards-grid">
             {refNews.map(item => (
@@ -100,7 +112,7 @@ export default function BriefingView() {
               <ItemCard key={item.url} item={item} showTodayFlag />
             ))}
           </div>
-        </>
+        </section>
       )}
     </div>
   )
