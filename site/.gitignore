@@ -1,0 +1,4 @@
+
+# 사이트 빌드 산출물
+dist/
+node_modules/
