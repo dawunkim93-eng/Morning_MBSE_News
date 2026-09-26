@@ -2,14 +2,16 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # 파일    : skills.sh
 # 설명    : 모든 bash 에이전트가 source 해서 사용하는 공유 유틸리티 함수 모음.
-#           네트워크 요청, HTML/RSS 파싱, 캐시 관리, Claude API 요약,
-#           텔레그램 전송 등 공통 기능을 제공한다.
+#           네트워크 요청, HTML/RSS 파싱, 캐시 관리, AI 요약 등
+#           공통 기능을 제공한다.
 #           키워드는 load_keywords() 를 통해 keywords/*.yml 플러그인에서 로드한다.
 # ─────────────────────────────────────────────────────────────────────────────
 # 수정 이력
 #   버전    날짜          내용
 #   v1.0   2026-06-10   최초 작성 — 네트워크·필터링·AI·텔레그램 공유 함수 구현
 #   v1.1   2026-06-10   load_keywords() 추가, filter_keywords() 플러그인 연동
+#   v1.2   2026-09-26   정리 — 텔레그램 전송·MarkdownV2·urlencode 함수 제거
+#                       (텔레그램 발송 중지, agent4는 python 인라인 사용)
 # ─────────────────────────────────────────────────────────────────────────────
 #
 # 사용법:
@@ -17,7 +19,7 @@
 #
 # 전제 조건:
 #   - curl, python3 가 PATH에 있어야 한다
-#   - .env 파일에 ANTHROPIC_API_KEY, TELEGRAM_TOKEN, CHAT_ID 가 설정되어 있어야 한다
+#   - .env 파일에 ANTHROPIC_API_KEY 가 설정되어 있어야 한다
 
 set -euo pipefail  # 오류 발생 시 즉시 종료, 미정의 변수 오류 처리
 
@@ -92,11 +94,14 @@ try:
     with open(sys.argv[1]) as f:
         content = f.read()
     root = ET.fromstring(content)
+    dc_ns = {'dc': 'http://purl.org/dc/elements/1.1/'}
     for item in root.findall('.//item'):
         t = item.find('title')
         l = item.find('link')
-        d = item.find('pubDate') or item.find('dc:date',
-                {'dc': 'http://purl.org/dc/elements/1.1/'})
+        # ※ Element 객체의 truth value 테스트 금지(deprecation) — is not None 사용
+        d = item.find('pubDate')
+        if d is None:
+            d = item.find('dc:date', dc_ns)
         title = re.sub(r'<[^>]+>', '', (t.text or '')).strip().replace('|', '-') if t is not None else ''
         link  = (l.text or '').strip() if l is not None else ''
         date  = (d.text or '').strip() if d is not None else ''
@@ -352,7 +357,7 @@ except Exception as e:
 export -f ai_summarize
 
 # ═════════════════════════════════════════════════════════════════════════════
-# 텔레그램 함수
+# URL 인코딩 함수
 # ═════════════════════════════════════════════════════════════════════════════
 
 urlencode() {
@@ -361,65 +366,9 @@ urlencode() {
     python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1], safe=''))" "$1"
 }
 
-mdv2_escape() {
-    # 인자: <텍스트>
-    # 설명: 텔레그램 MarkdownV2 형식의 특수문자를 이스케이프 처리한다.
-    #       링크 구문([text](url)) 내부가 아닌 일반 텍스트에만 적용할 것.
-    python3 -c "
-import sys
-text = sys.argv[1]
-special = r'_*[]()~\`>#+=|{}.!'  # MarkdownV2 이스케이프 대상 문자
-escaped = ''
-for ch in text:
-    escaped += ('\\\\' + ch) if ch in special else ch
-print(escaped)
-" "$1"
-}
-
-send_telegram() {
-    # 인자: <메시지>
-    # 설명: 텔레그램 봇 API로 메시지를 전송한다.
-    #       DRY_RUN=1 환경변수가 설정된 경우 실제 전송 없이 메시지만 출력한다.
-    local msg="$1"
-    local token="${TELEGRAM_TOKEN:-}"
-    local chat_id="${CHAT_ID:-}"
-    local dry="${DRY_RUN:-0}"
-
-    if [[ "$dry" == "1" ]]; then
-        # 테스트 모드: 실제 전송 대신 콘솔에 출력
-        echo "─────────────────────────────────────" >&2
-        echo "[DRY-RUN] 텔레그램 발송 미리보기:" >&2
-        echo "$msg" >&2
-        echo "─────────────────────────────────────" >&2
-        return 0
-    fi
-
-    [[ -z "$token" || -z "$chat_id" ]] && {
-        echo "[send_telegram] TELEGRAM_TOKEN 또는 CHAT_ID 미설정" >&2
-        return 1
-    }
-
-    # URL 인코딩 후 POST 요청
-    local encoded
-    encoded=$(python3 -c "import urllib.parse, sys; print(urllib.parse.quote(sys.argv[1]))" "$msg")
-
-    curl -s -X POST "https://api.telegram.org/bot${token}/sendMessage" \
-        --max-time 30 \
-        -d "chat_id=${chat_id}&text=${encoded}&parse_mode=MarkdownV2" | \
-        python3 -c "
-import json, sys
-d = json.loads(sys.stdin.read())
-if not d.get('ok'):
-    print(f'[send_telegram] 오류: {d}', file=sys.stderr)
-    sys.exit(1)
-print('[send_telegram] 전송 성공')
-"
-}
-
 retry() {
     # 인자: <최대횟수> <초기지연(초)> <명령> [인자...]
     # 설명: 명령 실행에 실패하면 지수 백오프로 재시도한다.
-    #       예: retry 3 5 send_telegram "$msg"  → 최대 3회, 5→10→20초 간격으로 재시도
     local max="$1" delay="$2"; shift 2
     local attempt=1
 
