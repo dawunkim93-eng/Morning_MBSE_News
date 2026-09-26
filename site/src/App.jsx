@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react'
-import { LATEST_DATE } from './hooks/useData.js'
-import { formatDate } from './utils/labels.js'
 import { HeroIllustration } from './components/HeroIllustration.jsx'
 import BriefingView from './components/BriefingView.jsx'
 import ArchiveView from './components/ArchiveView.jsx'

@@ -1,5 +1,4 @@
-import { LATEST_DATE } from '../hooks/useData.js'
-import { formatDate } from '../utils/labels.js'
+import { useLatestBriefing } from '../hooks/useData.js'
 import { HeroIllustration } from './HeroIllustration.jsx'
 import ItemCard from './ItemCard.jsx'
 
