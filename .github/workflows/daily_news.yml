@@ -48,7 +48,9 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/ cache/seen_urls.txt
+          git add data/
+          # 캐시 파일은 존재할 때만 추가 (당일 신규 항목이 없으면 생성되지 않음)
+          [[ -f cache/seen_urls.txt ]] && git add cache/seen_urls.txt
           # 로그는 커밋하지 않음(로컬 확인용). 변경이 없으면 커밋 생략.
           if git diff --cached --quiet; then
             echo "저장할 데이터 변경 없음"
