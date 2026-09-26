@@ -11,11 +11,11 @@
 # 실행 흐름:
 #   Phase 1 (병렬) : agent1_news.sh  ║  agent2_papers.sh
 #   Phase 2 (순차) : agent3_summarize.sh
-#   Phase 3 (순차) : agent4_send.sh
+#   Phase 3 (순차) : agent4_commit.sh — data/YYYY-MM-DD.json 저장
 #
 # 사용법:
-#   python orchestrator.py             # 정상 실행 (텔레그램 발송)
-#   python orchestrator.py --dry-run   # 텔레그램 발송 생략, 출력만 확인
+#   python orchestrator.py             # 정상 실행 (데이터 파일 저장)
+#   python orchestrator.py --dry-run   # 저장 생략, 출력만 확인
 
 import asyncio
 import os
@@ -98,13 +98,13 @@ async def main(dry_run: bool = False) -> None:
     파이프라인 전체를 3단계로 실행한다.
 
     dry_run=True 이면 DRY_RUN=1 환경변수를 에이전트에 전달해
-    텔레그램 발송을 건너뛴다.
+    데이터 파일 저장을 건너뛴다.
     """
     # DRY_RUN 플래그를 환경변수로 에이전트에 전달
     env: dict[str, str] = {"DRY_RUN": "1"} if dry_run else {}
 
     if dry_run:
-        print("[orchestrator] ── DRY-RUN 모드 (텔레그램 발송 생략) ──")
+        print("[orchestrator] ── DRY-RUN 모드 (데이터 저장 생략) ──")
 
     # ── Phase 1: 뉴스 + 논문 수집 (병렬) ────────────────────────────────────
     # 두 에이전트를 동시에 실행해 전체 대기 시간을 단축
@@ -128,9 +128,9 @@ async def main(dry_run: bool = False) -> None:
         print("[orchestrator] Phase 2 실패", file=sys.stderr)
         sys.exit(1)
 
-    # ── Phase 3: 텔레그램 발송 + 캐시 저장 + 로그 기록 ─────────────────────
-    print("\n[orchestrator] ══ Phase 3: 텔레그램 발송 ══")
-    code = await run_agent("agent4_send", "agents/agent4_send.sh", env)
+    # ── Phase 3: 데이터 저장 + 캐시 갱신 + 로그 기록 ─────────────────────
+    print("\n[orchestrator] ══ Phase 3: 데이터 저장 (사이트용) ══")
+    code = await run_agent("agent4_commit", "agents/agent4_commit.sh", env)
     if code != 0:
         print("[orchestrator] Phase 3 실패", file=sys.stderr)
         sys.exit(1)

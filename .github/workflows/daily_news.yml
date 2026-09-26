@@ -12,8 +12,11 @@ concurrency:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # Node.js 20 deprecation 경고 해소
 
+permissions:
+  contents: write        # 파이프라인 결과(data/, cache/, logs/)를 레포에 커밋하기 위해 필요
+
 jobs:
-  crawl-and-notify:
+  crawl-and-commit:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -36,9 +39,21 @@ jobs:
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          TELEGRAM_TOKEN:    ${{ secrets.TELEGRAM_TOKEN }}
-          CHAT_ID:           ${{ secrets.TELEGRAM_CHAT_ID }}
           CLAUDE_MODEL:      claude-haiku-4-5-20251001
           MAX_NEWS_ITEMS:    "5"
           MAX_PAPER_ITEMS:   "5"
         run: python orchestrator.py
+
+      - name: Commit daily data
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ cache/seen_urls.txt
+          # 로그는 커밋하지 않음(로컬 확인용). 변경이 없으면 커밋 생략.
+          if git diff --cached --quiet; then
+            echo "저장할 데이터 변경 없음"
+          else
+            DATE=$(date +%Y-%m-%d)
+            git commit -m "Daily briefing: ${DATE} [skip ci]"
+            git push
+          fi
