@@ -31,7 +31,7 @@ export default function App() {
       <header className="site-header">
         <div className="header-inner">
           <div className="brand" onClick={() => go('home')}>
-            <img className="brand-logo" src="/favicon.svg" alt="" />
+            <img className="brand-logo" src="/Morning_MBSE_News/favicon.svg" alt="" />
             <span className="brand-name">
               MBSE <span className="accent">Letters</span>
             </span>
