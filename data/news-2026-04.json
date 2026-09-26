@@ -1,7 +1,7 @@
 {
   "type": "news_archive",
   "month": "2026-04",
-  "count": 2,
+  "count": 1,
   "items": [
     {
       "title": "OMG Launches RFP to Standardize Space Communications Assets",
@@ -10,15 +10,6 @@
       "source": "omg_press",
       "category": "Standard",
       "score": 1,
-      "summary": ""
-    },
-    {
-      "title": "UPDATED IS_2026_Call For Submissions_new",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOT3J1eW5wUG41WG9mX2Ztb3Yydk9wZjd2dmlxYzVUNmQ3YmhPZThVdjVaNjJHbVJTZFliem9rOE0wTUFDNWlrdTlqY1FDMlFwRk43bHZuYXRyNGtGMkg4c0J5d1JwRlZ6LXhQLTA2V3pfRFNuMmtwV3ZDYnBnWXhKaUxYQ2pXZE9uU3QxYTlCems3NjVEMXlrMjlqM2FUdE5LZE0zWmxTY2hUeXZiQkpjckZ6TWZPMmFOWTNEQzVR?oc=5",
-      "date": "2026-04-29",
-      "source": "news",
-      "category": "Industry",
-      "score": 0,
       "summary": ""
     }
   ]

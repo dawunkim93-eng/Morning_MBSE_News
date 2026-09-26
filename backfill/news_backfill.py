@@ -80,6 +80,34 @@ def load_filter_and_scoring() -> tuple[str, dict, dict]:
 FILTER_PATTERN, CORE_W, RELATED_W = load_filter_and_scoring()
 KEYWORDS = re.compile(FILTER_PATTERN, re.I)
 
+# 가짜 뉴스 제외 패턴 — site: 쿼리가 수집하는 스펙문서·메뉴·챕터 페이지
+# (skills.sh exclude_non_news 와 동일 기준)
+EXCLUDE_NON_NEWS = re.compile(
+    r'\b(about the|welcome to|copy of|join us for|press room|pressroom'
+    r'|menu|search|login)\b'
+    r'|(\bopen issues\b)|(\bcall for content\b)'
+    r'|(specification version)',
+    re.I)
+
+
+def decode_bing_url(link: str):
+    """Bing News 리디렉션 URL에서 원문 URL(url= 파라미터)을 추출한다.
+
+    bing.com/news/apiclick.aspx?...&url=<인코딩된 원문> 형태.
+    url= 파라미터가 없거나 http로 시작하지 않으면 None 을 반환한다.
+    """
+    if not link:
+        return None
+    m = re.search(r'[?&]url=([^&]+)', link)
+    if m:
+        orig = urllib.parse.unquote(m.group(1))
+        if orig.startswith('http'):
+            return orig
+    # 이미 직접 URL인 경우 (bing.com 이 아닌 링크)
+    if link.startswith('http') and 'bing.com' not in link:
+        return link
+    return None
+
 
 def categorize(text: str) -> str:
     for cat, pat in CATEGORIES.items():
@@ -206,15 +234,14 @@ def main():
     cache = load_cache()
     print(f"[backfill-news] 캐시 URL {len(cache)}건 제외", flush=True)
 
-    # ── 1. Google News RSS: 키워드 쿼리 + site: 쿼리, 월별 기간 검색 ──────────────
+    # ── 1. Bing News RSS: 키워드 쿼리, 월별 기간 검색 ──────────────────────────
+    # Bing 은 원문 URL 을 url= 파라미터로 직접 제공 (Google News 인코딩 링크 문제 해결)
+    # ※ Bing 은 site:/domain: 연산자 미지원 — INCOSE/OMG 는 Google site: 쿼리 + OMG 직접으로 보완
     raw = subprocess.run(
         ['python3', str(KEYWORD_LOADER), '--format', 'google', '--limit', '8'],
         capture_output=True, text=True, cwd=str(BASE_DIR)
     ).stdout
     queries = [q.strip() for q in raw.splitlines() if q.strip()]
-
-    # site: 쿼리도 포함 (INCOSE/OMG)
-    site_queries = ['site:incose.org', 'site:omg.org']
 
     # 월별 기간: 시작일의 남은 일수부터 월 단위로
     today = datetime.now()
@@ -223,40 +250,71 @@ def main():
     all_results: dict[str, dict] = {}
     request_count = 0
 
-    print(f"[backfill-news] Google News RSS 백필 — 키워드 {len(queries)}개 × 월별 기간", flush=True)
+    print(f"[backfill-news] Bing News RSS 백필 — 키워드 {len(queries)}개 × 월별 기간", flush=True)
 
-    # 쿼리 × 월 조합으로 검색 (Google News RSS after:/before: 연산자)
-    # site: 쿼리도 포함 (INCOSE/OMG 공식 뉴스 우회 수집)
-    months = list(month_range(start_dt, today))
-    for q in queries + site_queries:
-        for m_start, m_end in months:
-            m_start_s = m_start.strftime('%Y-%m-%d')
-            m_end_s = m_end.strftime('%Y-%m-%d')
-            full_q = f'{q} after:{m_start_s} before:{m_end_s}'
-            rss_url = f"https://news.google.com/rss/search?q={urllib.parse.quote_plus(full_q)}&hl=en-US&gl=US&ceid=US:en"
-            try:
-                items = fetch_rss_items(rss_url)
-                request_count += 1
-            except Exception as e:
-                print(f"  RSS 실패: {q} ({m_start_s}) — {e}", flush=True)
+    # Bing 은 기간 검색 파라미터가 RSS에서 미지원 → 전체 조회 후 pubDate 로 기간 필터
+    for q in queries:
+        enc = urllib.parse.quote_plus(q)
+        rss_url = f"https://www.bing.com/news/search?q={enc}&format=rss"
+        try:
+            items = fetch_rss_items(rss_url)
+            request_count += 1
+        except Exception as e:
+            print(f"  Bing RSS 실패: {q} — {e}", flush=True)
+            continue
+
+        new_count = 0
+        for it in items:
+            url = decode_bing_url(it['url'])
+            if not url:
+                continue  # 원문 URL 추출 실패 (리디렉션 전용 링크) → 제외
+            if url in cache or url in all_results:
                 continue
+            dt = parse_date(it['date_raw'])
+            if dt is None or dt < start_dt.date():
+                continue  # 시작일 이전 항목 제외
+            if not KEYWORDS.search(it['title']):
+                continue
+            if EXCLUDE_NON_NEWS.search(it['title']):
+                print(f"  제외(비뉴스): {it['title'][:50]}", flush=True)
+                continue
+            all_results[url] = {
+                'title': it['title'], 'url': url,
+                'date_raw': it['date_raw'],
+            }
+            new_count += 1
+        print(f"[backfill-news] '{q}' — {len(items)}건 조회, 신규 {new_count} (누적 {len(all_results)})", flush=True)
+        time.sleep(args.delay)
 
-            new_count = 0
-            for it in items:
-                url = it['url']
-                if url in cache or url in all_results:
-                    continue
-                # site: 쿼리는 도메인 자체가 MBSE 관련이므로 키워드 필터 생략
-                is_site_query = 'site:' in q
-                if not is_site_query and not KEYWORDS.search(it['title']):
-                    continue
-                all_results[url] = {
-                    'title': it['title'], 'url': url,
-                    'date_raw': it['date_raw'],
-                }
-                new_count += 1
-            time.sleep(args.delay)
-        print(f"[backfill-news] '{q}' — 누적 {len(all_results)}건", flush=True)
+    # ── 1-2. Google News site: 쿼리 — INCOSE/OMG 사이트 뉴스 (보조 소스) ─────────
+    # 신형 인코딩 링크는 매핑 만료 위험이 있어 보조로만 사용하고
+    # 가짜 뉴스(스펙문서·메뉴)는 제외 필터로 제거
+    print(f"\n[backfill-news] Google site: 쿼리 보조 수집 (INCOSE/OMG)...", flush=True)
+    site_queries = ['site:incose.org', 'site:omg.org']
+    for q in site_queries:
+        enc = urllib.parse.quote_plus(q)
+        rss_url = f"https://news.google.com/rss/search?q={enc}&hl=en-US&gl=US&ceid=US:en"
+        try:
+            items = fetch_rss_items(rss_url)
+            request_count += 1
+        except Exception as e:
+            print(f"  Google RSS 실패: {q} — {e}", flush=True)
+            continue
+
+        new_count = 0
+        for it in items:
+            url = it['url']
+            if url in cache or url in all_results:
+                continue
+            dt = parse_date(it['date_raw'])
+            if dt is None or dt < start_dt.date():
+                continue
+            if EXCLUDE_NON_NEWS.search(it['title']):
+                continue
+            all_results[url] = it
+            new_count += 1
+        print(f"  '{q}' — {len(items)}건 중 신규 {new_count} (누적 {len(all_results)})", flush=True)
+        time.sleep(args.delay)
 
     # ── 2. OMG pressroom 전체 아카이브 ──────────────────────────────────────────
     print(f"\n[backfill-news] OMG pressroom 아카이브 수집...", flush=True)

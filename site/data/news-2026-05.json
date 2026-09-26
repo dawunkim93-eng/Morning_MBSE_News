@@ -1,7 +1,7 @@
 {
   "type": "news_archive",
   "month": "2026-05",
-  "count": 3,
+  "count": 2,
   "items": [
     {
       "title": "OMG Issues RFP for TACSIT Configuration Settings and Services",
@@ -9,15 +9,6 @@
       "date": "2026-05-14",
       "source": "omg_press",
       "category": "Standard",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "Webinar 201: Synthesis of a Mission Architecture methodology combining the Unified Architecture Framework 1.3 metamodel and the Mission Architecture Style Guide",
-      "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxNZmJDS1E2VVlIYmV2Z0d6NzJPSGUtWE54Q0RPRElpSVJOTktVU2gtTWJQUGpvRUFYU1B4WVlNdWpOSHBZT1otNWJBUjZkcUp3dm5MNmExM0JtWGNkRjN4NUpNNjU0RnduMmMxaWZIWngxdVgtemZlS1E3NGFuNFJxeHBPVWM5dEhsLXdYTFBFVjNoOUxTR3FUdDJtc082S1J6SFl0eUFqSGZZYVNDREM4eFFrRmY3REFHNWRvZXVTX3JVX1dZb1B6WVU2ZzBNLTBleUdWUHUtMzNoV2I2dWxtRGJXUUV3QVdnZVFMMGFMYURRM2lmbWRqQ0FSQVl4eHFUMnJBMk9Tejd0clpWN0dIWEhYOWRxZHp2?oc=5",
-      "date": "2026-05-21",
-      "source": "news",
-      "category": "Research",
       "score": 0,
       "summary": ""
     },

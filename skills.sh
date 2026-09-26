@@ -192,6 +192,35 @@ filter_keywords() {
     fi
 }
 
+# ── 가짜 뉴스 제외 필터 ──────────────────────────────────────────────────────
+# site: 쿼리가 수집하는 스펙 문서·메뉴·챕터 페이지 등 "뉴스가 아닌 항목"을 제거한다.
+# TSV(제목|URL|날짜)의 제목 필드(첫 번째 칼럼)를 검사한다.
+exclude_non_news() {
+    # 인자: <TSV 파일 또는 ->  /  옵션: EXCLUDE_VERBOSE=1 이면 제외 사유 출력
+    local src="$1"
+    python3 - "$src" <<'PYEOF'
+import sys, re
+
+EXCLUDE = re.compile(
+    r'\b(about the|welcome to|copy of|join us for|press room|pressroom'
+    r'|menu|search|login)\b'
+    r'|(\bopen issues\b)|(\bcall for content\b)'
+    r'|(specification version)',
+    re.I)
+
+with open(sys.argv[1]) as f:
+    for line in f:
+        line = line.rstrip('\n')
+        if not line:
+            continue
+        title = line.split('|')[0]
+        if EXCLUDE.search(title):
+            print(f"[exclude_filter] 제외: {title[:60]}", file=sys.stderr)
+            continue
+        print(line)
+PYEOF
+}
+
 # ═════════════════════════════════════════════════════════════════════════════
 # 데이터 관리 함수
 # ═════════════════════════════════════════════════════════════════════════════

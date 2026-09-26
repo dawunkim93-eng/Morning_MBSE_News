@@ -1,353 +1,137 @@
 {
   "type": "news_archive",
   "month": "2026-09",
-  "count": 39,
+  "count": 15,
   "items": [
     {
-      "title": "Missile maker strengthens digital engineering",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNeHZFYW1JcUNpbTAzVV8wNnlpeF9XNFhVeVIwcEhkUjhKRVozdjktSklxdVp4MEZhRGhQTW1KZHFxVjhGWnNBemxuRkdSbWc1Y2ZTUWxVb3FnS2xBeW5ZNG95c3RKaE91MVdxVGNuUDR1TkM2M09SQ3I2UVUtd2Z3bGxn?oc=5",
-      "date": "2026-09-02",
-      "source": "news",
-      "category": "Digital",
-      "score": 5,
-      "summary": ""
-    },
-    {
-      "title": "EMEASEC 2026",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPQ0JGY2FMUFJXUVgzZGM5ckhXN0hobk9ybmkxbzY4S251cGZ5V2hsWHcyQ3pTTmxZVjB3NE1GckMtbjJzYUxfZTg3MmREaHNNdXA4MkJfZVk1aHNNXzQ5UTdzcTU1djdEQVkyVUVPV2ZHWEotaktKTXp5OG1KU0JLamh3?oc=5",
-      "date": "2026-09-02",
+      "title": "The September Systems Engineering Journal is now available!",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQS3ZBY1pWeG5IMzkxa09Wd05Udy1JVXB6UzQ5SmoxS0tKSmxKVU0zdldieDZ3WUdpNnUyT1dvU2RmQW0yN1hjeDFULVpfdGktU2JURGwxTlZySENlVm4teHJybDExdVpyTW9QYThodEIxYWpDMlNKV0hQZmxlcXdNbm5VdkRCNWQ1bkZWZmlSbjM?oc=5",
+      "date": "2026-09-05",
       "source": "news",
       "category": "Research",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "Verisurf Software Update Advances Model-Based Metrology",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxON3QyQ01DME1RSUU1OTZ1MU5DRW1qUU05MjQySFlkZ1piY3psRW10Y0ZFUVNDcUFSM0J2bkwxeGcxQjFjdlZ5VHVCbnhxZFhWby1tY0JtRkJBR3V1cGEwX09mYVpFdnE4RDFzZHFWNzc3dnJ0ak52QzBBVjB6UmdKaU5VRl9SeW4zSkxnYWpSTWVPb2pj?oc=5",
-      "date": "2026-09-14",
-      "source": "news",
-      "category": "Tool",
-      "score": 5,
-      "summary": ""
-    },
-    {
-      "title": "Navigating the Software-Defined Era: Why a Holistic Systems Engineering Approach is More Critical Than Ever",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNcTFFcnhvMFJXYXR3SFpGV1l0MHdvbDlnVU5ISng5aG5Na0U2dGVFdUtUQWM2T2Q2ZXNIS1A5REhMcnh1dk0tUktqc1RDOE9KOHJvT282ZVladWtvNUx0Q0p0anhjeUstTEI4V2dKUE01NnRURHMwWUpqZmlNUHdBNzR6LVl2M1FXWTZQYl9iNDVVSEdMRUU4LXFCN0pUc0tKbFhrekpSbzBFVzJTTTVxTnhCcmJmRHBtUEp1VHRxSThDdkFSdzl1S1JNQlRZUlR4?oc=5",
-      "date": "2026-09-14",
-      "source": "news",
-      "category": "Tool",
       "score": 4,
       "summary": ""
     },
     {
-      "title": "AI turns digital thread into living intelligence across mobility",
-      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPUGsyeFhmZ3VmSk9tOFU2dGVud1VNWU1PTlRuTGdIM3JlZmdOYktUUTFRMTJjV1BkazdWZXNLTGFNMFFIQTJ2cVE4Qlg2M1JyWXpTOWUtSGRDX1BXaklXQUpWNW9ackxkRkJmQVBzVDJ2WHA0OHY5SzV6NUpJWkpFZXEybVd3RW5PUElDNV9yY0h5TV9SRHZOcm9xdW5BbzI2a2czYmtyWkF5QzFhSXZ1S0lrWlpqOVZSdFhidUowS09RNU5hSXE5TDh3Zk5CSW9fQWgw0gHYAUFVX3lxTE1iVExwWVBlMW5odHhLcnR6eUFIWUdtbFNRSGtkTEhmXzJOckxVZXk4eG1HT1VQeV9pN2FjbmVOLUMwblFBMG50QkVZaGFyazVrTjNCQ3VwWnFXMGd1OF92MkVkaDJmeXl0Q1RiQjI1ZVZ4ZXZWYW1WQ3E4R1U4dmdOcEs2cWlpS3JxZmdaNkZIMUNrNGRBVkRMWloyZFFPb0NsTUk4My1VNjJpLS1KLTctbjdkVTc2UGdBZVhINFJ1ZmZFWkhrbmlWNjE1ekI1WERVczFaN2hNeQ?oc=5",
-      "date": "2026-09-14",
-      "source": "news",
-      "category": "Digital",
-      "score": 4,
-      "summary": ""
-    },
-    {
-      "title": "The Conference on Systems Engineering Research (CSER) 2027 is now accepting submissions!",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNMldqbUpPNDJNX0tpMGtyLVVWSEVhUGQtVldpaE9xa1lBSGM3dVdIS0d6ZlNzZk9LN1NRRHNPSnZ0eGtPNTlndTNIRnJtXzJrVUFXeUhKT051cnVTOF8weDkwM3NWblJYMUpBaEFiUzhjM3Q2aDQxV2xNU3hzb0ZiWlpEajdsRVQtM0lReENYNmM5bXlfTXVvb3NTNDdoYkRueUotU3pZRGpuZlgwN3RlUElMOHA?oc=5",
-      "date": "2026-09-14",
-      "source": "news",
-      "category": "Industry",
-      "score": 4,
-      "summary": ""
-    },
-    {
-      "title": "GE Aerospace Advances XA102 Adaptive Cycle Engine Assembly for U.S. Air Force’s Next Generation Adaptive Propulsion Program",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOY3JFVVVLbkVBRHpybEdyNU1nU1FuMGJZVU11X0YxYkdieWkzb0RYV3NIMXNzcjRkZVJUZDBrQ0ZUNFRId3MtMTJNRmFwYnNSaUNyVzh5dmd2SjgxdHRoR0dZZERTdjd2NVpRM1BjNEp2MnpOa1dkV2lLWlNQc00ydWxuOUdSZGl0OVl4a25jVVJXdk5xc0J1UWhlMm9EQUF3bVBNbVZRb09aaGlZeUlUX05UaExCQ1V0amstVkt0d1BKYjg?oc=5",
-      "date": "2026-09-14",
-      "source": "news",
-      "category": "Industry",
-      "score": 2,
-      "summary": ""
-    },
-    {
-      "title": "INCOSE Model-Based Systems Engineering (MBSE) Initiative | Sanford (Sandy) Friendenthal | INCOSE Webinar | Ep 30",
-      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxObGVCMHg3ZmIzYVdfNG9qX2xmRzZIZldzNXpBeWNGR3ozdEZuQmh2WmZTbHNJUjN3OGlGeGU1TnhHbzZBQktVWl9rZVVvVUZJRE42Q0RvSzNxSWFKbEZaUUFJRnFvQWFOR2lLOFU1a2lGSkMyNG43T2t5aUJ2cXJsTGZlc2VFcm5Jbk83N0dLME5nbmJDTW1JWURfQ25nQjdkaS01c2dvNHJVdVVKNlBsUE82anViTDF6SkdfdDJjN0ZaZktYeDlPSlM2cFpBandC?oc=5",
-      "date": "2026-09-15",
-      "source": "news",
-      "category": "Standard",
-      "score": 20,
-      "summary": ""
-    },
-    {
-      "title": "AP233 Systems Engineering Overview | Phil Spiby | INCOSE Webinar | Ep 22",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQ2p1VktHbS1USjkyRG50a3ExaTZVa09wcWdaN0Q2VXRKVnhvUENVRF9SWmxLTTBXOGdjSkJwdmFBek1Vd05FYkFBZXVrakNqVHVnd1VMQk9Iazk3T3BSUEFjVDNjcEYtLWxWbzZ2dmVmajBmaFFoOEl3UWlOS0YyYVR5NHpJTDl0cG9QeG8wazJ1dUYxaXVFd2c5UzVyUzJp?oc=5",
-      "date": "2026-09-15",
-      "source": "news",
-      "category": "Standard",
-      "score": 10,
-      "summary": ""
-    },
-    {
-      "title": "Strategies for Achieving Systems Engineering Success in Manufacturing-Dominated Cultures | Randall C. Iliff | INCOSE Webinar | Ep 23",
-      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxOZ3VYcDhfV0ZvUWVUMVVBV1Yxb0NfT05Pb2RuRWhrWjllN2Nwd1hIWmZzZlRrZGtwNTVvTmpuRHItOVZ6MUhxS0NjMXBHU1g1WnNFcWZsY3lfYkRlaTFyVjhqcWtJMDFGSF9JcGwybDE3OFZ2VGI4SDdvN29ib1k2WHJlS0hpNWhmU3pZenNpXy1oTExzVXQtbWJqNUw4VnBlSV9DeVZPSkVLZjgwSnBhLXZaMmVzN1dfTnR3MlpFQ2g2UHJBMVBwYTJrUnZITWx1bG9QS1U2MEtjNlNiWHpYQXZ2aFgyQjBiSFB3TGhuMA?oc=5",
-      "date": "2026-09-15",
-      "source": "news",
-      "category": "Standard",
-      "score": 10,
-      "summary": ""
-    },
-    {
-      "title": "Sigmetrix to Showcase Model-Based Engineering and Variation Management Solutions at the 11th Annual American Automotive Summit",
-      "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNbzJUcUMxV25GSldFbmk2LUxwb2NfRVVFMUpZRGM5NTVrUFNidE9saGU0NllZNG1SVjBZOEhNUnkta1JDVDZKR3RiLTNKNVVYSy1xZU1YWGVaTGlNSVUtdnlRRk1tZUNkcWJXTDg1UW40YU5XY0UtVTFnV0FjSGlXbFhmOG5NdjVGdmh5VkxkSFZ6WmdpemdEdDl5Y01OOVktS2lXbDczbUZwMk5PdlhwVnJKTUo2d3pBVTUwMmZFdXJwYlUyazlEUS03bkViLU9vd1JhMWZlT0Zoc01LNkdIU01xRVVJQzk2VkVfVzNmXy14VnNmR1duNm81ZmN3c2p1cEd2b1JhdGpWRzNtbnlF?oc=5",
-      "date": "2026-09-15",
-      "source": "news",
-      "category": "Industry",
-      "score": 7,
-      "summary": ""
-    },
-    {
-      "title": "Systems Modeling Language (SysML) 2.1 RTF — Open Issues",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5mZWl6Y0E5NE9hTmpZb2kxY2oyNlVUWkpBRFdkeDc3cEZqdlVmeU5HbnpnSWpBZGgtSW9qeE5pekRqb3hYTk9waWFNYkpJWkgwamZR?oc=5",
-      "date": "2026-09-16",
-      "source": "news",
-      "category": "SysML",
-      "score": 8,
-      "summary": ""
-    },
-    {
-      "title": "DDS Extensible Types (DDS-XTYPES) 1.5 RTF — Open Issues",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE4yVVVJdFQ4RFkzaVYwenRZYjRmNktLX3BpVlJGSkY5VmxVWm5Ua21kUVhoSEhFM0hJX1VPNGhOUE5mRXJVYkI3WmR0ZzVQVy1Ia1VR?oc=5",
-      "date": "2026-09-16",
-      "source": "news",
-      "category": "Research",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "Dayton firms snag first spots on $85M aircraft, aerospace design overhaul",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPSU1Cc1JDQWRmbXdkVXc5UzBmcXk0Rklnb3ZldzUzY0FJRzZqejlHdzE4SWROV1g1UkZmRjJTQ3BvMllrbHJtZktmdFEwVDVfc2F5ZHF4bm01Q1U4RU1nLTlYZzdCSm1XN1dUWEtjdlBfcTV3VmM1VXAtOTV6MzB1RktpaU5kX200eXplR3RITFIzbFJGQTVOTF9nRmd0czlyNUFYN29jRW8?oc=5",
-      "date": "2026-09-17",
-      "source": "news",
-      "category": "Industry",
-      "score": 2,
-      "summary": ""
-    },
-    {
-      "title": "Decision Model and Notation 1.8 RTF — Open Issues",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE94SmpRXzNZWm4tYnVjRzV6TFd6Z05IZ1BYTm12RTlmb3lJY3lLVEY4bTBVWHJxU1FrU3pHYnhsMlFUSEYya1JDR0pEakw2UEk?oc=5",
-      "date": "2026-09-17",
-      "source": "news",
-      "category": "Research",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "Decision Model and Notation 1.8 RTF — Open Issues",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9TMUdxUUZiOXpVOXM0YWhUQmRCWmczblRWVm93aEw0SnZKVjFXNWFFdldmS04tWTZ5b1IyOHBsZkN3Z1FUV0JvYlQ2NU4wSm8?oc=5",
-      "date": "2026-09-17",
-      "source": "news",
-      "category": "Research",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "DPROD — Replace explicit inverse properties with virtual inverses",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5yVzNLYmxwTk5zdmo1clN3UkJJTW5JZGhac1hTUFgtdW0yRjE1OEVrdGFWSE95ZXJUOUIzYnFjVndLT2JWazZ4eWNRbzdmb3M?oc=5",
-      "date": "2026-09-17",
-      "source": "news",
-      "category": "Research",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "What is an ESEP and Why Should I Become One | Courtney Wright & David Ward | INCOSE Webinar | Ep 173",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOeHVVZnVGYzA2ZDR6WndTN3ctd0htWkVLYm13dW9mbnpTcnBxY0xNVEtVbGZuUDVoY191eVdaR05VY241STN4bldkYVYxcjBMTnk1djFGNnlpVXA4T2kxWVVzc1JnOTBmd3hVSTF3UjdPZ1ZyOGN6RE5yY3dLaUhpa21PNk1HcWJGQzFRbHVKT3VHOXM0dGlqUlZCNHJDT25JcDV1WC1UY0hMYWUxTmUyRjVldVUxRnRweC1WSDFlRmVlbWc?oc=5",
-      "date": "2026-09-18",
+      "title": "INCOSE Proudly Announces Its Support and Collaboration with the Barclay R. Brown Foundation",
+      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE54QmhxZDNLQi1yN2FvaXhKUy1KTFY2Z2UxdWUwUGxPSmpOUnkwSWtnSlIzMnVPZnVzSWdDOGVsZ3JQakVUMl85SEFB?oc=5",
+      "date": "2026-09-09",
       "source": "news",
       "category": "Standard",
       "score": 6,
       "summary": ""
     },
     {
-      "title": "The INCOSE Q3 Members Newsletter is Published",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE12MmdKTEt4bzRTZGpOTWtYZDdVampXNDBpOE9yTFBmZ2JNMGoxYVJtSXhyRkpVYVZjMEJmZ3Fmak5nZ21CdC1YYkpaMWM4emM5U1Q1M1JZOXNKbXhMQ0JTRWUzcGxBM1lvLVhXWHhWWDZJSW5SRzc1YnhtT0YwaE0?oc=5",
-      "date": "2026-09-18",
-      "source": "news",
-      "category": "Standard",
-      "score": 6,
-      "summary": ""
-    },
-    {
-      "title": "Decision Model and Notation 1.8 RTF — Open Issues",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFA5R0w1UVV1RFJjaWlJam9RRjZTRGl6Y2VEY1pXR0xrZ0JkSzg5R2twNTJPYXdEQmtXWmRSU1Qtakx0Z2Ryc2ZLMENPU3NEeE0?oc=5",
-      "date": "2026-09-18",
+      "title": "XTCE14 — Update XUSP Command and Command Packet Pattern",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1jRU54bzdEQkRRTXJ2Ri1LZ3V1aXN1aU9TRVZIaThCYU4wV3FibVlTb2JUanJSZjdmY1Z1c25FLWpDWWxGUUpQalVmZ250ZzBJ?oc=5",
+      "date": "2026-09-15",
       "source": "news",
       "category": "Research",
       "score": 0,
       "summary": ""
     },
     {
-      "title": "AVL and QinetiQ partner on digital twin of UK vehicle test facility - Automotive Testing Technology International",
-      "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxOR2pLYVRnR253S21PdzIwWmJKd2p1N05OSVptM21rcnJyWnpZWUhuemdxZ2RycWdwUXRSRTdVSERLVThWa0d4Rng3bVNKN2RHNlRWWnM0VGN1blg4bzZ1SzlHajYwNWwzY05rbXAtWTNGeXFOTmpGOE5KREpCOXQ1WFBYSDUwZ1ZBdlQyVVo3MXJLenpZMDhzU3dCQlVRU1FJUlJfZ2dmRkFQQjhlWW0taEUzaHBYaDZ6Nk5SLWM1bXV5SENMZEdVN2lLeUlWa2txLTdxZmpnb0lMUTNpcHVscHZqdHUxNjcwd1FVNDU4amFRT3czZG52TXU2M0g4VU1uSUFfZHRsVlNfOFlJQjdPNlJOQQ?oc=5",
-      "date": "2026-09-21",
+      "title": "XTCE14 — Integrate XUSP into XTCE as an appendix",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5lMXdwRlFaWDNvU2xSTHJmUW94ZXppQTU1VTlGNEFUNFp1S1d4NnhNQVhSWmVFVjF4SHMzODZldW1STkxFaHJTOFJMUGtpdXk1?oc=5",
+      "date": "2026-09-15",
       "source": "news",
-      "category": "Digital",
-      "score": 5,
+      "category": "Research",
+      "score": 0,
       "summary": ""
     },
     {
-      "title": "$61B defense-tech unicorn to join Dayton-area firms on $85M Air Force contract vehicle",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPcmtFZkpYa2xjaGJqc1puOFJJaGx2UDRZSy1zUlpIdFFZVmpUQXM3bWljdV8zcUJPQ0kweHZDRFZaTjN5U29obzUwUDdPU0EzNXhLQW45a2I4dV9tZFpYX3IyQWdTbkZGNm4tZUxYem5oQThYRnlfMGltazJRRTRyQk9hM09CdS1JcW5ub2RJV0lkVUpQWS02RzlaWTFscmZaRnJCbA?oc=5",
-      "date": "2026-09-21",
-      "source": "news",
-      "category": "Industry",
-      "score": 2,
-      "summary": ""
-    },
-    {
-      "title": "Modeling as Text: A Practical Guide to SysML v2 | Syside | Zygimantas (Ziggy) Gelbuda & Kestutis Jankevicius | INCOSE SE Lab Demo Day | Ep 22",
-      "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQeG1naFZMV05BT09lVzlZbkR3Vmw2cnpEc0wxXzdwQmFpVll6R2lPdmVoMUpEblZsT0Z5RXRwYnItTFhTeURVeE82amdWcTZ1SFZCTmpray1JNXBHWXVNQXZyd3VvaWd1eV9IRmpyaEJ3VldqX00zM3hBOUVNenlEOUxtakR0aXVBU0JTWVVRa3NlSEpGdmdPMTR6aGxhWjVQb2ZodTdVNVhiNVVwanBCVWFzRF9GN0NQdVpZVmtvdzE5YnZRZlNBY05UYll3blNld0Z6ajNVODdTMlNpc0lsd2JRbF9fQ2NmQko5SFBLZ3pPV0E?oc=5",
-      "date": "2026-09-22",
+      "title": "INCOSE SE Lab Demo Day: The Self-Building Model: Live AI Workflows for the Next Era of MBSE in SysML v2",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNaXNKTE4tMDV0LXotVUF3RmllbW4wTXAxZDhDS1p0RU1CaERXODJMblZ6T28tS3lqaVVEYW1ld1M1UC1xWThOcnhUYnhkMzVkQU1TeEI0OHhJbG9DNTc4R2hQUHlrZFZjUDBWZFBaWDN1WlI5a0JZbUFEd0s4Mkk1OTJFZWNXUUhWU21JRnVqRE8xTTFvekl1SnJmeEZaS3AtMldhXzhnc0RNbUNSVmsxOGExOHhZMzVFY3B1NEU5ZW5qOTJKM1BaWjhRQQ?oc=5",
+      "date": "2026-09-17",
       "source": "news",
       "category": "SysML",
       "score": 20,
       "summary": ""
     },
     {
-      "title": "Driving the Future of Complex Systems: INCOSE to Join International Leaders at the Systems Workforce Summit 2026",
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOTG9OLWx2T1BnWTlRV183aVNWSVlubWxObldDWk5DNnByRkVpOVpkX256dExnNTk4cGUySW5rMzVSYV9IZkdua1FGYzN1Q19KenJRNFdhUmZ6R2F3Z2hCMmZfNE5BZFNQV0pTeU1HbHhxcXFqOWx2ZDlrcUZ0Q0JYb0IybGZDUXVZc0RsSGZkQ3pfMjM3N2dQdFQ1ODlJWnBObzZKZ3dPVHItaXBGZVcxbmUxLWRoWXlIY2NoTEw0S0I4RkhtS3lmTXpLTFNIaFFURjl2NEtaRQ?oc=5",
-      "date": "2026-09-22",
+      "title": "SE Lab Demo : Lean MBSE with iQUAVIS",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFAxeV9LajFCMXdLeU1EMzVRMktUMUdiVTd3cXhjd2cyVG9ObEVEVEg2amRhU0tMNmdTTjBtQ1VUUDFteUhWM09XcDFSeHhOLVRiZjg2Y2dKQzNoNXh5X28xS29EYmNCSnZCOXZwUnpYNWRvQQ?oc=5",
+      "date": "2026-09-17",
       "source": "news",
-      "category": "Standard",
-      "score": 6,
+      "category": "Research",
+      "score": 10,
       "summary": ""
     },
     {
-      "title": "Project Engineer II: Digital Thread Architect",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOQVRKcVFZcmFCQzNOZ0xicW1SV0stVlhPQ1FsQ05EWmpsRGlQZlpVNFpEdnJhUXpPUGlQYWs5YTdaVGJFN3VpQWo5VGtuRlhCdWVlTTRGcHRaZElycHdzMXFaT2pNM09MWl9GRmh6dmFrTUt5NDJ2YUtZWGRUNER4YUJuaw?oc=5",
-      "date": "2026-09-23",
-      "source": "news",
-      "category": "Digital",
-      "score": 4,
-      "summary": ""
-    },
-    {
-      "title": "Publications Policies and Ethics",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5zekVhbXNBcXVURFU5N1NrWGl4QnMzOVhBZ1FuaTFiTVF3Zlg1ZEEyUEFYYjdIQ1J0NGI4aVpOcEp0Sy1kbEdwdE9FdnpiS0JZYU85SHdsSFZCWjhtcnprWGNDdFpHQQ?oc=5",
-      "date": "2026-09-23",
+      "title": "Ornithographies: Making the Invisible Choreography of Flight Visible",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQNGdra29XV3F1a3JzT0hnMlcxNWFvTjl6dVNGcF9tamg5VW1zbHlDUWd5MDZYcU9UMjNLenhNamFuQlZSWkVUYkN5OVZ1XzZaU0dTRmZtYXl1MU83WmlwTG90dXBVSVpMelh5UFVMMm10MVNzNW9qWG5tcnRlS1FGdXM0RXVrVk1HdmRUOENUVDlVejFjZ1hvSUpJRVplZw?oc=5",
+      "date": "2026-09-17",
       "source": "news",
       "category": "Research",
       "score": 0,
       "summary": ""
     },
     {
-      "title": "AI To Reshape Aerospace And Defence, Drive Efficiency Across Value Chain: Shobha Kulavil",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxORDA2STZZVTNFODJpUGk5ZGk1ZndUbFI3cmNvWjFsbHA1bFhCMzFkNHFYVnRGZEhOZFZjTG5FVnFOUjVtSHU4Mk9PR01xUUdQZE5tdTRJNE1ROEJVclJELW1fVWxxQzNoWXljOHFKMW9BTUhGVW5sc1Zxay1takhJdWwwU0VqZ1Fuenp5VkJGOXhVSExvOTFvMFJSVWJwNlRqc0NJaG1FaElEUnp2aFRkRVo5TWl2WU5jQWRLQTlvRndVX2lqZXZvZWxB?oc=5",
-      "date": "2026-09-25",
+      "title": "DDS Consolidated XML Syntax — Closed Issues",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5wWUQyQTZVYW9IVTlhQWE3TmlpUzZrR1pDS0RPR2owRGYwVDhFRm8waTlCaUVNR1FrQUZaRXR1bXNibUJ3WnhZZzk2aEZsV05qd2dxdER6UllsU3hzUWRSbVA1ZFQ?oc=5",
+      "date": "2026-09-17",
       "source": "news",
-      "category": "Industry",
-      "score": 2,
-      "summary": ""
-    },
-    {
-      "title": "About the Data Products Ontology Specification Version 1.0 beta 2",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE53UW9xbzN2b3Q1cFY5YWN4U1ppam95aUlRNWI1WUdGODl2QnBrc3VGM19xVkxxbEk3RlpOZ21HZmFjdzg3UnlnTlZCYXFrMjNxcEE?oc=5",
-      "date": "2026-09-25",
-      "source": "news",
-      "category": "Standard",
-      "score": 2,
-      "summary": ""
-    },
-    {
-      "title": "About the Command and Control Message Specification Specification Version 1.2",
-      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1BUG1xalM2b2NpWkZOdlJLbkFGNE1ZR1c0UHU0c3dJRW40Y0pKbGlNV0wyRkNod1dWX2JBMk50RG5JM1JPY0pRbw?oc=5",
-      "date": "2026-09-25",
-      "source": "news",
-      "category": "Standard",
+      "category": "Research",
       "score": 0,
       "summary": ""
     },
     {
-      "title": "About the Decision Model and Notation Specification Version 1.6",
-      "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE9xcm1nYnlSWF9CNVljSHp5UVduZVZ0MmhrUVVROHhCRjBZSW9EVFRNakxmMW83UTN0UlV3MnNpY2lXN3Fkb2xB?oc=5",
-      "date": "2026-09-25",
+      "title": "Risk Analysis and Assessment Modeling Language — All Issues",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBFdWZFbXVaTE1BNW1PclFvMXBIUzFaMFQ1Wmx6QXl6RHJ4amFNQXRTS2ZpdWhyRjAzTUZla19ZT0YzXzBHdjREX3JiV3AzSTBvclBBSHE5ek1Vc0VHQ2pWem8tSFhYUU9JV3dfUVhR?oc=5",
+      "date": "2026-09-17",
       "source": "news",
-      "category": "Standard",
+      "category": "Research",
       "score": 0,
       "summary": ""
     },
     {
-      "title": "About the Financial Instrument Global Identifier® Specification Version 1.3",
-      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1KR09YaVZUWmdIZVRDa3B2Q1VyQlUwMDYxdXlBUF9vVFEtdkhSa3g3allFeWg1b3RxRkhKcUdIalQyODJEMkpGbw?oc=5",
-      "date": "2026-09-25",
+      "title": "September SysML v2 Exchange",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE8xOGowbzNpLUY2Z013R1pzelg3a0kwRWRTaDd4eTFmRlg3dmMxaWd2N043MlpYNzNKNm0yN2FQWFRYM00taUVsQUF5d01USllwdl9SZ1ZMUktEZUhIb29renZRTDNsWkpy?oc=5",
+      "date": "2026-09-22",
       "source": "news",
-      "category": "Standard",
+      "category": "SysML",
+      "score": 17,
+      "summary": ""
+    },
+    {
+      "title": "2027 AFIS Annual Conference",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBqd0FzU3pQVFZIdlFYbHpkaV9hQnRUNTJabWthcjZENjFfOFZEOGpfbm9EOXVSVXBrc0hBZzk3b0s4R0dxdkFMNFpkeUZpWll0QzNtTTlfVzZLVWVKM0dZQVdoUzNsMzlY?oc=5",
+      "date": "2026-09-22",
+      "source": "news",
+      "category": "Research",
       "score": 0,
       "summary": ""
     },
     {
-      "title": "About the Pedigree and Provenance Model and Notation Specification Version 1.0",
-      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBTaHJnSllQMVNmWUgxMlNMMzFLWk9FOVVscGUxSk5HV01EZEpYejQwYU05U0ZWU0RmbnV6RzlqYTA3NlRwdkdTTQ?oc=5",
-      "date": "2026-09-25",
+      "title": "INCOSE Philadelphia: SupplyMind - Using your own issue history, SOP's, and AI to resolve problems before they scale",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOQnotVGtFeG5PZTZienZyVWlFc3BxU3QtLXNPWEdqTnktZ01FODJKdzNISFRyVFF6dUlzZWJXd2ZtbHN5OHk0LW5IZUQ4YzAxaktGVFJXMWtFcVpMZl8yUVFMRHJOMGdzc0huQmRsOWRUWmRJbUlvR0YtUGpXdjExQXBXUXdTdjROendrTEoyMnl0LWpYanZmaENjTy0zalY1RVYzZHJPZXN6N3NncUtiaHpJM2Z5M3MzRE5YZHhqY1BvN1NpamtWcnp3a0Rod3ctYWd4YzdB?oc=5",
+      "date": "2026-09-24",
       "source": "news",
       "category": "Standard",
+      "score": 6,
+      "summary": ""
+    },
+    {
+      "title": "New England Chapter Fall Workshop",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1lSV9GODVIbWNaTEZIYkVmZmdDTnBiLVBNTkFybTlTbFlYQ3NGdW1MNUlmM2tDWV9FYlRTZXNVVm9ISE9wLVZuTndfU3pjanF0TWlVVktLVW16VDhmR2c3RnJSbFNOUzUwWkRFTXJNd2M?oc=5",
+      "date": "2026-09-24",
+      "source": "news",
+      "category": "Research",
       "score": 0,
       "summary": ""
     },
     {
-      "title": "About the Multiple Vocabulary Facility Specification Version 1.1",
-      "url": "https://news.google.com/rss/articles/CBMiR0FVX3lxTE5PU3BtR0VJdElBQnk2eDlJTnVVOWQxbEVHcGdKVFZ5RzdCQXpSVUd1cktFbm0wbXY5NEFxVDVub3MwaFN6VS04?oc=5",
-      "date": "2026-09-25",
+      "title": "Systems Workforce Summit",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE92Z3ZBQXpURF9pdTM0QWpoeEV5ZWI2WjJvTVpaR2hBbjVIQUJrT1Z6clMtRTJGV1FtY0Npb1lwQzY4cHJ0RHFUVGFEY2VkVW9YLUNVMWszb19vYXhORnF0Z0JhVnA?oc=5",
+      "date": "2026-09-24",
       "source": "news",
-      "category": "Standard",
+      "category": "Research",
       "score": 0,
       "summary": ""
     },
     {
-      "title": "About the Business Architecture Core Metamodel Specification Version 1.1",
-      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFAycjIzYkQwbkM0dVgwUWpRWkg5RTVmX2FIU0J1MUpFdmNCYlZ1R2Izbmo2SzExSWJlNDVqYzZHekI2LWZLeE1Wcw?oc=5",
-      "date": "2026-09-25",
-      "source": "news",
-      "category": "Standard",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "About the Command and Control Message Specification Specification Version 1.2.1",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE03b1B6bE1ZRzR4QW44eG5HbjFNdDFCaGFkaVJmRm1uYlZoYkZueGlXaXlKWmxQQl9Wc19uczd3Q2RTOUhsYXdiQkJtSQ?oc=5",
-      "date": "2026-09-25",
-      "source": "news",
-      "category": "Standard",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "About the Structured Assurance Case Metamodel Specification Version 2.4 beta",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTFBSZkFnR19jM3JZVGVtQVVxbHM5bTlEM2tjXzlXUngxS3VlWkVwSzdDeTE2U1lpSVQtdVc5WGRPT0wtMnRralJnUFRzYzY0cGk5?oc=5",
-      "date": "2026-09-25",
-      "source": "news",
-      "category": "Standard",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "About the Risk Analysis and Assessment Modeling Language Specification Version 1.2 beta",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE83NU5JZmJPQ2F1bVBPX3pzQTFFOTk4VFJTcVQ5WW9nUVNvMm5tQzBMR3ItTWo3U2ZWNmVENXJvWHVCWXN0MkRCNHRYTzlZeFNVRVE?oc=5",
-      "date": "2026-09-25",
-      "source": "news",
-      "category": "Standard",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "About the DDS Monitoring Specification Version 1.0 beta 2",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5YNFFud2ZFZUQ0X045c2pQZ3hUc29Qb05oT241Q0JlOEFUajVxQkdDWDBhTjFWeEcwNDNYcDc4clZ4bGVZdEloaDBYd2lLc2UtMTdCTGstaGNnMVVHdFE?oc=5",
-      "date": "2026-09-25",
-      "source": "news",
-      "category": "Standard",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "- doc.omg.org",
-      "url": "https://news.google.com/rss/articles/CBMiO0FVX3lxTFBWWUlQZVNwZHdYNzh4R1dLYVB6aVkwUjNpeFcxSXptN1BBQl9oNTI5SkxtTkNXWDNRcUtJ?oc=5",
+      "title": "Command and Control Message Specification — Closed Issues",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5vbUJrZlJkMllHYTFKY0pzUjlpYXVubDZGVVlLb3FwcEFvT0p6clFiSWUwaVFZRXNXdUREYW9ha19RMXA3clZyZkx4VWJIdTFyQ3dEMmp4aFBPWDBmbjhrQURxSVlaUQ?oc=5",
       "date": "2026-09-25",
       "source": "news",
       "category": "Standard",

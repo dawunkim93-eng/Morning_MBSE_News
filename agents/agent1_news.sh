@@ -56,23 +56,71 @@ if [[ ${#RSS_QUERIES[@]} -eq 0 ]]; then
     echo "[agent1] 경고: 플러그인 쿼리 로드 실패 — 폴백 쿼리 사용" >&2
 fi
 
-# Google News RSS 피드 URL 목록 조립 (키워드 쿼리 + site: 쿼리)
+# ── RSS 소스 구성 ─────────────────────────────────────────────────────────────
+# 메인: Bing News RSS — 원문 URL을 직접 제공 (Google News 인코딩 링크 문제 해결)
+# 보조: Google News RSS site: 쿼리 — INCOSE/OMG 사이트 뉴스 우회 수집
+#       (단, exclude_non_news 필터로 스펙문서·메뉴 페이지 제거)
 RSS_SOURCES=()
 for q in "${RSS_QUERIES[@]}"; do
     enc=$(urlencode "$q")
-    RSS_SOURCES+=("https://news.google.com/rss/search?q=${enc}&hl=en&gl=US&ceid=US:en")
+    RSS_SOURCES+=("https://www.bing.com/news/search?q=${enc}&format=rss")
 done
-RSS_SOURCES+=(
+GOOGLE_SITE_SOURCES=(
     "https://news.google.com/rss/search?q=site%3Aincose.org&hl=en&gl=US&ceid=US:en"
     "https://news.google.com/rss/search?q=site%3Aomg.org&hl=en&gl=US&ceid=US:en"
 )
 
-echo "[agent1] 뉴스 소스 수집 시작 — RSS 피드 ${#RSS_SOURCES[@]}개 (키워드 ${#RSS_QUERIES[@]} + site: 2)" >&2
+echo "[agent1] 뉴스 소스 수집 시작 — Bing ${#RSS_SOURCES[@]}피드 + Google site: ${#GOOGLE_SITE_SOURCES[@]} + OMG 직접" >&2
 
-# ── Step 1: Google News RSS 피드 수집 ────────────────────────────────────────
-# 각 RSS 피드를 순서대로 fetch하고 결과를 임시 TSV에 추가
+# ── Step 1: Bing News RSS 수집 (원문 직결 링크) ──────────────────────────────
 for src in "${RSS_SOURCES[@]}"; do
-    echo "[agent1] RSS 수집: $src" >&2
+    echo "[agent1] Bing RSS 수집: $src" >&2
+    fetch_rss "$src" >> "$TSV_TMP" 2>/dev/null || \
+        echo "[agent1] 경고: $src 수집 실패" >&2
+done
+
+# Bing 리디렉션 URL의 url= 파라미터에서 원문 URL 추출
+# (bing.com/news/apiclick.aspx?...&url=<원문인코딩> 형태)
+bing_decode_tsv() {
+    local src_file="$1"
+    python3 - "$src_file" <<'PYEOF'
+import sys, re, urllib.parse
+with open(sys.argv[1]) as f:
+    for line in f:
+        line = line.rstrip('\n')
+        if not line:
+            continue
+        parts = line.split('|')
+        title = parts[0] if len(parts) > 0 else ''
+        link = parts[1] if len(parts) > 1 else ''
+        date = parts[2] if len(parts) > 2 else ''
+        # bing.com/news/apiclick.aspx?...&url=<원문> 파라미터 추출
+        m = re.search(r'[?&]url=([^&]+)', link)
+        if m:
+            orig = urllib.parse.unquote(m.group(1))
+            if orig.startswith('http'):
+                print(f"{title}|{orig}|{date}")
+                continue
+        # url= 파라미터가 없으면 원본 링크 유지 (이미 직접 URL인 경우)
+        if link.startswith('http') and 'bing.com' not in link:
+            print(f"{title}|{link}|{date}")
+PYEOF
+}
+
+BING_RAW=$(mktemp)
+cp "$TSV_TMP" "$BING_RAW"
+: > "$TSV_TMP"
+bing_decode_tsv "$BING_RAW" >> "$TSV_TMP" || true
+rm -f "$BING_RAW"
+
+bing_count=$(wc -l < "$TSV_TMP" | tr -d ' ')
+echo "[agent1] Bing 원문 링크 ${bing_count}건 변환 완료" >&2
+
+# ── Step 2: Google News site: 쿼리 수집 (INCOSE/OMG 보조 소스) ────────────────
+# 신형 인코딩 링크는 브라우저 JS 리디렉션 의존이지만, INCOSE/OMG 공식 소식은
+# 이 경로로만 수집 가능하므로 보조 소스로 유지. 가짜 뉴스 필터로 노이즈 제거.
+for src in "${GOOGLE_SITE_SOURCES[@]}"; do
+    echo "[agent1] Google site: RSS 수집: $src" >&2
     fetch_rss "$src" >> "$TSV_TMP" 2>/dev/null || \
         echo "[agent1] 경고: $src 수집 실패" >&2
 done
@@ -112,17 +160,22 @@ else
     echo "[agent1] 경고: OMG pressroom 수집 실패" >&2
 fi
 
-# ── Step 3: 키워드 필터링 ─────────────────────────────────────────────────────
+# ── Step 3: 가짜 뉴스 제외 필터 ───────────────────────────────────────────────
+# site: 쿼리가 수집한 스펙문서·메뉴·챕터 페이지 제거 (skills.sh 의 exclude_non_news)
+filtered=$(exclude_non_news "$TSV_TMP")
+
+# ── Step 4: 키워드 필터링 ─────────────────────────────────────────────────────
 # 키워드 인자 없이 호출 → skills.sh 의 filter_keywords() 가
 # keyword_loader.py 를 통해 플러그인 filter 패턴을 자동 로드한다.
-filtered=$(filter_keywords "$TSV_TMP")
+# ※ Bing 원문 링크와 OMG 보도자료는 URL 자체가 유효하므로 유지
+filtered=$(echo "$filtered" | filter_keywords -)
 
-# ── Step 4: 캐시 기반 중복 제거 ───────────────────────────────────────────────
+# ── Step 5: 캐시 기반 중복 제거 ───────────────────────────────────────────────
 # 이미 처리된 URL은 제거
 echo "$filtered" > "$TSV_TMP"
 deduplicate "$TSV_TMP"
 
-# ── Step 5: JSON 배열 생성 ────────────────────────────────────────────────────
+# ── Step 6: JSON 배열 생성 ────────────────────────────────────────────────────
 # TSV를 JSON 배열로 변환해 출력 파일에 저장
 # source 판별: omg.org 링크이면서 보도자료 패턴이면 omg_press, 그 외 news
 python3 - "$TSV_TMP" <<'PYEOF' > "$OUTPUT"

@@ -1,7 +1,7 @@
 {
   "type": "news_archive",
   "month": "2026-06",
-  "count": 10,
+  "count": 5,
   "items": [
     {
       "title": "OMG Launches Official SysML®v2 Certification Program to Accelerate Next-Generation MBSE",
@@ -13,30 +13,21 @@
       "summary": ""
     },
     {
-      "title": "Aerospace and defense engineering and R&D pulse 2026",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNa3dOTWxhal9lUjRYdDd5MXQtT3otdExxTnYzR1JVYjZyWjJDTk9mT0xZN2I4TWtUUEVmMmdZN2NlSVVzaGRRNXlFa0d3M0pMVl9DOVFHVEZlSDBsZ1FoaGd3OGdzbzFkTUhuWTZQRkk4TEthanRpS1I5TU9mMlFudlpvSy1pQ0ZhWmx1bUxZZjBzYmNhVHhVWF9lMTFmb0lMMmNWTUE3Y2NzWjBhVGNB?oc=5",
-      "date": "2026-06-15",
-      "source": "news",
-      "category": "Industry",
-      "score": 4,
-      "summary": ""
-    },
-    {
-      "title": "OMG Issues RFP for IDL4 to Rust Language Mapping",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBpelJmOEFMRUZ6ZU1fMjY3OVJvNVk4U05nS1VLZ1lpZ1dBQlBHclBnQkNLVktNU3ZwRGRVZTE1SDBsckJ3QXJabW9oUkR4ZlhCWjZia1pBOXpuRGNhbkVURVR3?oc=5",
-      "date": "2026-06-15",
+      "title": "OMG Task Force: Systems Modeling API and Services (SystemsModelingAPI) 1.1 RTF",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFA2cU0zdUsyQ25YZWNaY0pzN09VYWtpX2V1RE1OSTRLSzdEZklvOGhxekNDLUdZNS1vSnNnMEUwQU41S2lyZGoyQThzNGdESjM4SmJVTw?oc=5",
+      "date": "2026-06-12",
       "source": "news",
       "category": "Standard",
       "score": 0,
       "summary": ""
     },
     {
-      "title": "DPROD — Support a direct dependency relationship between data products",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE41TTdjNnBnZnpCN0Z0dUhORmp1WWhOdjMyRERFbU42RjFPS2pNc1FocEZDZlVoMmlIZWxsWUF4NE1ZalI3elg5cVhEdUJKSm8?oc=5",
-      "date": "2026-06-15",
+      "title": "INCOSE International Symposium 2027",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1tSW11WnUwWkhCRFVzMHZHS1RrRUxkLU1veE52dV9IZFp0TGo3U2JGLTFtN0t4Uk9nNlJhcUhhWGZvamlpcnFvRHBaY3FRSDFJQWQ0OFdOY3oxakdXWEtCQ1Z1a0dISzd0MDNtb3Q0NzE3QQ?oc=5",
+      "date": "2026-06-13",
       "source": "news",
-      "category": "Research",
-      "score": 0,
+      "category": "Standard",
+      "score": 6,
       "summary": ""
     },
     {
@@ -49,48 +40,12 @@
       "summary": ""
     },
     {
-      "title": "Welcome to LatAm Chapter",
-      "url": "https://news.google.com/rss/articles/CBMiPkFVX3lxTE1pcmUxRFhldHFZTk1iZUM2bWstSFFobldUZmhPbE84c0l5bk11Q1dqcjVPNjByOXVDcW5HQXZB?oc=5",
-      "date": "2026-06-16",
+      "title": "Call For Solutions",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9hTzFTblFXejhESUItVHd3SDZXLVAxbWF0X205ZW5CUENvZUhCbTVtUEQ3aDRqUmpoems1VVdxbm5oWUlTMTFqMU9ZdW9JTkkxZDdMeg?oc=5",
+      "date": "2026-06-27",
       "source": "news",
       "category": "Research",
       "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "IS 2027 Call for Submissions",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5uTEJuME95UjBWdnpvN1B3dXhjRi1oQXNOU1htZWtuSlNodUdoelF2dW9Zal93Sk9JcV9sLTBOWFd1ZEpyMi1sdEg0blFhOEFzcFlUSGdrc0VkMWNRbEZGQ0JRSGdrelhm?oc=5",
-      "date": "2026-06-19",
-      "source": "news",
-      "category": "Industry",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "Q2 2026 Newsletter",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5mRWZaXzlTbmh1OWY3NjFLblBfS21xQ0gtTTVKNG5mVE1haWF6QXRGMV9TbU42N1AyRE5HUTk1azR1eGM0RWp5d1hXeERlVUV3NmNGNW5QdHpXMjg?oc=5",
-      "date": "2026-06-19",
-      "source": "news",
-      "category": "Research",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "Paper Template A4",
-      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE5sb0tVMm4tUHRPRG05M1FBVFlVSVA4MThGUEF0RUc1R2JmbmM4eWZNcmdmM0R5aExjTmJMLUltbHgtVzY5X0FFSkhwR2QyQWdNNmR6WmhxUE5QWFRydlBsTTJsWG9qLTFuVTNFM3EwUFpYYWRULWVJ?oc=5",
-      "date": "2026-06-21",
-      "source": "news",
-      "category": "Research",
-      "score": 0,
-      "summary": ""
-    },
-    {
-      "title": "America 250: Digital engineering: Designing weapons before they exist",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOWmFtTWR5MkI3SnVnZzJpQ1R3eFI3T2ljX2dtY0hnQVJxektnRlRHcE5DSzZ3X29oN2hKSWR1TnNOY0dLdlBqMlpRd284QWJyT3pfRzVrOF8zR1ozeUMyaTA4cDRKWDV1NG1USjZxd0duYVZ4Ylh6RXJldEt6NVZSUjVKZjI3WDE4OXBNRDBiTVAyUHJlZ0FtT2ZuNk5QRG9RMmRCb2VBZURZRUhPakdiR1J2TTQ?oc=5",
-      "date": "2026-06-22",
-      "source": "news",
-      "category": "Digital",
-      "score": 5,
       "summary": ""
     }
   ]
