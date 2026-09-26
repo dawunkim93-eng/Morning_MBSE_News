@@ -1,0 +1,61 @@
+name: Backfill Archive
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: '백필 범위 (all = 논문 전체 + 뉴스, news = 뉴스만, papers = 논문만)'
+        required: false
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - news
+          - papers
+
+concurrency:
+  group: backfill
+  cancel-in-progress: true
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: write        # 백필 결과(data/, cache/)를 레포에 커밋하기 위해 필요
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60   # 논문 전체 수집은 시간 소요 가능
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5.6.0
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run arXiv papers backfill
+        if: inputs.scope != 'news'
+        run: python3 backfill/arxiv_backfill.py --delay 3
+
+      - name: Run news backfill
+        if: inputs.scope != 'papers'
+        run: python3 backfill/news_backfill.py --start 2026-06-10 --delay 2
+
+      - name: Commit backfilled data
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/ cache/seen_urls.txt
+          if git diff --cached --quiet; then
+            echo "저장할 데이터 변경 없음"
+          else
+            git commit -m "Backfill: 논문 전체 히스토리 + 뉴스 아카이브 [skip ci]"
+            git push
+          fi
