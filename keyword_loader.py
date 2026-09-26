@@ -213,6 +213,13 @@ def _cli():
         help="항목 구분자 (기본값: 줄바꿈). bash grep 패턴용: --separator '|'",
     )
     parser.add_argument(
+        "--limit",
+        type=int,
+        default=0,
+        help="출력 항목 수 상한 (0 = 무제한). 목록 형식(naver/google/arxiv/filter)에만 적용되며, "
+             "플러그인 priority 순서와 파일 내 쿼리 순서를 따른다.",
+    )
+    parser.add_argument(
         "--list-plugins",
         action="store_true",
         help="로드된 플러그인 목록을 JSON으로 출력",
@@ -222,21 +229,27 @@ def _cli():
     # 이스케이프 시퀀스 처리 (쉘에서 \\n 으로 넘어오는 경우)
     sep = args.separator.replace("\\n", "\n").replace("\\|", "|")
 
+    # limit > 0 이면 항목 수 상한 적용
+    limit = args.limit if args.limit > 0 else None
+
+    def _bounded(items: list[str]) -> list[str]:
+        return items[:limit] if limit is not None else items
+
     if args.list_plugins:
         print(json.dumps(list_plugins(), ensure_ascii=False, indent=2))
         return
 
     if args.format == "naver":
-        print(sep.join(get_naver_keywords()))
+        print(sep.join(_bounded(get_naver_keywords())))
     elif args.format == "google":
-        print(sep.join(get_google_queries()))
+        print(sep.join(_bounded(get_google_queries())))
     elif args.format == "arxiv":
-        print(sep.join(get_arxiv_queries()))
+        print(sep.join(_bounded(get_arxiv_queries())))
     elif args.format == "semantic":
         print(get_semantic_query())
     elif args.format == "filter":
         # bash grep -E 용: | 구분자로 합쳐서 출력
-        print(sep.join(get_filter_terms()))
+        print(sep.join(_bounded(get_filter_terms())))
     elif args.format == "all":
         core, related = get_scoring_weights()
         output = {

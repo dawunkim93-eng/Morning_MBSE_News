@@ -7,6 +7,7 @@
 # 수정 이력
 #   버전    날짜          내용
 #   v1.0   2026-06-10   최초 작성 — 산업 도메인별 MBSE 키워드 정의
+#   v1.1   2026-09-26   개정 — digital engineering/thread, mission engineering 추가
 # ─────────────────────────────────────────────────────────────────────────────
 
 name: "MBSE 적용 도메인"
@@ -15,17 +16,23 @@ priority: 4
 # ── 소스별 검색 쿼리 ────────────────────────────────────────────────────────
 
 naver:
-  - "디지털 트윈 시스템 엔지니어링"
-  - "항공우주 MBSE"
   - "국방 MBSE"
+  - "항공우주 MBSE"
+  - "디지털 트윈 시스템 엔지니어링"
 
 google_news:
+  - "digital engineering systems engineering"
+  - "digital thread MBSE"
   - "MBSE aerospace defense"
+  - "mission engineering systems"
   - "digital twin systems engineering"
   - "MBSE automotive industry"
   - "MBSE space systems"
 
 arxiv:
+  - "digital engineering model-based"
+  - "digital thread model-based"
+  - "mission engineering model-based"
   - "MBSE aerospace"
   - "digital twin model-based"
   - "MBSE cyber-physical systems"
@@ -33,6 +40,9 @@ arxiv:
 semantic_scholar: ""
 
 filter:
+  - "digital engineering"
+  - "digital thread"
+  - "mission engineering"
   - "aerospace"
   - "defense"
   - "automotive"
@@ -45,6 +55,9 @@ filter:
 scoring:
   core: []    # 도메인 키워드는 핵심 점수 없음
   related:
+    - { term: "digital engineering",   weight: 5 }
+    - { term: "digital thread",        weight: 4 }
+    - { term: "mission engineering",   weight: 4 }
     - { term: "aerospace",            weight: 2 }
     - { term: "defense",              weight: 2 }
     - { term: "automotive",           weight: 2 }

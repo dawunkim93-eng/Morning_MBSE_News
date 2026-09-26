@@ -1,0 +1,40 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# 플러그인 : simulation
+# 설명     : 시뮬레이션 기반 SE 확장 키워드 플러그인.
+#            Modelica, co-simulation 등 시뮬레이션과 MBSE의 융합 흐름을 다룬다.
+#            Cyber-Physical Systems, 디지털 트윈 도메인과 밀접하게 연계된다.
+# ─────────────────────────────────────────────────────────────────────────────
+# 수정 이력
+#   버전    날짜          내용
+#   v1.0   2026-09-26   최초 작성 — 시뮬레이션 기반 SE 키워드 정의
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: "시뮬레이션 기반 SE"
+priority: 5
+
+# ── 소스별 검색 쿼리 ────────────────────────────────────────────────────────
+
+naver: []
+
+google_news:
+  - "Modelica systems engineering"
+  - "simulation-based systems engineering"
+
+arxiv:
+  - "Modelica model-based"
+  - "co-simulation systems engineering"
+
+semantic_scholar: ""
+
+filter:
+  - "Modelica"
+  - "simulation-based"
+  - "co-simulation"
+
+scoring:
+  core: []
+  related:
+    - { term: "modelica",                  weight: 4 }
+    - { term: "simulation-based",          weight: 3 }
+    - { term: "co-simulation",             weight: 3 }
+    - { term: "system simulation",         weight: 2 }

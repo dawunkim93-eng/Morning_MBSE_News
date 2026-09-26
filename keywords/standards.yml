@@ -19,9 +19,10 @@ naver:
   - "INCOSE"
 
 google_news:
+  - "INCOSE systems engineering"
+  - "OMG SysML"
   - "DoDAF MBSE systems engineering"
   - "UAF Unified Architecture Framework"
-  - "INCOSE systems engineering"
   - "UPDM defense architecture"
 
 arxiv:
@@ -36,6 +37,7 @@ filter:
   - "UAF"
   - "UPDM"
   - "INCOSE"
+  - "OMG"
   - "NATO"
   - "TOGAF"
   - "ArchiMate"
@@ -44,6 +46,7 @@ filter:
 scoring:
   core:
     - { term: "incose",  weight: 6 }
+    - { term: "omg sysml", weight: 6 }
     - { term: "uaf",     weight: 5 }
     - { term: "dodaf",   weight: 5 }
     - { term: "updm",    weight: 5 }
