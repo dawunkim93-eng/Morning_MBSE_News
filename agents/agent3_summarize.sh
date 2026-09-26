@@ -34,6 +34,16 @@ MAX_PAPERS="${MAX_PAPER_ITEMS:-5}"        # 최종 전송할 논문 최대 건�
 
 echo "[agent3] Claude API로 요약 중..." >&2
 
+# ── 사전 준비: scoring 가중치를 JSON 파일로 생성 ─────────────────────────────
+# keywords/*.yml 플러그인의 scoring 가중치를 keyword_loader 로 로드해 전달
+WEIGHTS_FILE=$(mktemp)
+python3 "$SCRIPT_DIR/keyword_loader.py" --format all \
+    | python3 -c "
+import json, sys
+d = json.load(sys.stdin)
+json.dump({'core': d['scoring']['core'], 'related': d['scoring']['related']}, sys.stdout)
+" > "$WEIGHTS_FILE"
+
 # ── 핵심 로직: Python 인라인 스크립트 ─────────────────────────────────────────
 # 복잡한 JSON 처리와 HTTP 요청을 Python으로 수행
 python3 - "$NEWS_IN" "$PAPERS_IN" "$OUTPUT" \
@@ -41,7 +51,8 @@ python3 - "$NEWS_IN" "$PAPERS_IN" "$OUTPUT" \
          "${OPENROUTER_API_KEY:-}" \
          "${ANTHROPIC_API_KEY:-}" \
          "${CLAUDE_MODEL:-claude-haiku-4-5-20251001}" \
-         "${DRY_RUN:-0}" <<'PYEOF'
+         "${DRY_RUN:-0}" \
+         "$WEIGHTS_FILE" <<'PYEOF'
 import sys, json, re, urllib.request, urllib.error
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
@@ -90,22 +101,38 @@ def in_window(item: dict) -> bool:
 
 # ── 카테고리·키워드 점수 ──────────────────────────────────────────────────────
 CATEGORIES = {
-    'SysML':    re.compile(r'SysML|UML', re.I),
+    'SysML':    re.compile(r'SysML\s*v?2?|UML', re.I),
     'UAF':      re.compile(r'UAF|DoDAF|UPDM|NATO', re.I),
     'Tool':     re.compile(r'Cameo|Capella|Rhapsody|MagicDraw|software|tool', re.I),
-    'Standard': re.compile(r'standard|ISO|IEEE|OMG|specification', re.I),
+    'Standard': re.compile(r'standard|ISO|IEEE|OMG|specification|INCOSE', re.I),
     'Research': re.compile(r'survey|framework|ontology|formal|method', re.I),
-    'Industry': re.compile(r'industr|defense|aerospace|automotive|enterprise', re.I),
+    'Digital':  re.compile(r'digital\s+engineering|digital\s+thread|digital\s+twin', re.I),
+    'Industry': re.compile(r'industr|defense|aerospace|automotive|enterprise|mission', re.I),
 }
 def categorize(text):
     for cat, pat in CATEGORIES.items():
         if pat.search(text): return cat
     return 'Research'
 
+# 관련도 점수: keyword_loader 플러그인의 scoring 가중치를 합산한다.
+# (keywords/*.yml 의 scoring.core / scoring.related 가중치를 shell 에서 JSON 으로 전달받음)
+import importlib.util
+_weight_path = sys.argv[10]
+with open(_weight_path) as _f:
+    _w = json.load(_f)
+CORE_WEIGHTS    = {k: float(v) for k, v in _w['core'].items()}
+RELATED_WEIGHTS = {k: float(v) for k, v in _w['related'].items()}
+
 def keyword_score(text):
-    core    = re.compile(r'\bMBSE\b|\bSysML\b|\bUAF\b', re.I)
-    related = re.compile(r'systems.engineering|model.based|digital.twin|INCOSE|Cameo|Capella', re.I)
-    return len(core.findall(text)) * 3 + len(related.findall(text))
+    text_l = text.lower()
+    score = 0.0
+    for term, w in CORE_WEIGHTS.items():
+        n = len(re.findall(re.escape(term), text_l))
+        score += n * w
+    for term, w in RELATED_WEIGHTS.items():
+        n = len(re.findall(re.escape(term), text_l))
+        score += n * w
+    return min(int(score), 20)
 
 # ── AI 요약 (OpenRouter → Anthropic → 더미) ──────────────────────────────────
 def ai_summarize(title: str, body: str) -> str:
@@ -233,3 +260,6 @@ PYEOF
 
 echo "[agent3] 요약 결과 저장 완료: $OUTPUT" >&2
 cat "$OUTPUT"
+
+# 임시 파일 정리
+rm -f "$WEIGHTS_FILE"

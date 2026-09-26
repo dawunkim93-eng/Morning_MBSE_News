@@ -26,20 +26,43 @@ SEMANTIC_TMP=$(mktemp)                 # Semantic Scholar 결과 임시 파일
 
 echo "[agent2] 논문 소스 병렬 수집 시작..." >&2
 
+# ── Step 0: 플러그인에서 쿼리 동적 생성 ─────────────────────────────────────
+# keywords/*.yml 의 arxiv / semantic_scholar 쿼리를 keyword_loader 로 로드
+ARXIV_QUERY_RAW=$(python3 "$SCRIPT_DIR/keyword_loader.py" --format arxiv)
+SEMANTIC_QUERY=$(python3 "$SCRIPT_DIR/keyword_loader.py" --format semantic)
+
+# arXiv 쿼리 문자열 조립: 각 쿼리를 ti:/abs: 필드 검색으로 변환 후 OR 결합
+#   예) "Model-Based Systems Engineering" → ti:"..." OR abs:"..."
+#   복수 단어 쿼리는 반드시 따옴표로 감싸야 arXiv API에서 구문으로 인식됨
+ARXIV_QUERY=$(python3 - "$ARXIV_QUERY_RAW" <<'PYEOF'
+import sys, urllib.parse
+queries = [q.strip() for q in sys.argv[1].splitlines() if q.strip()]
+parts = []
+for q in queries:
+    enc = urllib.parse.quote_plus(f'"{q}"')   # 구문 검색용 따옴표 포함 인코딩
+    parts.append(f'ti:{enc}')
+    parts.append(f'abs:{enc}')
+print('+OR+'.join(parts) if parts else 'all:MBSE')
+PYEOF
+)
+
+echo "[agent2] arXiv 쿼리 생성 완료 (${ARXIV_QUERY:0:80}...)" >&2
+echo "[agent2] Semantic Scholar 쿼리: $SEMANTIC_QUERY" >&2
+
 # ── Step 1: arXiv + Semantic Scholar 병렬 수집 ────────────────────────────────
 # bash 백그라운드(&)로 두 소스를 동시에 요청해 총 대기 시간을 단축
 
 (
     # arXiv: curl 대신 Python urllib 사용 (GitHub Actions에서 더 안정적)
     echo "[agent2] arXiv 요청 (Python urllib)..." >&2
-    python3 - "$ARXIV_TMP" <<'PYEOF'
+    python3 - "$ARXIV_TMP" "$ARXIV_QUERY" <<'PYEOF'
 import sys, json, urllib.request, xml.etree.ElementTree as ET
 
+# 쿼리 문자열은 스크립트 인자로 전달받음 (keyword_loader 플러그인에서 생성, 이미 인코딩됨)
+query = sys.argv[2]
 arxiv_url = (
     "https://export.arxiv.org/api/query"
-    "?search_query=ti:MBSE+OR+abs:MBSE+OR+ti:SysML+OR+abs:SysML"
-    "+OR+ti:%22model-based+systems+engineering%22"
-    "+OR+abs:%22model-based+systems+engineering%22"
+    f"?search_query={query}"
     "&sortBy=submittedDate&sortOrder=descending&max_results=20"
 )
 ns = {'atom': 'http://www.w3.org/2005/Atom'}
@@ -84,7 +107,9 @@ PID_ARXIV=$!  # arXiv 백그라운드 프로세스 PID
 
 (
     # Semantic Scholar: MBSE 관련 논문 검색 (인용 정보 포함)
-    sem_url="https://api.semanticscholar.org/graph/v1/paper/search?query=model-based+systems+engineering&fields=title,abstract,authors,year,citationCount,externalIds&limit=10"
+    # 쿼리는 keyword_loader 플러그인(semantic_scholar 항목)에서 생성
+    enc_query=$(urlencode "$SEMANTIC_QUERY")
+    sem_url="https://api.semanticscholar.org/graph/v1/paper/search?query=${enc_query}&fields=title,abstract,authors,year,citationCount,externalIds&limit=10"
     echo "[agent2] Semantic Scholar 요청: $sem_url" >&2
     json=$(web_fetch "$sem_url") || exit 0
 
@@ -126,7 +151,10 @@ wait $PID_ARXIV $PID_SEMANTIC
 echo "[agent2] 두 소스 수집 완료" >&2
 
 # ── Step 2: 병합 + 필터링 + 중복 제거 ────────────────────────────────────────
-python3 - "$ARXIV_TMP" "$SEMANTIC_TMP" "$SCRIPT_DIR/cache/seen_urls.txt" <<'PYEOF' > "$OUTPUT"
+# MBSE 관련 키워드 패턴은 keyword_loader 플러그인(filter 항목)에서 로드
+FILTER_PATTERN=$(python3 "$SCRIPT_DIR/keyword_loader.py" --format filter --separator '|')
+
+python3 - "$ARXIV_TMP" "$SEMANTIC_TMP" "$SCRIPT_DIR/cache/seen_urls.txt" "$FILTER_PATTERN" <<'PYEOF' > "$OUTPUT"
 import sys, json, re
 
 def load_json(path):
@@ -145,10 +173,9 @@ def load_cache(path):
     except:
         return set()
 
-# MBSE 관련 키워드 패턴 (제목 + 초록 검색용)
-KEYWORDS = re.compile(
-    r'MBSE|SysML|UAF|digital.twin|systems.engineering|'
-    r'Cameo|model.based|INCOSE|DoDAF|UPDM|Capella', re.I)
+# MBSE 관련 키워드 패턴 (제목 + 초록 검색용) — 플러그인 filter에서 생성
+# grep -E 호환 패턴이므로 그대로 정규식으로 사용
+KEYWORDS = re.compile(sys.argv[4], re.I)
 
 cache      = load_cache(sys.argv[3])
 all_items  = load_json(sys.argv[1]) + load_json(sys.argv[2])  # arXiv + Semantic Scholar 병합
