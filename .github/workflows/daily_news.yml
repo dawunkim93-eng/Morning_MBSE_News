@@ -59,3 +59,7 @@ jobs:
             git commit -m "Daily briefing: ${DATE} [skip ci]"
             git push
           fi
+
+      # ── 사이트 자동 재빌드 ──
+      # data/ 커밋이 deploy-pages.yml 의 paths 트리거(data/**)를 건다.
+      # 별도 스텝 불필요 — push 시 deploy-pages.yml 이 자동 실행된다.
