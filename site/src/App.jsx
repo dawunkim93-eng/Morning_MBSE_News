@@ -90,7 +90,7 @@ export default function App() {
             ? <BriefingView onNavigate={go} />
             : <ArchiveView externalQuery={query} />}
         </div>
-        <footer className="site-footer" style={{ margin: '0 var(--spacing-32)' }}>
+        <footer className="site-footer footer-inner">
           <div>MBSE Letters — 매일 오전 07:00 KST 자동 수집</div>
           <div>Powered by GitHub Actions · arXiv · Google News · OMG · Bing</div>
         </footer>

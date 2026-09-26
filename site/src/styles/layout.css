@@ -8,9 +8,9 @@
   min-height: 100vh;
 }
 
-/* ── 사이드바 (240-280px, Canvas + 우측 1px Fog 보더) ── */
+/* ── 사이드바 (유동 폭: 좁은 화면에 비례 축소, Canvas + 우측 1px Fog 보더) ── */
 .sidebar {
-  width: var(--sidebar-width);
+  width: clamp(220px, 20vw, var(--sidebar-width));
   flex-shrink: 0;
   background: var(--color-canvas);
   border-right: 1px solid var(--color-fog);
@@ -84,7 +84,8 @@
 }
 .nav-item.active .nav-icon { color: var(--color-blueprint-blue); }
 
-/* ── 사이드바 검색 (Paper 배경, 포커스 시 Canvas 전환) ── */
+/* ── 사이드바 검색 (Paper 배경, 포커스 시 Canvas 전환)
+   ※ 데스크톱에서도 16px — iOS Safari 자동 줌(16px 미만 인풋 focus) 근본 차단 ── */
 .search-box {
   position: relative;
   padding: 0 var(--spacing-12);
@@ -97,7 +98,7 @@
   border: 1px solid var(--color-fog);
   background: var(--color-paper);
   color: var(--color-ink-black);
-  font-size: var(--text-body-sm);
+  font-size: 16px;   /* iOS 자동 줌 방지: 16px 미만 인풋은 포커스 시 강제 확대됨 */
   outline: none;
   /* 포커스 링 없음 — 배경/보더의 조용한 전환 */
   transition: background 0.12s, border-color 0.12s;
@@ -185,13 +186,15 @@
 
 .hero-text { flex: 1; min-width: 0; }
 
+/* 히어로 헤드라인 — 유동 스케일 (핀치줌·화면 폭에 비례해 축소) */
 .hero-headline {
   margin: 0 0 var(--spacing-12);
-  font-size: var(--text-heading);
+  font-size: clamp(22px, 5vw, 30px);
   line-height: var(--leading-heading);
-  letter-spacing: var(--tracking-heading);
+  letter-spacing: -0.02em;
   font-weight: var(--font-weight-bold);
   color: var(--color-ink-black);
+  overflow-wrap: anywhere;
 }
 
 .hero-body {
@@ -199,6 +202,7 @@
   font-size: var(--text-body);
   color: var(--color-slate);
   line-height: var(--leading-body);
+  overflow-wrap: anywhere;
 }
 
 /* Primary CTA — 뷰포트당 1개만 블루 채움 */
@@ -311,7 +315,7 @@
   color: var(--color-slate);
 }
 
-/* ── 푸터 (메인 하단) ── */
+/* ── 푸터 (메인 하단, 컨텐츠 폭과 정렬) ── */
 .site-footer {
   padding: var(--spacing-20) 0 var(--spacing-32);
   border-top: 1px solid var(--color-fog);
@@ -320,6 +324,9 @@
   text-align: center;
 }
 .site-footer div + div { margin-top: 4px; }
+
+/* 푸터 좌우 마진 — 메인 컬럼 내 컨텐츠 정렬 (모바일은 브레이크포인트에서 축소) */
+.footer-inner { margin: 0 var(--spacing-32); }
 
 /* ── 2열 카드 그리드 ── */
 .cards-grid {
@@ -340,20 +347,53 @@
     gap: var(--spacing-12);
     padding: var(--spacing-12) var(--spacing-16);
     border-bottom: 1px solid var(--color-fog);
+    border-right: none;
     overflow: visible;
   }
 
   .announcement, .sidebar-footer { display: none; }
 
-  .sidebar-nav { flex-direction: row; gap: var(--spacing-8); }
+  /* 수평 nav — 세로용 좌측 보더 대신 배경·색상으로 활성 표시 */
+  .sidebar-nav { flex-direction: row; gap: var(--spacing-8); flex-wrap: wrap; }
   .nav-item { padding: 6px 12px; }
+  .nav-item.active {
+    border-left: none;
+    border-bottom: 3px solid var(--color-blueprint-blue);
+  }
 
   .search-box { padding: 0; }
 
   .main-inner { padding: var(--spacing-20) var(--spacing-16); gap: var(--spacing-32); }
 
-  .hero-panel { flex-direction: column; align-items: stretch; }
+  .hero-panel {
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--spacing-20);
+  }
   .hero-illustration { display: none; }
 
+  /* 푸터 — 모바일 패딩과 정렬 */
+  .site-footer { margin: 0 var(--spacing-16); }
+
   .cards-grid { grid-template-columns: 1fr; }
+}
+
+/* ── 소형 폰 (≤480px): 확대/축소 시 비율 유지 보강 ── */
+@media (max-width: 480px) {
+  .main-inner { padding: var(--spacing-16) var(--spacing-12); gap: var(--spacing-28); }
+
+  .hero-panel { padding: var(--spacing-16); }
+  .hero-headline { font-size: clamp(20px, 6.5vw, 24px); }
+
+  .btn-primary { padding: 8px 14px; }
+
+  /* 필터 칩 축소 — 긴 라벨도 한 화면에 배치 */
+  .filter-bar { gap: 6px; }
+  .chip { padding: 4px 9px; font-size: 11px; }
+
+  /* 카드 패딩·타일 축소 */
+  .item-card { padding: var(--spacing-12); gap: var(--spacing-8); }
+  .card-thumb { width: 40px; height: 40px; font-size: 17px; }
+
+  .site-footer { margin: 0 var(--spacing-12); }
 }
