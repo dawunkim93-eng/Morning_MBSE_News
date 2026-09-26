@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useLatestBriefing, LATEST_DATE } from './hooks/useData.js'
+import { LATEST_DATE } from './hooks/useData.js'
 import { formatDate } from './utils/labels.js'
 import BriefingView from './components/BriefingView.jsx'
 import ArchiveView from './components/ArchiveView.jsx'
@@ -18,8 +18,6 @@ export default function App() {
     window.addEventListener('hashchange', onHash)
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
-
-  const briefing = useLatestBriefing()
 
   const go = (r) => {
     window.location.hash = r === 'archive' ? '#archive' : ''
@@ -71,8 +69,8 @@ export default function App() {
 
       <main className="container">
         {route === 'home'
-          ? <BriefingView briefing={briefing} />
-          : <ArchiveView  />}
+          ? <BriefingView />
+          : <ArchiveView externalQuery={query} />}
       </main>
 
       <footer className="site-footer">

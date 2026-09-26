@@ -1,8 +1,26 @@
-import { LATEST_DATE } from '../hooks/useData.js'
+import { LATEST_DATE, useLatestBriefing } from '../hooks/useData.js'
 import { formatDate } from '../utils/labels.js'
 import ItemCard from './ItemCard.jsx'
 
-export default function BriefingView({ briefing }) {
+export default function BriefingView() {
+  const { briefing, loading, error } = useLatestBriefing()
+
+  if (loading) {
+    return (
+      <div className="empty-state">
+        <div className="icon">⏳</div>
+        브리핑 로딩 중…
+      </div>
+    )
+  }
+  if (error) {
+    return (
+      <div className="empty-state">
+        <div className="icon">⚠️</div>
+        브리핑 로드 실패: {String(error.message || error)}
+      </div>
+    )
+  }
   if (!briefing) {
     return (
       <div className="empty-state">

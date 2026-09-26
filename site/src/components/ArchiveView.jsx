@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { useArchive, useYears } from '../hooks/useData.js'
 import { CATEGORY_LABELS, toISODate } from '../utils/labels.js'
 import ItemCard from './ItemCard.jsx'
@@ -6,13 +6,18 @@ import ItemCard from './ItemCard.jsx'
 const CATEGORIES = ['SysML', 'UAF', 'Tool', 'Standard', 'Research', 'Digital', 'Industry']
 
 export default function ArchiveView({ externalQuery = '' } = {}) {
-  const { newsMonths, papersMonths } = useArchive()
+  const { newsMonths, papersMonths, loading, error } = useArchive()
   const years = useYears()
 
   const [tab, setTab] = useState('news')          // news | papers
   const [category, setCategory] = useState(null)  // null = 전체
   const [year, setYear] = useState(null)          // null = 전체
-  const [query, setQuery] = useState(externalQuery)          // 텍스트 검색
+  const [query, setQuery] = useState(externalQuery)
+
+  // 외부(헤더 검색바)에서 검색어가 들어오면 동기화
+  useEffect(() => {
+    if (externalQuery !== '') setQuery(externalQuery)
+  }, [externalQuery])
 
   const months = tab === 'news' ? newsMonths : papersMonths
 
@@ -23,7 +28,7 @@ export default function ArchiveView({ externalQuery = '' } = {}) {
       .filter(m => !year || m.month.startsWith(year))
       .map(m => ({
         month: m.month,
-        items: m.content.items.filter(it => {
+        items: (m.content.items ?? []).filter(it => {
           if (category && (it.category || 'Research') !== category) return false
           if (q && !(
             it.title.toLowerCase().includes(q) ||
@@ -38,6 +43,23 @@ export default function ArchiveView({ externalQuery = '' } = {}) {
   }, [months, year, category, query])
 
   const totalCount = filtered.reduce((s, m) => s + m.items.length, 0)
+
+  if (loading) {
+    return (
+      <div className="empty-state">
+        <div className="icon">⏳</div>
+        아카이브 로딩 중…
+      </div>
+    )
+  }
+  if (error) {
+    return (
+      <div className="empty-state">
+        <div className="icon">⚠️</div>
+        아카이브 로드 실패: {String(error.message || error)}
+      </div>
+    )
+  }
 
   return (
     <div>
@@ -115,7 +137,9 @@ export default function ArchiveView({ externalQuery = '' } = {}) {
             <div className="cards-grid">
               {items
                 .slice()
-                .sort((a, b) => toISODate(b.date).localeCompare(toISODate(a.date)) || (b.score ?? 0) - (a.score ?? 0))
+                .sort((a, b) =>
+                  (toISODate(b.date) || '').localeCompare(toISODate(a.date) || '') ||
+                  (b.score ?? 0) - (a.score ?? 0))
                 .map(item => (
                   <ItemCard key={item.url} item={item} />
                 ))}
