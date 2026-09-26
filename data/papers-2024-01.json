@@ -1,0 +1,27 @@
+{
+  "type": "papers_archive",
+  "month": "2024-01",
+  "count": 2,
+  "items": [
+    {
+      "title": "Seamless Digital Engineering: A Grand Challenge Driven by Needs",
+      "url": "http://arxiv.org/abs/2401.02059v1",
+      "date": "2024-01-04",
+      "abstract": "Digital Engineering currently relies on costly and often bespoke integration of disparate software products to assemble the authoritative source of truth of the system-of-interest. Tools not originally designed to work together become an acknowledged system-of-systems, with their own separate feature roadmaps, deprecation, and support timelines. The resulting brittleness and conglomeration of disparate interfaces in the Digital Engineering Ecosystem of an organization drains resources and impairs efficiency and efficacy. If Model-Based Systems Engineering were applied to this problem, a complete system architecture model would be defined, and a purpose-built computing system-of-systems would be constructed to satisfy stakeholder needs. We have decades of research in computer science, cybersecurity, software and systems engineering, and human-computer interaction from which to draw that informs the design of a Seamless Digital Engineering tooling system, but it would require starting from a clean slate while carefully adopting existing standards. In this paper, this problem space and solution space are characterized, defining and identifying Seamless Digital Engineering as a grand challenge in Digital Engineering research.",
+      "authors": "James S. Wheaton, Daniel R. Herber",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 20
+    },
+    {
+      "title": "Towards an Autonomous Compost Turner: Current State of Research",
+      "url": "http://arxiv.org/abs/2401.13493v1",
+      "date": "2024-01-24",
+      "abstract": "This preprint presents the current status of research into the development and application of an autonomous, self-driving compost turner. The aim is to overcome challenges in the composting industry, such as adverse working conditions, by automating the composting process. The preprint provides a comprehensive overview of the overall concept of the self-driving compost turner, including the hardware architecture with sensors, navigation module and control module. In addition, the methodical development of the architecture of concepts, models and their subsequent software integration in ROS using model-based systems engineering is described. The validation and verification of the overall system is carried out in an industrial environment using three scenarios. The capabilities of the compost turner are demonstrated by autonomously following predefined trajectories in the composting plant and performing the required composting tasks. The results show that the autonomous compost turner is capable of performing the required activities. In addition, the compost turner has intelligent processing capabilities for compost data as well as its transmission, visualization and storage in a cloud server. It is important to note that this work is a preprint that represents the current state of research. The authors aim to publish the full paper in a peer-reviewed journal in the near future.",
+      "authors": "Max Cichocki, Eva Reitbauer, Fabian Theurl, Christoph Schmied",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 20
+    }
+  ]
+}

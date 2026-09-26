@@ -1,0 +1,57 @@
+{
+  "type": "papers_archive",
+  "month": "2026-06",
+  "count": 5,
+  "items": [
+    {
+      "title": "IDDMBSE: Integrating Data-Driven and Model-Based Systems Engineering for Trusted Autonomous Cyber-Physical Systems",
+      "url": "http://arxiv.org/abs/2606.06727v1",
+      "date": "2026-06-04",
+      "abstract": "Autonomous cyber-physical systems (CPS) sit at the intersection of Model-Based Systems Engineering (MBSE) and data-driven Machine Learning and Artificial Intelligence (ML/AI), yet no integrated Systems Engineering (SE) methodology natively spans both. We address this gap with IDDMBSE, an Integrated Data-Driven and Model-Based Systems Engineering methodology that extends the rigorous MBSE V-process with a data-driven loop at every step, anchored in SysML, the autonomy stack, and a hybrid model-based plus data-driven trade-off architecture. We instantiate IDDMBSE as an interoperable, open-source tool chain: PERFECT, which maps SysML system architectures to executable ROS autonomy stacks for scalable performance evaluation; TRADES-X, which decomposes design-space exploration into a model-based optimization stage followed by a data-driven evaluation stage; and VERITAS, which combines formal, data-driven, and runtime verification into a single assurance workflow. We demonstrate IDDMBSE on a Trusted Autonomous Ground Robot across its development lifecycle, spanning sensor-suite selection, risk-sensitive path planning, behavior-tree task verification, conformal-prediction-based robust perception, and assured multi-robot coordination, all exercised in a contested-terrain Isaac Sim test range that we release with the tool chain. We close by sketching how IDDMBSE is being re-formulated on SysML v2 / KerML foundations to enable language-native composability and tighter ML/AI integration.",
+      "authors": "John S. Baras, Sai Sandeep Damera, Ryan Matheu, Clinton Enwerem, Praveen M. S. Kumar",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 20
+    },
+    {
+      "title": "A data-driven security quantification framework for IoT-based systems",
+      "url": "http://arxiv.org/abs/2606.16561v1",
+      "date": "2026-06-15",
+      "abstract": "The Internet of Things (IoT) is integral to modern cyber-physical systems. Quantitative cybersecurity assessment in IoT environments remains challenging due to heterogeneous system architectures, evolving threat landscapes, and the limited availability of reliable probabilistic exploitability data. Although Attack Tree Analysis (ATA) provides a structured framework for modelling potential attack paths leading to system compromise, conventional ATA quantification often relies on subjective expert judgement or heuristic scoring schemes, which can introduce uncertainty and reduce analytical reproducibility. This study introduces a data-driven probabilistic security framework for IoT-based safety-critical systems by integrating Model-Based Systems Engineering (MBSE), ATA, and empirical vulnerability data. In the proposed framework, SysML models capture system architecture, from which attack trees are derived. Vulnerabilities are mapped as Basic Attack Steps and assigned exploitation probabilities using the Exploit Prediction Scoring System (EPSS). The attack tree is then represented as a Bayesian Network, enabling probabilistic reasoning, diagnostic inference, and vulnerability criticality analysis. The framework quantifies system compromise probabilities, identifies likely causes of attacks, and prioritises mitigation strategies. By combining architecture-driven modelling with real-world vulnerability intelligence, it provides a rigorous, reproducible approach for cybersecurity risk assessment in complex IoT environments.",
+      "authors": "Alhassan Abdulhamid, Sohag Kabir, Ibrahim Ghafir, Ci Lei",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 20
+    },
+    {
+      "title": "Q-READY: Predictive Feasibility Assessment for Hybrid Quantum-Classical Applications",
+      "url": "http://arxiv.org/abs/2606.16201v1",
+      "date": "2026-06-15",
+      "abstract": "Quantum computing is rapidly evolving into an emerging computational infrastructure and is increasingly being used to tackle real-world problems in domains such as chemistry, materials science, logistics, and finance, as well as software engineering problems such as test optimization and project scheduling. Hybrid quantum-classical applications are particularly important because they provide a practical path for integrating quantum capabilities into existing software systems under near-term hardware constraints. However, the engineering of hybrid quantum-classical applications remains largely ad hoc and constrained by hardware limitations including qubit scarcity, noise, and limited connectivity. In this paper, we propose Q-READY to address the lack of systematic methodologies for assessing the feasibility of hybrid solutions prior to costly implementation. Positioned as a Model-Based Systems Engineering (MBSE) approach grounded in Model-Driven Engineering (MDE) principles, Q-READY establishes a structured pipeline encompassing requirements modeling, problem formulation, workflow design, and hardware-aware feasibility assessment, enabling simulation-based evaluation and comparison of candidate solutions under realistic constraints through traceable system-level models and backend-aware abstractions. We illustrate the pipeline with a running credit-portfolio capital-assessment example, showing how requirements, problem structure, strategy choices, workflow behavior, backend assumptions, and feasibility evidence can be linked into a coherent engineering decision. Q-READY is envisioned as an environment that supports executable modeling, constraint evaluation, and predictive analysis. Its expected outcomes include a systematic methodology for hybrid quantum application design, a supporting software platform, benchmark datasets, and empirical design guidelines.",
+      "authors": "Tao Yue, Man Zhang",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 20
+    },
+    {
+      "title": "SysML Modeling of Digital Twins for Renewable Energy Communities",
+      "url": "http://arxiv.org/abs/2606.20230v1",
+      "date": "2026-06-18",
+      "abstract": "Renewable Energy Communities (RECs) are emerging as a key organizational model for local and global sharing of renewable generation, storage, and flexible loads. Engineering Digital Twins of RECs is made difficult by the heterogeneity of devices, contracts, and runtime data involved. In this paper, we take a first step toward a Model-Based Systems Engineering (MBSE) workflow for REC's Digital Twins. Starting from an industrially-validated REC domain model, we re-express a representative house subset in SysML using the open-source Modelio tool, yielding two Block Definition Diagrams - a device taxonomy and a community organizational view. We then discuss four semantic gaps that plain SysML leaves open and sketch how the SAREF4ENER ontology could be imported as a reference package to close them. Combining SysML with SAREF-based semantics for smart-energy Digital Twins remains largely unexplored, and we position this paper as a first step along that line.",
+      "authors": "Mohammad Samadi, Luís Miguel Pinho, Andrey Sadovykh, Gabriela Lucas",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 20
+    },
+    {
+      "title": "Automated Semantic Fault Localization in SysML v2: A Human-in-the-Loop Framework Using Knowledge-Graph Augmented LLMs",
+      "url": "http://arxiv.org/abs/2606.23395v1",
+      "date": "2026-06-22",
+      "abstract": "SysML v2's textual syntax enables compiler-based validation of model structure and language conformance. However, semantic mistakes that preserve syntactic validity but violate domain rules cannot be detected through compilers. These errors can propagate through the design process and surface late as costly integration failures. This paper presents a human-in-the-loop framework for identifying and repairing such errors automatically. It combines a fine-tuned Small Language Model (SLM) with a domain knowledge graph encoding physical compatibility rules between system elements. The knowledge graph also guides the generation of synthetic training data by systematically introducing plausible domain violations, and augments the model at inference time to ground repair suggestions in valid engineering constraints. We demonstrate the framework using the vehicle systems domain, where the knowledge graph captures the relationships between the mechanical, electrical, fluid, and signal interfaces. Two SLMs, Qwen2.5-Coder-1.5B and DeepSeek-Coder-6.7B, are fine-tuned to output unified diff patches that localize faults and present candidate repairs for engineer review, preserving human judgment in the design process. Evaluation of 1,184 test samples shows that fine-tuning improves semantic fault repair from less than 3% to more than 91%, with patch-based output reducing token length by over 60%. The framework offers a practical path toward AI-assisted model verification that complements existing MBSE tools.",
+      "authors": "Haitham Al-Shami, Rohail Malik, Riku Ala-Laurinaho, Jari Vepsäläinen, Raine Viitala",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 20
+    }
+  ]
+}

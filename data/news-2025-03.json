@@ -1,0 +1,16 @@
+{
+  "type": "news_archive",
+  "month": "2025-03",
+  "count": 1,
+  "items": [
+    {
+      "title": "PDES, Inc. and OMG join forces to advance semantic interoperability",
+      "url": "https://www.omg.org/releases/pr2025/03-11-25.htm",
+      "date": "2025-03-11",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

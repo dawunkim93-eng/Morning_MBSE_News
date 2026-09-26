@@ -1,0 +1,27 @@
+{
+  "type": "papers_archive",
+  "month": "2024-09",
+  "count": 2,
+  "items": [
+    {
+      "title": "Enhancing MBSE Education with Version Control and Automated Feedback",
+      "url": "http://arxiv.org/abs/2409.15294v1",
+      "date": "2024-09-04",
+      "abstract": "This paper presents an innovative approach to conducting a Model-Based Systems Engineering (MBSE) course, engaging over 80 participants annually. The course is structured around collaborative group assignments, where students utilize Enterprise Architect to complete complex systems engineering tasks across six submissions. This year, we introduced several technological advancements to enhance the learning experience, including the use of LemonTree, SmartGit, and GitHub. Students collaborated on shared repositories in GitHub, received continuous feedback via automated checks through LemonTree Automation, and documented their progress with pre-rendered, continuously updating diagrams. Additionally, they managed 2-way and 3-way merges directly in SmartGit, with merge issues, updates, and model statistics readily available for each Work-in-Progress submission. The process of correcting and providing manual feedback was streamlined, thanks to accessible changelogs and renders in GitHub. An end-of-course feedback form revealed high student satisfaction.",
+      "authors": "Levente Bajczi, Dániel Szekeres, Daniel Siegl, Vince Molnár",
+      "source": "arxiv",
+      "category": "Industry",
+      "score": 20
+    },
+    {
+      "title": "A Hetero-functional Graph Resilience Analysis for Convergent Systems-of-Systems",
+      "url": "http://arxiv.org/abs/2409.04936v1",
+      "date": "2024-09-08",
+      "abstract": "Our modern life has grown to depend on many and nearly ubiquitous large complex engineering systems. Many disciplines now seemingly ask the same question: ``In the face of assumed disruption, to what degree will these systems continue to perform and when will they be able to bounce back to normal operation\"? Furthermore, there is a growing recognition that the greatest societal challenges of the Anthropocene era are intertwined, necessitating a convergent systems-of-systems modeling and analysis framework based upon reconciled ontologies, data, and theoretical methods. Consequently, this paper develops a methodology for hetero-functional graph resilience analysis and demonstrates it on a convergent system-of-systems. It uses the Systems Modeling Language, model-based systems engineering and Hetero-Functional Graph Theory (HFGT) to overcome the convergence research challenges when constructing models and measures from multiple disciplines for systems resilience. The paper includes both the ``survival\" as well as ``recovery\" components of resilience. It also strikes a middle ground between two disparate approaches to resilience measurement: structural measurement of formal graphs and detailed behavioral simulation. This paper also generalizes a previous resilience measure based on HFGT and benefits from recent theoretical and computational developments in HFGT. To demonstrate the methodological developments, the resilience analysis is conducted on a hypothetical energy-water nexus system of moderate size as a type of system-of-systems.",
+      "authors": "Amro M. Farid",
+      "source": "arxiv",
+      "category": "Research",
+      "score": 19
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "type": "papers_archive",
+  "month": "2020-05",
+  "count": 2,
+  "items": [
+    {
+      "title": "The Hetero-functional Graph Theory Toolbox",
+      "url": "http://arxiv.org/abs/2005.10006v2",
+      "date": "2020-05-08",
+      "abstract": "In the 20th century, newly invented technical artifacts were connected to form large-scale complex engineering systems. Furthermore, the interactions found within these networked systems has grown in both degree as well as heterogeneity. Consequently, these already complex engineering systems have converged in what is now called systems-of-systems. The analysis, design, planning, and operation of these engineering systems from a holistic perspective has necessitated ever-more sophisticated modeling techniques. Despite significant advancements in model-based systems engineering and network science, these seemingly disparate fields have experienced similar limitations in addressing the complexity of engineering systems. Hetero-Functional Graph Theory (HFGT) has emerged as a means to address some of these limitations. This paper serves as a user guide to a recently developed Hetero-functional Graph Theory Toolbox which facilitates the computation of HFGT mathematical models. It is written in the MATLAB language and has been tested with v9.6 (R2019a). It is openly available on GitHub together with a sample input file for straightforward re-use. The paper details the syntax and semantics of the input file, the principal data structure of the toolbox, and the functions used to construct and populate this data structure. The toolbox has been fully validated against several peer-review HFGT publications.",
+      "authors": "Dakota Thompson, Prabhat Hegde, Wester C. H. Schoonenberg, Inas Khayal, Amro M. Farid",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 19
+    },
+    {
+      "title": "Towards a Decentralized Digital Engineering Assets Marketplace: Empowered by Model-based Systems Engineering and Distributed Ledger Technology",
+      "url": "http://arxiv.org/abs/2005.05415v1",
+      "date": "2020-05-11",
+      "abstract": "Model-based Systems Engineering (MBSE) has been widely utilized to formalize system artifacts and facilitate their development throughout the entire lifecycle. During complex system development, MBSE models need to be frequently exchanged across stakeholders. Concerns about data security and tampering using traditional data exchange approaches obstruct the construction of a reliable marketplace for digital assets. The emerging Distributed Ledger Technology (DLT), represented by blockchain, provides a novel solution for this purpose owing to its unique advantages such as tamper-resistant and decentralization. In this paper, we integrate MBSE approaches with DLT aiming to create a decentralized marketplace to facilitate the exchange of digital engineering assets (DEAs). We first define DEAs from perspectives of digital engineering objects, development processes and system architectures. Based on this definition, the Graph-Object-Property-Point-Role-Relationship (GOPPRR) approach is used to formalize the DEAs. Then we propose a framework of a decentralized DEAs marketplace and specify the requirements, based on which we select a Directed Acyclic Graph (DAG) structured DLT solution. As a proof-of-concept, a prototype of the proposed DEAs marketplace is developed and a case study is conducted to verify its feasibility. The experiment results demonstrate that the proposed marketplace facilitates free DEAs exchange with a high level of security, efficiency and decentralization.",
+      "authors": "Jinzhi Lu, Xiaochen Zheng, Zhenchao Hu, Huisheng Zhang, Dimitris Kiritsis",
+      "source": "arxiv",
+      "category": "Research",
+      "score": 20
+    }
+  ]
+}

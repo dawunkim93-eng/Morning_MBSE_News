@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2020-11",
+  "count": 1,
+  "items": [
+    {
+      "title": "Institution-based Encoding and Verification of Simple UML State Machines in CASL/SPASS",
+      "url": "http://arxiv.org/abs/2011.00556v1",
+      "date": "2020-11-01",
+      "abstract": "This paper provides the first correct semantical representation of UML state-machines within the logical framework of an institution (previous attempts were flawed). A novel encoding of this representation into first-order logic enables symbolic analyses through a multitude of theorem-provers.   UML state-machines are central to model-based systems-engineering. Till now, state-machine analysis has been mostly restricted to model checking, which for state-machines suffers heavily from the state-space explosion problem. Symbolic reasoning, as enabled and demonstrated here, provides a powerful alternative, which can deal with large or even infinite state spaces.   Full proofs are given.",
+      "authors": "Tobias Rosenberger, Saddek Bensalem, Alexander Knapp, Markus Roggenbach",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 13
+    }
+  ]
+}

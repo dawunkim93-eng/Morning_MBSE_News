@@ -1,0 +1,37 @@
+{
+  "type": "papers_archive",
+  "month": "2026-01",
+  "count": 3,
+  "items": [
+    {
+      "title": "Foundational Analysis of Safety Engineering Requirements (SAFER)",
+      "url": "http://arxiv.org/abs/2601.06335v1",
+      "date": "2026-01-09",
+      "abstract": "We introduce a framework for Foundational Analysis of Safety Engineering Requirements (SAFER), a model-driven methodology supported by Generative AI to improve the generation and analysis of safety requirements for complex safety-critical systems. Safety requirements are often specified by multiple stakeholders with uncoordinated objectives, leading to gaps, duplications, and contradictions that jeopardize system safety and compliance. Existing approaches are largely informal and insufficient for addressing these challenges. SAFER enhances Model-Based Systems Engineering (MBSE) by consuming requirement specification models and generating the following results: (1) mapping requirements to system functions, (2) identifying functions with insufficient requirement specifications, (3) detecting duplicate requirements, and (4) identifying contradictions within requirement sets. SAFER provides structured analysis, reporting, and decision support for safety engineers. We demonstrate SAFER on an autonomous drone system, significantly improving the detection of requirement inconsistencies, enhancing both efficiency and reliability of the safety engineering process. We show that Generative AI must be augmented by formal models and queried systematically, to provide meaningful early-stage safety requirement specifications and robust safety architectures.",
+      "authors": "Noga Chemo, Yaniv Mordecai, Yoram Reich",
+      "source": "arxiv",
+      "category": "Standard",
+      "score": 20
+    },
+    {
+      "title": "LLM-Driven Accessible Interface: A Model-Based Approach",
+      "url": "http://arxiv.org/abs/2601.06616v1",
+      "date": "2026-01-10",
+      "abstract": "The integration of Large Language Models (LLMs) into interactive systems opens new opportunities for adaptive user experiences, yet it also raises challenges regarding accessibility, explainability, and normative compliance. This paper presents an implemented model-driven architecture for generating personalised, multimodal, and accessibility-aligned user interfaces. The approach combines structured user profiles, declarative adaptation rules, and validated prompt templates to refine baseline accessible UI templates that conform to WCAG 2.2 and EN 301 549, tailored to cognitive and sensory support needs. LLMs dynamically transform language complexity, modality, and visual structure, producing outputs such as Plain-Language text, pictograms, and high-contrast layouts aligned with ISO 24495-1 and W3C COGA guidance. A healthcare use case demonstrates how the system generates accessible post-consultation medication instructions tailored to a user profile comprising cognitive disability and hearing impairment. SysML v2 models provide explicit traceability between user needs, adaptation rules, and normative requirements, ensuring explainable and auditable transformations. Grounded in Human-Centered AI (HCAI), the framework incorporates co-design processes and structured feedback mechanisms to guide iterative refinement and support trustworthy generative behaviour.",
+      "authors": "Blessing Jerry, Lourdes Moreno, Virginia Francisco, Raquel Hervas",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 20
+    },
+    {
+      "title": "Engineering Decisions in MBSE: Insights for a Decision Capture Framework Development",
+      "url": "http://arxiv.org/abs/2601.07301v1",
+      "date": "2026-01-12",
+      "abstract": "Decision-making is a core engineering design activity that conveys the engineer's knowledge and translates it into courses of action. Capturing this form of knowledge can reap potential benefits for the engineering teams and enhance development efficiency. Despite its clear value, traditional decision capture often requires a significant amount of effort and still falls short of capturing the necessary context for reuse. Model-based systems engineering (MBSE) can be a promising solution to address these challenges by embedding decisions directly within system models, which can reduce the capture workload while maintaining explicit links to requirements, behaviors, and architectural elements. This article discusses a lightweight framework for integrating decision capture into MBSE workflows by representing decision alternatives as system model slices. Using a simplified industry example from aircraft architecture, we discuss the main challenges associated with decision capture and propose preliminary solutions to address these challenges.",
+      "authors": "Nidhal Selmi, Jean-michel Bruel, Sébastien Mosser, Matthieu Crespo, Alain Kerbrat",
+      "source": "arxiv",
+      "category": "Research",
+      "score": 20
+    }
+  ]
+}

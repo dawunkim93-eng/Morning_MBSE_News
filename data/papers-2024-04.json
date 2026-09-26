@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2024-04",
+  "count": 1,
+  "items": [
+    {
+      "title": "Advanced simulation-based predictive modelling for solar irradiance sensor farms",
+      "url": "http://arxiv.org/abs/2404.15324v1",
+      "date": "2024-04-05",
+      "abstract": "As solar power continues to grow and replace traditional energy sources, the need for reliable forecasting models becomes increasingly important to ensure the stability and efficiency of the grid. However, the management of these models still needs to be improved, and new tools and technologies are required to handle the deployment and control of solar facilities. This work introduces a novel framework named Cloud-based Analysis and Integration for Data Efficiency (CAIDE), designed for real-time monitoring, management, and forecasting of solar irradiance sensor farms. CAIDE is designed to manage multiple sensor farms simultaneously while improving predictive models in real-time using well-grounded Modeling and Simulation (M&S) methodologies. The framework leverages Model Based Systems Engineering (MBSE) and an Internet of Things (IoT) infrastructure to support the deployment and analysis of solar plants in dynamic environments. The system can adapt and re-train the model when given incorrect results, ensuring that forecasts remain accurate and up-to-date. Furthermore, CAIDE can be executed in sequential, parallel, and distributed architectures, assuring scalability. The effectiveness of CAIDE is demonstrated in a complex scenario composed of several solar irradiance sensor farms connected to a centralized management system. Our results show that CAIDE is scalable and effective in managing and forecasting solar power production while improving the accuracy of predictive models in real time. The framework has important implications for the deployment of solar plants and the future of renewable energy sources.",
+      "authors": "José L. Risco-Martín, Ignacio-Iker Prado-Rujas, Javier Campoy, María S. Pérez, Katzalin Olcoz",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 20
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2025-02",
+  "count": 1,
+  "items": [
+    {
+      "title": "Towards Closing the Gap between Model-Based Systems Engineering and Automated Vehicle Assurance: Tailoring Generic Methods by Integrating Domain Knowledge",
+      "url": "http://arxiv.org/abs/2502.06627v1",
+      "date": "2025-02-10",
+      "abstract": "Designing, assuring and releasing safe automated vehicles is a highly interdisciplinary process. As complex systems, automated driving systems will inevitably be subject to emergent properties, i. e., the properties of the overall system will be more than just a sum of the properties of its integrated elements. Safety is one example of such emergent properties. In this regard, it must be ensured that effects of emergence do not render an overall system that is composed of safety-approved sub systems unsafe. The key challenges in this regard are twofold: Regarding the interdisciplinary character of the development and assurance processes, all relevant stakeholders must speak a common language and have a common understanding of the key concepts that influence system safety. Additionally, the individual properties of system elements should remain traceable to the system level. Model-Based Systems Engineering (MBSE) provides an interdisciplinary mindset, as well as methods and processes to manage emergent system properties over the entire system lifecycle. By this, MBSE provides tools that can assist the assurance process for automated vehicles. However, concepts from the domain of MBSE have a reputation for not being directly accessible for domain experts who are no experts in the field of Systems Engineering. This paper highlights challenges when applying MBSE methods to the design and development of automated driving systems. It will present an approach to create and apply domain-specific SysML profiles, which can be a first step for enhancing communication between different stake-holders in the development and safety assurance processes.",
+      "authors": "Marcus Nolte, Markus Maurer",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 20
+    }
+  ]
+}

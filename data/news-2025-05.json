@@ -1,0 +1,25 @@
+{
+  "type": "news_archive",
+  "month": "2025-05",
+  "count": 2,
+  "items": [
+    {
+      "title": "Unified Architecture Framework® (UAF®) Model User Certification",
+      "url": "https://www.omg.org/releases/pr2025/05-06-25.htm",
+      "date": "2025-05-06",
+      "source": "omg_press",
+      "category": "UAF",
+      "score": 5,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Publishes New Editon of Journal of Innovation Focused on Security, Sovereignty, and Trust",
+      "url": "https://www.omg.org/releases/pr2025/05-20-25.htm",
+      "date": "2025-05-20",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

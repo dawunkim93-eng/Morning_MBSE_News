@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2022-08",
+  "count": 1,
+  "items": [
+    {
+      "title": "MBSE analysis for energy sustainability improvement in manufacturing industry",
+      "url": "http://arxiv.org/abs/2208.01514v1",
+      "date": "2022-08-02",
+      "abstract": "With the ever increasing complexity of Industry 4.0 systems, plant energy management systems developed to improve energy sustainability become equally complex. Based on a Model-Based Systems Engineering analysis, this paper aims to provide a general approach to perform holistic development of an autonomous energy management system for manufacturing industries. This Energy Management System (EMS) will be capable of continuously improving its ability to assess, predict, and act, in order to improve by monitoring and controlling the energy sustainability of manufacturing systems. The approach was implemented with the System Modeling Language (SysML).",
+      "authors": "Romain Delabeye, Olivia Penas, Martin Ghienne, Arkadiusz Kosecki, Jean-Luc Dion",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 20
+    }
+  ]
+}

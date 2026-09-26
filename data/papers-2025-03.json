@@ -1,0 +1,37 @@
+{
+  "type": "papers_archive",
+  "month": "2025-03",
+  "count": 3,
+  "items": [
+    {
+      "title": "GenAI for Simulation Model in Model-Based Systems Engineering",
+      "url": "http://arxiv.org/abs/2503.06422v1",
+      "date": "2025-03-09",
+      "abstract": "Generative AI (GenAI) has demonstrated remarkable capabilities in code generation, and its integration into complex product modeling and simulation code generation can significantly enhance the efficiency of the system design phase in Model-Based Systems Engineering (MBSE). In this study, we introduce a generative system design methodology framework for MBSE, offering a practical approach for the intelligent generation of simulation models for system physical properties. First, we employ inference techniques, generative models, and integrated modeling and simulation languages to construct simulation models for system physical properties based on product design documents. Subsequently, we fine-tune the language model used for simulation model generation on an existing library of simulation models and additional datasets generated through generative modeling. Finally, we introduce evaluation metrics for the generated simulation models for system physical properties. Our proposed approach to simulation model generation presents the innovative concept of scalable templates for simulation models. Using these templates, GenAI generates simulation models for system physical properties through code completion. The experimental results demonstrate that, for mainstream open-source Transformer-based models, the quality of the simulation model is significantly improved using the simulation model generation method proposed in this paper.",
+      "authors": "Lin Zhang, Yuteng Zhang, Dusit Niyato, Lei Ren, Pengfei Gu, Zhen Chen, Yuanjun Laili, Wentong Cai, Agostino Bruzzone",
+      "source": "arxiv",
+      "category": "Research",
+      "score": 20
+    },
+    {
+      "title": "Inference-Time Intervention in Large Language Models for Reliable Requirement Verification",
+      "url": "http://arxiv.org/abs/2503.14130v1",
+      "date": "2025-03-18",
+      "abstract": "Steering the behavior of Large Language Models (LLMs) remains a challenge, particularly in engineering applications where precision and reliability are critical. While fine-tuning and prompting methods can modify model behavior, they lack the dynamic and exact control necessary for engineering applications. Inference-time intervention techniques provide a promising alternative, allowing targeted adjustments to LLM outputs. In this work, we demonstrate how interventions enable fine-grained control for automating the usually time-intensive requirement verification process in Model-Based Systems Engineering (MBSE). Using two early-stage Capella SysML models of space missions with associated requirements, we apply the intervened LLMs to reason over a graph representation of the model to determine whether a requirement is fulfilled. Our method achieves robust and reliable outputs, significantly improving over both a baseline model and a fine-tuning approach. By identifying and modifying as few as one to three specialised attention heads, we can significantly change the model's behavior. When combined with self-consistency, this allows us to achieve perfect precision on our holdout test set.",
+      "authors": "Paul Darm, James Xie, Annalisa Riccardi",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 20
+    },
+    {
+      "title": "A Systematic Digital Engineering Approach to Verification & Validation of Autonomous Ground Vehicles in Off-Road Environments",
+      "url": "http://arxiv.org/abs/2503.13787v2",
+      "date": "2025-03-18",
+      "abstract": "The engineering community currently encounters significant challenges in the systematic development and validation of autonomy algorithms for off-road ground vehicles. These challenges are posed by unusually high test parameters and algorithmic variants. In order to address these pain points, this work presents an optimized digital engineering framework that tightly couples digital twin simulations with model-based systems engineering (MBSE) and model-based design (MBD) workflows. The efficacy of the proposed framework is demonstrated through an end-to-end case study of an autonomous light tactical vehicle (LTV) performing visual servoing to drive along a dirt road and reacting to any obstacles or environmental changes. The presented methodology allows for traceable requirements engineering, efficient variant management, granular parameter sweep setup, systematic test-case definition, and automated execution of the simulations. The candidate off-road autonomy algorithm is evaluated for satisfying requirements against a battery of 128 test cases, which is procedurally generated based on the test parameters (times of the day and weather conditions) and algorithmic variants (perception, planning, and control sub-systems). Finally, the test results and key performance indicators are logged, and the test report is generated automatically. This then allows for manual as well as automated data analysis with traceability and tractability across the digital thread.",
+      "authors": "Tanmay Vilas Samak, Chinmay Vilas Samak, Julia Brault, Cori Harber, Kirsten McCane, Jonathon Smereka, Mark Brudnak, David Gorsich, Venkat Krovi",
+      "source": "arxiv",
+      "category": "Research",
+      "score": 20
+    }
+  ]
+}

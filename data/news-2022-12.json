@@ -1,0 +1,16 @@
+{
+  "type": "news_archive",
+  "month": "2022-12",
+  "count": 1,
+  "items": [
+    {
+      "title": "Object Management Group Develops Method to Structure Clinical Healthcare Knowledge",
+      "url": "https://www.omg.org/releases/pr2022/12-13-22.htm",
+      "date": "2022-12-13",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

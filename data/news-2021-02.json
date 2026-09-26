@@ -1,0 +1,16 @@
+{
+  "type": "news_archive",
+  "month": "2021-02",
+  "count": 1,
+  "items": [
+    {
+      "title": "Object Management Group Adopts Open Architecture Radar Interface Standard (OARIS) 2.0 Spec, Issues RFP for OARIS 3.0 Plot Sharing",
+      "url": "https://www.omg.org/releases/pr2021/02-03-21.htm",
+      "date": "2021-02-03",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 1,
+      "summary": ""
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "type": "news_archive",
+  "month": "2025-07",
+  "count": 3,
+  "items": [
+    {
+      "title": "Object Management Group Issues Request for Proposal for Portability and Interoperability of Neural Networks Specification",
+      "url": "https://www.omg.org/releases/pr2025/07-10-25.htm",
+      "date": "2025-07-10",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Issues Request for Proposals for a DevSecOps Reference Architecture",
+      "url": "https://www.omg.org/releases/pr2025/07-15-25.htm",
+      "date": "2025-07-15",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Approves Final Adoption of the SysML V2 Specification",
+      "url": "https://www.omg.org/releases/pr2025/07-21-25.htm",
+      "date": "2025-07-21",
+      "source": "omg_press",
+      "category": "SysML",
+      "score": 17,
+      "summary": ""
+    }
+  ]
+}
