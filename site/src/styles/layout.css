@@ -174,6 +174,287 @@
 }
 
 /* ── 히어로 패널 (18px radius, 2열 내부 분할) ── */
+/* ※ hero-panel 스타일은 하단 AI Times 구성 섹션의 .top-story 로 대체됨 (보존용으로 유지 안 함) */
+
+/* ═══════════════════════════════════════════════════════════════════════
+   AI Times식 구성 — 발행 라인 · 2단 본문 · 톱기사 · 타임라인 · 순위 리스트
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── 발행 라인 (신문 발행일 관습) ── */
+.issue-line {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-12);
+  flex-wrap: wrap;
+  padding-bottom: var(--spacing-12);
+  border-bottom: 1px solid var(--color-fog);
+}
+
+.issue-label { color: var(--color-blueprint-blue); }
+
+.issue-date {
+  font-size: var(--text-caption);
+  color: var(--color-slate);
+}
+
+/* ── 2단 본문: 좌 메인 피드 / 우 사이드 ── */
+.content-2col {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: var(--spacing-32);
+  align-items: start;
+}
+
+.main-feed {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-48);
+  min-width: 0;
+}
+
+.side-feed {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-32);
+  position: sticky;
+  top: var(--spacing-20);
+}
+
+.side-block {
+  background: var(--color-canvas);
+  border: 1px solid var(--color-fog);
+  border-radius: var(--radius-cards);
+  padding: var(--spacing-16);
+}
+
+/* ── ① 톱기사 히어로 ── */
+.top-story {
+  background: var(--color-canvas);
+  border: 1px solid var(--color-fog);
+  border-radius: var(--radius-heropanel);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.top-story-head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.top-thumb {
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+}
+
+.top-story-byline {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  font-size: var(--text-caption);
+  color: var(--color-slate);
+  min-width: 0;
+}
+
+.top-story-byline .src-name {
+  color: var(--color-ink-black);
+  font-weight: var(--font-weight-medium);
+}
+
+.top-story-byline .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-fog);
+}
+
+.top-story-title {
+  margin: 0;
+  font-size: var(--text-heading-sm);   /* 20px — Hashnode heading-sm */
+  line-height: 1.33;
+  letter-spacing: -0.01em;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-ink-black);
+  overflow-wrap: anywhere;
+}
+
+.top-story-title a { color: var(--color-ink-black); }
+.top-story-title a:hover { color: var(--color-blueprint-blue); text-decoration: none; }
+
+.top-story-body {
+  margin: 0;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--color-slate);
+  overflow-wrap: anywhere;
+}
+
+.top-story-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  flex-wrap: wrap;
+  font-size: var(--text-caption);
+}
+
+.top-story-link {
+  margin-left: auto;
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-blueprint-blue);
+}
+
+.top-story-link:hover { color: var(--color-blueprint-hover); }
+
+/* ── 세로 타임라인 피드 (AI Times Latest News 스타일) ── */
+.timeline-feed {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+/* ── 더보기 행 ── */
+.more-row {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--spacing-16);
+  border-top: 1px solid var(--color-fog);
+  margin-top: var(--spacing-12);
+}
+
+.link-more {
+  padding: 8px 16px;
+  border-radius: var(--radius-buttons);
+  border: 1px solid var(--color-fog);
+  background: transparent;
+  color: var(--color-blueprint-blue);
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-semibold);
+  transition: background 0.12s;
+}
+
+.link-more:hover {
+  background: var(--color-paper);
+  color: var(--color-blueprint-hover);
+  text-decoration: none;
+}
+
+/* ── Headlines 리스트 (제목+출처 세로 리스트) ── */
+.headline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.headline-item {
+  border-bottom: 1px solid var(--color-fog);
+}
+.headline-item:last-child { border-bottom: none; }
+
+.headline-link {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 0;
+}
+
+.headline-title {
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.43;
+  color: var(--color-ink-black);
+  overflow-wrap: anywhere;
+}
+
+.headline-link:hover .headline-title {
+  color: var(--color-blueprint-blue);
+}
+
+.headline-meta {
+  font-size: var(--text-caption);
+  color: var(--color-slate);
+}
+
+.headline-empty { padding: var(--spacing-16) 0; }
+
+/* ── Popular 순위 리스트 (숫자 순위 + 제목) ── */
+.rank-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: rank;
+  display: flex;
+  flex-direction: column;
+}
+
+.rank-item {
+  display: flex;
+  gap: var(--spacing-12);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-fog);
+}
+.rank-item:last-child { border-bottom: none; }
+
+.rank-number {
+  font-family: var(--font-suisse-mono);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.43;
+  color: var(--color-blueprint-blue);
+  min-width: 20px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.rank-link {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.rank-title {
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.43;
+  color: var(--color-ink-black);
+  overflow-wrap: anywhere;
+}
+
+.rank-link:hover .rank-title { color: var(--color-blueprint-blue); }
+
+.rank-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  font-size: 10px;
+  color: var(--color-slate);
+}
+
+.rank-date {
+  font-family: var(--font-suisse-mono);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+/* ── 2단 본문 모바일: 우측 사이드 → 하단 ── */
+@media (max-width: 1024px) {
+  .content-2col { grid-template-columns: 1fr; }
+  .side-feed { position: static; }
+}
+
+@media (max-width: 768px) {
+  .content-2col { gap: var(--spacing-24, 24px); }
+  .main-feed { gap: var(--spacing-32); }
+}
+
+/* ── 아카이브 페이지 헤더 패널 (ArchiveView 전용) ── */
 .hero-panel {
   background: var(--color-canvas);
   border: 1px solid var(--color-fog);
@@ -186,11 +467,10 @@
 
 .hero-text { flex: 1; min-width: 0; }
 
-/* 히어로 헤드라인 — 유동 스케일 (핀치줌·화면 폭에 비례해 축소) */
 .hero-headline {
   margin: 0 0 var(--spacing-12);
   font-size: clamp(22px, 5vw, 30px);
-  line-height: var(--leading-heading);
+  line-height: 1.2;
   letter-spacing: -0.02em;
   font-weight: var(--font-weight-bold);
   color: var(--color-ink-black);
@@ -221,16 +501,6 @@
 }
 
 .btn-primary:hover { background: var(--color-blueprint-hover); }
-
-.hero-illustration {
-  width: 220px;
-  height: 180px;
-  flex-shrink: 0;
-  border-radius: var(--radius-cards);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 /* ── 섹션 헤더 ("NEW & POPULAR" 스타일: 4px 점 + uppercase 라벨) ── */
 .section-header {

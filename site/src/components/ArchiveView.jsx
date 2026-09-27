@@ -134,7 +134,7 @@ export default function ArchiveView({ externalQuery = '' } = {}) {
               <span className="section-label mono-label">{month}</span>
               <span className="section-count">{items.length}건</span>
             </h2>
-            <div className="cards-grid">
+            <div className="timeline-feed">
               {items
                 .slice()
                 .sort((a, b) =>

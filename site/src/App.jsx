@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { HeroIllustration } from './components/HeroIllustration.jsx'
 import BriefingView from './components/BriefingView.jsx'
 import ArchiveView from './components/ArchiveView.jsx'
 
