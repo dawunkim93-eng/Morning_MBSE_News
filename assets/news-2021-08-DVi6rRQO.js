@@ -1,0 +1,1 @@
+const e="news_archive",t="2021-08",o=1,s=[{title:"Object Management Group Systems Modeling Certification Tests Available Online",url:"https://www.omg.org/releases/pr2021/08-04-21.htm",date:"2021-08-04",source:"omg_press",category:"Research",score:0,summary:""}],n={type:e,month:t,count:1,items:s};export{o as count,n as default,s as items,t as month,e as type};

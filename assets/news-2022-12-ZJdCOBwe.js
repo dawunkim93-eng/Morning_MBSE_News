@@ -1,0 +1,1 @@
+const e="news_archive",t="2022-12",s=1,o=[{title:"Object Management Group Develops Method to Structure Clinical Healthcare Knowledge",url:"https://www.omg.org/releases/pr2022/12-13-22.htm",date:"2022-12-13",source:"omg_press",category:"Research",score:0,summary:""}],c={type:e,month:t,count:1,items:o};export{s as count,c as default,o as items,t as month,e as type};

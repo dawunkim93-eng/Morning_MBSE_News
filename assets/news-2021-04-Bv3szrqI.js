@@ -1,0 +1,1 @@
+const e="news_archive",t="2021-04",n=1,s=[{title:"Object Management Group Begins Building New Specifications for Business Process Management",url:"https://www.omg.org/releases/pr2021/04-28-21.htm",date:"2021-04-28",source:"omg_press",category:"Standard",score:0,summary:""}],o={type:e,month:t,count:1,items:s};export{n as count,o as default,s as items,t as month,e as type};

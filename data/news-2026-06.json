@@ -1,0 +1,52 @@
+{
+  "type": "news_archive",
+  "month": "2026-06",
+  "count": 5,
+  "items": [
+    {
+      "title": "OMG Launches Official SysML®v2 Certification Program to Accelerate Next-Generation MBSE",
+      "url": "https://www.omg.org/releases/pr2026/06-02-26.htm",
+      "date": "2026-06-02",
+      "source": "omg_press",
+      "category": "SysML",
+      "score": 18,
+      "summary": ""
+    },
+    {
+      "title": "OMG Task Force: Systems Modeling API and Services (SystemsModelingAPI) 1.1 RTF",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFA2cU0zdUsyQ25YZWNaY0pzN09VYWtpX2V1RE1OSTRLSzdEZklvOGhxekNDLUdZNS1vSnNnMEUwQU41S2lyZGoyQThzNGdESjM4SmJVTw?oc=5",
+      "date": "2026-06-12",
+      "source": "news",
+      "category": "Standard",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "INCOSE International Symposium 2027",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1tSW11WnUwWkhCRFVzMHZHS1RrRUxkLU1veE52dV9IZFp0TGo3U2JGLTFtN0t4Uk9nNlJhcUhhWGZvamlpcnFvRHBaY3FRSDFJQWQ0OFdOY3oxakdXWEtCQ1Z1a0dISzd0MDNtb3Q0NzE3QQ?oc=5",
+      "date": "2026-06-13",
+      "source": "news",
+      "category": "Standard",
+      "score": 6,
+      "summary": ""
+    },
+    {
+      "title": "OMG Issues RFP for IDL4 to Rust Language Mapping",
+      "url": "https://www.omg.org/releases/pr2026/06-15-26.htm",
+      "date": "2026-06-15",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Call For Solutions",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE9hTzFTblFXejhESUItVHd3SDZXLVAxbWF0X205ZW5CUENvZUhCbTVtUEQ3aDRqUmpoems1VVdxbm5oWUlTMTFqMU9ZdW9JTkkxZDdMeg?oc=5",
+      "date": "2026-06-27",
+      "source": "news",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

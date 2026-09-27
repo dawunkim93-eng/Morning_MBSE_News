@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2017-09",
+  "count": 1,
+  "items": [
+    {
+      "title": "Should I Stay or Should I Go? On Forces that Drive and Prevent MBSE Adoption in the Embedded Systems Industry",
+      "url": "http://arxiv.org/abs/1709.00266v1",
+      "date": "2017-09-01",
+      "abstract": "[Context] Model-based Systems Engineering (MBSE) comprises a set of models and techniques that is often suggested as solution to cope with the challenges of engineering complex systems. Although many practitioners agree with the arguments on the potential benefits of the techniques, companies struggle with the adoption of MBSE. [Goal] In this paper, we investigate the forces that prevent or impede the adoption of MBSE in companies that develop embedded software systems. We contrast the hindering forces with issues and challenges that drive these companies towards introducing MBSE. [Method] Our results are based on 20 interviews with experts from 10 companies. Through exploratory research, we analyze the results by means of thematic coding. [Results] Forces that prevent MBSE adoption mainly relate to immature tooling, uncertainty about the return-on-investment, and fears on migrating existing data and processes. On the other hand, MBSE adoption also has strong drivers and participants have high expectations mainly with respect to managing complexity, adhering to new regulations, and reducing costs. [Conclusions] We conclude that bad experiences and frustration about MBSE adoption originate from false or too high expectations. Nevertheless, companies should not underestimate the necessary efforts for convincing employees and addressing their anxiety.",
+      "authors": "Andreas Vogelsang, Tiago Amorim, Florian Pudlitz, Peter Gersing, Jan Philipps",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 20
+    }
+  ]
+}

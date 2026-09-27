@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2023-05",
+  "count": 1,
+  "items": [
+    {
+      "title": "Bringing AI to the edge: A formal M&S specification to deploy effective IoT architectures",
+      "url": "http://arxiv.org/abs/2305.10437v1",
+      "date": "2023-05-11",
+      "abstract": "The Internet of Things is transforming our society, providing new services that improve the quality of life and resource management. These applications are based on ubiquitous networks of multiple distributed devices, with limited computing resources and power, capable of collecting and storing data from heterogeneous sources in real-time. To avoid network saturation and high delays, new architectures such as fog computing are emerging to bring computing infrastructure closer to data sources. Additionally, new data centers are needed to provide real-time Big Data and data analytics capabilities at the edge of the network, where energy efficiency needs to be considered to ensure a sustainable and effective deployment in areas of human activity. In this research, we present an IoT model based on the principles of Model-Based Systems Engineering defined using the Discrete Event System Specification formalism. The provided mathematical formalism covers the description of the entire architecture, from IoT devices to the processing units in edge data centers. Our work includes the location-awareness of user equipment, network, and computing infrastructures to optimize federated resource management in terms of delay and power consumption. We present an effective framework to assist the dimensioning and the dynamic operation of IoT data stream analytics applications, demonstrating our contributions through a driving assistance use case based on real traces and data.",
+      "authors": "Román Cárdenas, Patricia Arroba, José L. Risco-Martín",
+      "source": "arxiv",
+      "category": "Standard",
+      "score": 19
+    }
+  ]
+}

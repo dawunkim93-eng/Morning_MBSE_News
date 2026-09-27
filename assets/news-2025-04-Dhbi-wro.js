@@ -1,0 +1,1 @@
+const t="news_archive",e="2025-04",s=1,o=[{title:"Object Management Group Publishes the SPECTRA-CA Specification for Public Comments",url:"https://www.omg.org/releases/pr2025/04-29-25.htm",date:"2025-04-29",source:"omg_press",category:"Standard",score:0,summary:""}],n={type:t,month:e,count:1,items:o};export{s as count,n as default,o as items,e as month,t as type};

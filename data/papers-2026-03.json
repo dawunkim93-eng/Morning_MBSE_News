@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2026-03",
+  "count": 1,
+  "items": [
+    {
+      "title": "Data-Oriented Modeling for Spacecraft Design",
+      "url": "http://arxiv.org/abs/2603.24841v1",
+      "date": "2026-03-25",
+      "abstract": "Spacecraft development costs remain high despite falling launch costs, in part because Model-Based Systems Engineering (MBSE) tools carry the complexity of the object-oriented programming paradigm: tightly coupled data and logic, mutable state, and rigid class hierarchies that resist integration with discipline-specific analysis tools. This paper presents a data-oriented approach to MBSE that adapts the Entity-Component-System (ECS) architecture from the video game industry. Design data is stored as immutable, format-agnostic components in a generic data system; stateless analysis functions operate on this data through templates and containerized tools within a continuous integration pipeline. A prototype implementation, VVERDAD (https://github.com/VisVivaSpace/vverdad-prototype), demonstrates the approach on an example interplanetary mission concept, showing how data-oriented principles can reduce deployment complexity, simplify testing, and preserve the traceability benefits of document-based systems engineering.",
+      "authors": "Nathan Strange",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 20
+    }
+  ]
+}

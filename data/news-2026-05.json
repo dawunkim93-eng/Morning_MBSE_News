@@ -1,0 +1,25 @@
+{
+  "type": "news_archive",
+  "month": "2026-05",
+  "count": 2,
+  "items": [
+    {
+      "title": "OMG Issues RFP for TACSIT Configuration Settings and Services",
+      "url": "https://www.omg.org/releases/pr2026/05-14-26.htm",
+      "date": "2026-05-14",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Registration Open for the Business Architecture Master Series: Business Architecture's Role in Enterprise Data Management",
+      "url": "https://www.omg.org/releases/pr2026/05-29-26.htm",
+      "date": "2026-05-29",
+      "source": "omg_press",
+      "category": "Industry",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

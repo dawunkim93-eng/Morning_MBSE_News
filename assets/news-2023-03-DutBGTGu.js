@@ -1,0 +1,1 @@
+const t="news_archive",s="2023-03",e=1,o=[{title:"Object Management Group Hosts Workshop about Financial Industry Standards",url:"https://www.omg.org/releases/pr2023/03-07-23.htm",date:"2023-03-07",source:"omg_press",category:"Standard",score:1,summary:""}],n={type:t,month:s,count:1,items:o};export{e as count,n as default,o as items,s as month,t as type};

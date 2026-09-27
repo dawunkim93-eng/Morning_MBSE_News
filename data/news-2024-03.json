@@ -1,0 +1,16 @@
+{
+  "type": "news_archive",
+  "month": "2024-03",
+  "count": 1,
+  "items": [
+    {
+      "title": "Object Management Group Celebrates 35th Anniversary",
+      "url": "https://www.omg.org/releases/pr2024/03-18-24.htm",
+      "date": "2024-03-18",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

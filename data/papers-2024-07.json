@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2024-07",
+  "count": 1,
+  "items": [
+    {
+      "title": "Coupling Optimization using Design Structure Matrices and Genetic Algorithm",
+      "url": "http://arxiv.org/abs/2407.03739v1",
+      "date": "2024-07-04",
+      "abstract": "This article seeks to contribute to a nuanced understanding of the integration of Design Structure Matrix (DSM) and genetic algorithms in the context of Complex Systems modelling described within Model-Based System Engineering approach. By examining coupling minimization as a critical aspect of advanced systems engineering practices, we aim to provide a scholarly exploration, blending theoretical insights with practical applications. The objective is to equip systems architects with analytical tools integrated within their Model Based Systems Engineering (MBSE) environment for exploring the design space of component interactions, facilitating the identification of optimal system architectures.",
+      "authors": "Sebastien Dube, Mirna Ojeda, Jean-Marie Gauthier",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 20
+    }
+  ]
+}

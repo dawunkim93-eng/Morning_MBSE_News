@@ -1,0 +1,16 @@
+{
+  "type": "news_archive",
+  "month": "2023-10",
+  "count": 1,
+  "items": [
+    {
+      "title": "Object Management Group Announces Transform! @ InfoComm 2024 Program Committee",
+      "url": "https://www.omg.org/releases/pr2023/10-03-23.htm",
+      "date": "2023-10-03",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+const t="news_archive",e="2022-11",o=1,s=[{title:"Object Management Group Wins Prestigious Award",url:"https://www.omg.org/releases/pr2022/11-01-22.htm",date:"2022-11-01",source:"omg_press",category:"Research",score:0,summary:""}],n={type:t,month:e,count:1,items:s};export{o as count,n as default,s as items,e as month,t as type};

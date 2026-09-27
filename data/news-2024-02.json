@@ -1,0 +1,52 @@
+{
+  "type": "news_archive",
+  "month": "2024-02",
+  "count": 5,
+  "items": [
+    {
+      "title": "Object Management Group Receives Submissions to Standard Business Report Model RFPs",
+      "url": "https://www.omg.org/releases/pr2024/02-06-24.htm",
+      "date": "2024-02-06",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 1,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Welcomes Auditchain Labs AG as a New Member",
+      "url": "https://www.omg.org/releases/pr2024/02-15-24.htm",
+      "date": "2024-02-15",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Hosts Event on the Impact of Digital Transformation across Industries",
+      "url": "https://www.omg.org/releases/pr2024/02-21-24.htm",
+      "date": "2024-02-21",
+      "source": "omg_press",
+      "category": "Industry",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Publishes Domain Taxonomies for Cloud Data Governance",
+      "url": "https://www.omg.org/releases/pr2024/02-28-24.htm",
+      "date": "2024-02-28",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Acquires Enterprise Knowledge Graph Foundation",
+      "url": "https://www.omg.org/releases/pr2024/02-29-24.htm",
+      "date": "2024-02-29",
+      "source": "omg_press",
+      "category": "Industry",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

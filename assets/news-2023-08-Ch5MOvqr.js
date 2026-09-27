@@ -1,0 +1,1 @@
+const t="news_archive",e="2023-08",s=1,o=[{title:"Object Management Group Partners with AVIXA to Produce Transform! @InfoComm 2024",url:"https://www.omg.org/releases/pr2023/08-01-23.htm",date:"2023-08-01",source:"omg_press",category:"Research",score:0,summary:""}],r={type:t,month:e,count:1,items:o};export{s as count,r as default,o as items,e as month,t as type};

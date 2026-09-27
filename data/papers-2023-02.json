@@ -1,0 +1,27 @@
+{
+  "type": "papers_archive",
+  "month": "2023-02",
+  "count": 2,
+  "items": [
+    {
+      "title": "Tool interoperability for model-based systems engineering",
+      "url": "http://arxiv.org/abs/2302.03503v2",
+      "date": "2023-02-07",
+      "abstract": "Supervisory control design of cyber-physical systems has many challenges. Model-based systems engineering can address these, with solutions originating from various disciplines. We discuss several tools, each state-of-the-art in its own discipline, offering functionality such as specification, synthesis, and verification. Integrating such mono-disciplinary tools in a multi-disciplinary workflow is a major challenge. We present Analytics as a Service, built on the Arrowhead framework, to connect these tools and make them interoperable. A seamless integration of the tools has been established through a service-oriented architecture: The engineer can easily access the functionality of the tools from a single interface, as translation steps between equivalent models for the respective tools are automated.",
+      "authors": "Sander Thuijsman, Gökhan Kahraman, Alireza Mohamadkhani, Ferry Timmers, Loek Cleophas, Marc Geilen, Jan Friso Groote, Michel Reniers, Ramon Schiffelers, Jeroen Voeten",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 20
+    },
+    {
+      "title": "Requirements Rationalization and Synthesis enabled by Model Synchronization",
+      "url": "http://arxiv.org/abs/2302.05980v1",
+      "date": "2023-02-12",
+      "abstract": "In the international standard for system and software engineering ISO/IEC/IEEE 15288: 2015, the output of the stakeholder needs and the business or mission analysis technical processes are transformed into a technical view of the system by the system requirements definition process. In model-based systems engineering, functional needs can be modeled by use case diagrams. Intended outcomes of system requirements definition include resolution of disagreement about requirements, explicit agreement between stakeholders, and traceability. However, stakeholder needs are often elicited in a siloed manner and may be inconsistent. The lack of mathematically based systematic approaches for requirements definition poses a challenge to model-based transformation of needs into a technical view of the system that achieves agreement between stakeholders. This paper specifies and demonstrates mathematical frameworks for rationalizing and synthesizing functional needs that have been captured through an elicitation process. Benefits of this approach include but are not limited to supporting rigorous identification and resolution of disagreements and facilitating systematic analysis of change impact to achieve stakeholder agreement all with minimal intervention by the system engineers.",
+      "authors": "Siyuan Ji, Charles E. Dickerson, Michael Wilkinson",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 20
+    }
+  ]
+}

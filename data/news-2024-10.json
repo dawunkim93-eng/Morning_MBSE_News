@@ -1,0 +1,25 @@
+{
+  "type": "news_archive",
+  "month": "2024-10",
+  "count": 2,
+  "items": [
+    {
+      "title": "Object Management Group Publishes Augmenting Data Sets with Semantics Request for Information",
+      "url": "https://www.omg.org/releases/pr2024/10-01-24.htm",
+      "date": "2024-10-01",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Announces Cross-Consortia Artificial Intelligence Joint Working Group",
+      "url": "https://www.omg.org/releases/pr2024/10-31-24.htm",
+      "date": "2024-10-31",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

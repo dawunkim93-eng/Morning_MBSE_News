@@ -1,0 +1,16 @@
+{
+  "type": "news_archive",
+  "month": "2022-11",
+  "count": 1,
+  "items": [
+    {
+      "title": "Object Management Group Wins Prestigious Award",
+      "url": "https://www.omg.org/releases/pr2022/11-01-22.htm",
+      "date": "2022-11-01",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

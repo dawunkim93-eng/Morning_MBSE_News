@@ -1,0 +1,1 @@
+const t="news_archive",e="2025-12",o=1,s=[{title:"Registration Open for the 14th Annual Business Architecture innovation Summit™",url:"https://www.omg.org/releases/pr2025/12-17-25.htm",date:"2025-12-17",source:"omg_press",category:"Research",score:0,summary:""}],n={type:t,month:e,count:1,items:s};export{o as count,n as default,s as items,e as month,t as type};

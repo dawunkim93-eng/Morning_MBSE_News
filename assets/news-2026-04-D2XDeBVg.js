@@ -1,0 +1,1 @@
+const t="news_archive",s="2026-04",o=1,e=[{title:"OMG Launches RFP to Standardize Space Communications Assets",url:"https://www.omg.org/releases/pr2026/04-28-26.htm",date:"2026-04-28",source:"omg_press",category:"Standard",score:1,summary:""}],n={type:t,month:s,count:1,items:e};export{o as count,n as default,e as items,s as month,t as type};

@@ -1,0 +1,25 @@
+{
+  "type": "news_archive",
+  "month": "2022-08",
+  "count": 2,
+  "items": [
+    {
+      "title": "Object Management Group Unified Architecture Framework Specification Now ISO/IEC Standard",
+      "url": "https://www.omg.org/releases/pr2022/08-15-22.htm",
+      "date": "2022-08-15",
+      "source": "omg_press",
+      "category": "Standard",
+      "score": 1,
+      "summary": ""
+    },
+    {
+      "title": "Object Management Group Publishes Anything-as-a-Service Glossary",
+      "url": "https://www.omg.org/releases/pr2022/08-25-22.htm",
+      "date": "2022-08-25",
+      "source": "omg_press",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+const t="news_archive",e="2025-03",s=1,o=[{title:"PDES, Inc. and OMG join forces to advance semantic interoperability",url:"https://www.omg.org/releases/pr2025/03-11-25.htm",date:"2025-03-11",source:"omg_press",category:"Standard",score:0,summary:""}],n={type:t,month:e,count:1,items:o};export{s as count,n as default,o as items,e as month,t as type};

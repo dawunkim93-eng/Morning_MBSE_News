@@ -1,0 +1,1 @@
+const e="news_archive",t="2023-09",s=1,o=[{title:"Object Management Group Seeking Speakers/Showcases for Transform! @InfoComm 2024",url:"https://www.omg.org/releases/pr2023/09-28-23.htm",date:"2023-09-28",source:"omg_press",category:"Research",score:0,summary:""}],n={type:e,month:t,count:1,items:o};export{s as count,n as default,o as items,t as month,e as type};

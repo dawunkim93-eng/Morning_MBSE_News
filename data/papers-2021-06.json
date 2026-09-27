@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2021-06",
+  "count": 1,
+  "items": [
+    {
+      "title": "Towards establishing formal verification and inductive code synthesis in the PLC domain",
+      "url": "http://arxiv.org/abs/2106.15878v1",
+      "date": "2021-06-30",
+      "abstract": "Nowadays, formal methods are used in various areas for the verification of programs or for code generation from models in order to increase the quality of software and to reduce costs. However, there are still fields in which formal methods have not been widely adopted, despite the large set of possible benefits offered. This is the case for the area of programmable logic controllers (PLC). This article aims to evaluate the potential of formal methods in the context of PLC development. For this purpose, the general concepts of formal methods are first introduced and then transferred to the PLC area, resulting in an engineering-oriented description of the technology that is based on common concepts from PLC development. Based on this description, PLC professionals with varying degrees of experience were interviewed for their perspective on the topic and to identify possible use cases within the PLC domain. The survey results indicate the technology's high potential in the PLC area, either as a tool to directly support the developer or as a key element within a model-based systems engineering toolchain. The evaluation of the survey results is performed with the aid of a demo application that communicates with the Totally Integrated Automation Portal from Siemens and generates programs via Fastsynth, a model-based open source code generator. Benchmarks based on an industry-related PLC project show satisfactory synthesis times and a successful integration into the workflow of a PLC developer.",
+      "authors": "Matthias Weiß, Philipp Marks, Benjamin Maschler, Dustin White, Pascal Kesseli, Michael Weyrich",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 20
+    }
+  ]
+}

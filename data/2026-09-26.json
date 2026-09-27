@@ -1,0 +1,53 @@
+{
+  "report_date": "2026-09-26",
+  "report_date_kr": "2026년 9월 26일",
+  "window_start_kst": "2026-09-25",
+  "window_end_kst": "2026-09-26",
+  "generated_at": "2026-09-26T02:04:04",
+  "news": [
+    {
+      "title": "STC launches DE Academy™ to advance model-based systems engineering workforce development",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQNUhSMVFlek1YcUptelBza3l2ekVaVVMyUEY0RFlFNjFhUEtGVHRnN18xbnNLYU1jZWhaNDljMmJPRGVsc3B5eUV3SFBWTkdmY2ZnV3RmZmEyMU9Zb0RGUmxOLXI5OW9Sc0NER2xRdmV3bXM2VXluYWxES1JHWW5pMWxhSm9iX1dCY0Jnb29oRkdWZFVkbUJNUU5DOFdRUnk3Z3JjdEswOXE4ZG1QNWhvWnRsRjFfR0RPbVdBUEFIMkI0RThweW1HbWRDcVdaT3R5LThlR2t0UTBBZTlt?oc=5",
+      "date": "Tue, 12 May 2026 07:00:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Model-based Systems Engineering to Tackle Medtech Complexity",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOQVRCczIwRXlpMWlCR3A4azZCMjRKR3dzUWhCdXRhTHIybUFSWXViVW9JckJ5ZW5kNGR0TVNVUnRTRHRGU2p0aUxBMF9GdExrb1BmY3lXTGVhZGItdHR2aHhIVmxSZkk0WW9WbE50dDg5T3czVkNmUm1GbFM0cWx4eExBQWJwcC1BbjdBVndFQ0tiQ0ZUUkR5dGxlbjdJN0RCWTRoRDFOcU54YldPQWhtX2V2U3o1Z0Via1NCUElIOFlZYjhBYXc4?oc=5",
+      "date": "Wed, 22 Jul 2026 01:43:25 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Model-Based Systems Engineering: How Data Analytics & AI Enable Better Decisions",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxNWFNRdHF2RjdwdnVTV0hTOU5LeWxPTHJpNldJU3BhQzliaDd6Z0tpTVhQeGRUeEVjSDl5VklsT2dhX2ZMNTNFWHBVU3JTVmZUczVNLWUtM052Tnczbjl3NEh0enVSVk1vZTJyNjJTdkZCTmk3Z0ZkVGdERkJXYmJrSmtmdXctLWo1Tjh2YnBaQm0yRHZJRTVRdllsNk01bzYtaGFybHhBTEhMODB3d29STkJiXzNOTFBlaUp2WnBsQ1NtVFdoRVBwR2dKdDQ1QQ?oc=5",
+      "date": "Wed, 27 May 2026 07:00:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    }
+  ],
+  "papers": [
+    {
+      "title": "Ontology-based Requirements Transformation",
+      "url": "http://arxiv.org/abs/2608.21945v1",
+      "date": "2026-08-22",
+      "authors": "Jan Novacek, Alexander Viehl, Oliver Bringmann, Wolfgang Rosenstiel",
+      "source": "arxiv",
+      "category": "Standard",
+      "score": 10,
+      "abstract": "This paper presents an ontology-based approach to the supply chain-aware transformation of functional and environmental load requirements given by so-called Mission Profiles (MPs). The approach aims at improving the efficiency of the engineering process through supporting the transformation process and enabling a better integration of the transformation into existing Model-based Systems Engineering (MBSE) processes. We propose a methodology and a supporting system which aids in the transformation process while the latter feature is obtained by constructing and working on models. Consequent utilization of the standardized language OWL to express model representations further enables better knowledge integration and transfer among hetero-geneous systems. In addition to that, this favors knowledge reuse across projects which can reduce overall costs. Moreover, the system enables stripping off irrelevant information from MPs, thus improving protection of intellectual property.",
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": false
+    }
+  ]
+}

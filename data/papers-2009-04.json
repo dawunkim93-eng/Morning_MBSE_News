@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2009-04",
+  "count": 1,
+  "items": [
+    {
+      "title": "Ingénierie système d'un système d'information d'entreprise centré sur le produit basée sur un cadre de modélisation multi-échelles : application à un cas d'étude de l'AIP lorrain",
+      "url": "http://arxiv.org/abs/0904.4411v1",
+      "date": "2009-04-28",
+      "abstract": "Through its projects, the ?Atelier Inter-établissements de Productique Lorrain? (AIPL), as the owner and contractor of rank 1, is committed to provide his customers (teachers, training courses, students etc...) credible teaching materials at the scale of a real industrial flexible production of goods and services. In this changing context, its managerial team has chosen to suppress the CIM concept, which proposes an integrated enterprise, to steering distributed system information (SI), heterogeneous, autonomous and scalable depending on the ephemeral cooperation between industrial partners who now exchanges information and material flows. These aspects are studied in research on CRAN (Centre de Recherche en Automatique de Nancy ? Research Centre for Automatic Control) as part of a thesis based on the recursive aspect of systems and their models and their multi-scale aspects and multi-views, in a Model-Based-System-Engineering (MBSE) methodology proposal of an System-Engineering (SE) focused on the product. To validate this research, a MBSE has been implemented on a case study to AIPL: the \"eLearning in eProduction? project.",
+      "authors": "Jean-Philippe Auzelle, Olivier Nartz, Jean-Yves Bron",
+      "source": "arxiv",
+      "category": "Research",
+      "score": 20
+    }
+  ]
+}

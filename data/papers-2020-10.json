@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2020-10",
+  "count": 1,
+  "items": [
+    {
+      "title": "Design Ontology Supporting Model-based Systems-engineering Formalisms",
+      "url": "http://arxiv.org/abs/2010.07627v1",
+      "date": "2020-10-15",
+      "abstract": "Model-based systems engineering (MBSE) provides an important capability for managing the complexities of system development. MBSE empowers the formalisms of system architectures for supporting model-based requirement elicitation, specification, design, development, testing, fielding, etc. However, the modeling languages and techniques are quite heterogeneous, even within the same enterprise system, which creates difficulties for data interoperability. The discrepancies among data structures and language syntaxes make information exchange among MBSE models even more difficult, resulting in considerable information deviations when connecting data flows across the enterprise. For this reason, this paper presents an ontology based upon graphs, objects, points, properties, roles, and relationships with entensions (GOPPRRE), providing meta models that support the various lifecycle stages of MBSE formalisms. In particular, knowledge-graph models are developed to support unified model representations to further implement ontological data integration based on GOPPRRE throughout the entire lifecycle. The applicability of the MBSE formalism is verified using quantitative and qualitative approaches. Moreover, the GOPPRRE ontologies are generated from the MBSE language formalisms in a domain-specific modeling tool, \\textit{MetaGraph} in order to evaluate its availiablity. The results demonstrate that the proposed ontology supports both formal structures and the descriptive logic of the systems engineering lifecycle.",
+      "authors": "Lu Jinzhi, Ma Junda, Xiaochen Zheng, Guoxin Wang, Dimitris Kiritsis",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 20
+    }
+  ]
+}

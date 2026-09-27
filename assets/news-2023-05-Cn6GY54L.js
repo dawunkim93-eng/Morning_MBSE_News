@@ -1,0 +1,1 @@
+const t="news_archive",e="2023-05",o=1,s=[{title:"Object Management Group Announces its Sponsorship Agreement with Dassault Systèmes",url:"https://www.omg.org/releases/pr2023/05-15-23.htm",date:"2023-05-15",source:"omg_press",category:"Research",score:0,summary:""}],n={type:t,month:e,count:1,items:s};export{o as count,n as default,s as items,e as month,t as type};

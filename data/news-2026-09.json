@@ -1,0 +1,142 @@
+{
+  "type": "news_archive",
+  "month": "2026-09",
+  "count": 15,
+  "items": [
+    {
+      "title": "The September Systems Engineering Journal is now available!",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQS3ZBY1pWeG5IMzkxa09Wd05Udy1JVXB6UzQ5SmoxS0tKSmxKVU0zdldieDZ3WUdpNnUyT1dvU2RmQW0yN1hjeDFULVpfdGktU2JURGwxTlZySENlVm4teHJybDExdVpyTW9QYThodEIxYWpDMlNKV0hQZmxlcXdNbm5VdkRCNWQ1bkZWZmlSbjM?oc=5",
+      "date": "2026-09-05",
+      "source": "news",
+      "category": "Research",
+      "score": 4,
+      "summary": ""
+    },
+    {
+      "title": "INCOSE Proudly Announces Its Support and Collaboration with the Barclay R. Brown Foundation",
+      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTE54QmhxZDNLQi1yN2FvaXhKUy1KTFY2Z2UxdWUwUGxPSmpOUnkwSWtnSlIzMnVPZnVzSWdDOGVsZ3JQakVUMl85SEFB?oc=5",
+      "date": "2026-09-09",
+      "source": "news",
+      "category": "Standard",
+      "score": 6,
+      "summary": ""
+    },
+    {
+      "title": "XTCE14 — Update XUSP Command and Command Packet Pattern",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1jRU54bzdEQkRRTXJ2Ri1LZ3V1aXN1aU9TRVZIaThCYU4wV3FibVlTb2JUanJSZjdmY1Z1c25FLWpDWWxGUUpQalVmZ250ZzBJ?oc=5",
+      "date": "2026-09-15",
+      "source": "news",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "XTCE14 — Integrate XUSP into XTCE as an appendix",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5lMXdwRlFaWDNvU2xSTHJmUW94ZXppQTU1VTlGNEFUNFp1S1d4NnhNQVhSWmVFVjF4SHMzODZldW1STkxFaHJTOFJMUGtpdXk1?oc=5",
+      "date": "2026-09-15",
+      "source": "news",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "INCOSE SE Lab Demo Day: The Self-Building Model: Live AI Workflows for the Next Era of MBSE in SysML v2",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNaXNKTE4tMDV0LXotVUF3RmllbW4wTXAxZDhDS1p0RU1CaERXODJMblZ6T28tS3lqaVVEYW1ld1M1UC1xWThOcnhUYnhkMzVkQU1TeEI0OHhJbG9DNTc4R2hQUHlrZFZjUDBWZFBaWDN1WlI5a0JZbUFEd0s4Mkk1OTJFZWNXUUhWU21JRnVqRE8xTTFvekl1SnJmeEZaS3AtMldhXzhnc0RNbUNSVmsxOGExOHhZMzVFY3B1NEU5ZW5qOTJKM1BaWjhRQQ?oc=5",
+      "date": "2026-09-17",
+      "source": "news",
+      "category": "SysML",
+      "score": 20,
+      "summary": ""
+    },
+    {
+      "title": "SE Lab Demo : Lean MBSE with iQUAVIS",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFAxeV9LajFCMXdLeU1EMzVRMktUMUdiVTd3cXhjd2cyVG9ObEVEVEg2amRhU0tMNmdTTjBtQ1VUUDFteUhWM09XcDFSeHhOLVRiZjg2Y2dKQzNoNXh5X28xS29EYmNCSnZCOXZwUnpYNWRvQQ?oc=5",
+      "date": "2026-09-17",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": ""
+    },
+    {
+      "title": "Ornithographies: Making the Invisible Choreography of Flight Visible",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQNGdra29XV3F1a3JzT0hnMlcxNWFvTjl6dVNGcF9tamg5VW1zbHlDUWd5MDZYcU9UMjNLenhNamFuQlZSWkVUYkN5OVZ1XzZaU0dTRmZtYXl1MU83WmlwTG90dXBVSVpMelh5UFVMMm10MVNzNW9qWG5tcnRlS1FGdXM0RXVrVk1HdmRUOENUVDlVejFjZ1hvSUpJRVplZw?oc=5",
+      "date": "2026-09-17",
+      "source": "news",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "DDS Consolidated XML Syntax — Closed Issues",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5wWUQyQTZVYW9IVTlhQWE3TmlpUzZrR1pDS0RPR2owRGYwVDhFRm8waTlCaUVNR1FrQUZaRXR1bXNibUJ3WnhZZzk2aEZsV05qd2dxdER6UllsU3hzUWRSbVA1ZFQ?oc=5",
+      "date": "2026-09-17",
+      "source": "news",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Risk Analysis and Assessment Modeling Language — All Issues",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBFdWZFbXVaTE1BNW1PclFvMXBIUzFaMFQ1Wmx6QXl6RHJ4amFNQXRTS2ZpdWhyRjAzTUZla19ZT0YzXzBHdjREX3JiV3AzSTBvclBBSHE5ek1Vc0VHQ2pWem8tSFhYUU9JV3dfUVhR?oc=5",
+      "date": "2026-09-17",
+      "source": "news",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "September SysML v2 Exchange",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE8xOGowbzNpLUY2Z013R1pzelg3a0kwRWRTaDd4eTFmRlg3dmMxaWd2N043MlpYNzNKNm0yN2FQWFRYM00taUVsQUF5d01USllwdl9SZ1ZMUktEZUhIb29renZRTDNsWkpy?oc=5",
+      "date": "2026-09-22",
+      "source": "news",
+      "category": "SysML",
+      "score": 17,
+      "summary": ""
+    },
+    {
+      "title": "2027 AFIS Annual Conference",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBqd0FzU3pQVFZIdlFYbHpkaV9hQnRUNTJabWthcjZENjFfOFZEOGpfbm9EOXVSVXBrc0hBZzk3b0s4R0dxdkFMNFpkeUZpWll0QzNtTTlfVzZLVWVKM0dZQVdoUzNsMzlY?oc=5",
+      "date": "2026-09-22",
+      "source": "news",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "INCOSE Philadelphia: SupplyMind - Using your own issue history, SOP's, and AI to resolve problems before they scale",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOQnotVGtFeG5PZTZienZyVWlFc3BxU3QtLXNPWEdqTnktZ01FODJKdzNISFRyVFF6dUlzZWJXd2ZtbHN5OHk0LW5IZUQ4YzAxaktGVFJXMWtFcVpMZl8yUVFMRHJOMGdzc0huQmRsOWRUWmRJbUlvR0YtUGpXdjExQXBXUXdTdjROendrTEoyMnl0LWpYanZmaENjTy0zalY1RVYzZHJPZXN6N3NncUtiaHpJM2Z5M3MzRE5YZHhqY1BvN1NpamtWcnp3a0Rod3ctYWd4YzdB?oc=5",
+      "date": "2026-09-24",
+      "source": "news",
+      "category": "Standard",
+      "score": 6,
+      "summary": ""
+    },
+    {
+      "title": "New England Chapter Fall Workshop",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1lSV9GODVIbWNaTEZIYkVmZmdDTnBiLVBNTkFybTlTbFlYQ3NGdW1MNUlmM2tDWV9FYlRTZXNVVm9ISE9wLVZuTndfU3pjanF0TWlVVktLVW16VDhmR2c3RnJSbFNOUzUwWkRFTXJNd2M?oc=5",
+      "date": "2026-09-24",
+      "source": "news",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Systems Workforce Summit",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE92Z3ZBQXpURF9pdTM0QWpoeEV5ZWI2WjJvTVpaR2hBbjVIQUJrT1Z6clMtRTJGV1FtY0Npb1lwQzY4cHJ0RHFUVGFEY2VkVW9YLUNVMWszb19vYXhORnF0Z0JhVnA?oc=5",
+      "date": "2026-09-24",
+      "source": "news",
+      "category": "Research",
+      "score": 0,
+      "summary": ""
+    },
+    {
+      "title": "Command and Control Message Specification — Closed Issues",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5vbUJrZlJkMllHYTFKY0pzUjlpYXVubDZGVVlLb3FwcEFvT0p6clFiSWUwaVFZRXNXdUREYW9ha19RMXA3clZyZkx4VWJIdTFyQ3dEMmp4aFBPWDBmbjhrQURxSVlaUQ?oc=5",
+      "date": "2026-09-25",
+      "source": "news",
+      "category": "Standard",
+      "score": 0,
+      "summary": ""
+    }
+  ]
+}

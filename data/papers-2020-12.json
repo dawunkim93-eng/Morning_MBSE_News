@@ -1,0 +1,17 @@
+{
+  "type": "papers_archive",
+  "month": "2020-12",
+  "count": 1,
+  "items": [
+    {
+      "title": "A Reference Architecture for the American Multi-Modal Energy System",
+      "url": "http://arxiv.org/abs/2012.14486v2",
+      "date": "2020-12-28",
+      "abstract": "The American Multimodal Energy System (AMES) is a system-of-systems comprised of four separate but interdependent infrastructure systems: the electric grid, the natural gas system, the oil system, and the coal system. Their interdependence creates the need to better understand the underlying architecture in order to pursue a more sustainable, resilient and accessible energy system. Collectively, these requirements necessitate a sustainable energy transition that constitute a change in the AMES instantiated architecture; although it leaves its reference architecture largely unchanged. Consequently, from a model-based systems engineering perspective, identifying the underlying reference architecture becomes a high priority. This paper defines a reference architecture for the AMES and its four component energy infrastructures in a single SysML model. The architecture includes (allocated) block definition and activity diagrams for each infrastructure. The reference architecture was developed from the S&P Global Platts (GIS) Map Data Pro data set and the EIA Annual Energy Outlook dataset. This reference architecture serves as the foundation from which to accurately and consistently create mathematical model of the AMES.",
+      "authors": "Dakota J. Thompson, Amro M. Farid",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 20
+    }
+  ]
+}
