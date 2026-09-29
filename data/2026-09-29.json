@@ -1,0 +1,40 @@
+{
+  "report_date": "2026-09-29",
+  "report_date_kr": "2026년 9월 29일",
+  "window_start_kst": "2026-09-28",
+  "window_end_kst": "2026-09-29",
+  "generated_at": "2026-09-29T01:19:52",
+  "news": [
+    {
+      "title": "MBSE & Digital Engineering Weekly Report - What to Verify After Having AI Write Models (September 25, 2026)",
+      "url": "https://note.com/around50_life_/n/nd54f9f6336a1?hl=en",
+      "date": "Thu, 24 Sep 2026 20:22:00 GMT",
+      "source": "news",
+      "category": "Digital",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Are you using MBSE (Model Based Systems Engineering) at work? If so, how?",
+      "url": "https://arstechnica.com/civis/threads/are-you-using-mbse-model-based-systems-engineering-at-work-if-so-how.1513248/",
+      "date": "Wed, 27 May 2026 14:47:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Model-Based Systems Engineering: How Data Analytics & AI Are Enabling Better Design Decisions",
+      "url": "https://www.designnews.com/design-software/model-based-systems-engineering-how-data-analytics-ai-are-enabling-better-design-decisions",
+      "date": "Wed, 27 May 2026 15:15:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    }
+  ],
+  "papers": []
+}
