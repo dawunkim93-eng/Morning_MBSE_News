@@ -1,0 +1,40 @@
+{
+  "report_date": "2026-10-02",
+  "report_date_kr": "2026년 10월 2일",
+  "window_start_kst": "2026-10-01",
+  "window_end_kst": "2026-10-02",
+  "generated_at": "2026-10-02T01:09:57",
+  "news": [
+    {
+      "title": "Are you using MBSE (Model Based Systems Engineering) at work? If so, how?",
+      "url": "https://arstechnica.com/civis/threads/are-you-using-mbse-model-based-systems-engineering-at-work-if-so-how.1513248/",
+      "date": "Wed, 27 May 2026 14:47:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Model-Based Systems Engineering: How Data Analytics & AI Are Enabling Better Design Decisions",
+      "url": "https://www.designnews.com/design-software/model-based-systems-engineering-how-data-analytics-ai-are-enabling-better-design-decisions",
+      "date": "Wed, 27 May 2026 15:15:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Webinar 207: Straight Out of the R&D Oven: SysML v2, Unfiltered",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQMVE1UW9xLU9BLWF0TVVrR3FWZXpMVDJPUlNVOHdUVDllRGFQWENUWTFQbE9xdkJUOXJsLXU4RFJHVFZVNVMxQThqZHMtY0RDQUlEaTlDWnNmVjZQSldOM0owTXFoVHlGTGhrMjNrbm5TYUhKX0dVQU9xMFdlVU1NQWdxRm1nN0xkY1dCYjZtVTNndGM?oc=5",
+      "date": "Wed, 30 Sep 2026 19:51:56 GMT",
+      "source": "news",
+      "category": "SysML",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    }
+  ],
+  "papers": []
+}
