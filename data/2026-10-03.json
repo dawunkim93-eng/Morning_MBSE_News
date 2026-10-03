@@ -1,0 +1,53 @@
+{
+  "report_date": "2026-10-03",
+  "report_date_kr": "2026년 10월 3일",
+  "window_start_kst": "2026-10-02",
+  "window_end_kst": "2026-10-03",
+  "generated_at": "2026-10-03T00:47:32",
+  "news": [
+    {
+      "title": "Are you using MBSE (Model Based Systems Engineering) at work? If so, how?",
+      "url": "https://arstechnica.com/civis/threads/are-you-using-mbse-model-based-systems-engineering-at-work-if-so-how.1513248/",
+      "date": "Wed, 27 May 2026 14:47:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "INCOSE State of the Organization - Alan Harding & Garry Roedler - INCOSE Webinar - Ep 95",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNZnF0OVNPZ3hoQlVPR1NTaXhpLUZGTjJfeFcyNGZBeHdLYWo3bzZtdnZxbnpsWFpDQnlOc0hzYTNVT1VKNThBaG5qUWcyYWNWUjJmQWhkbC1hcVhxUnFvUjBNQ3JSaDlpRllIQUN3eC16aVlzUGcxdWF4eElFWHdxUFBaVjVrYUEwX2RWYlBzZFVTb3hGRWlERE80UnhibGl1ZzhQeXFuOEhlbW5zM3VrRkZoOA?oc=5",
+      "date": "Wed, 23 Sep 2026 21:09:19 GMT",
+      "source": "news",
+      "category": "Standard",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Webinar 207: Straight Out of the R&D Oven: SysML v2, Unfiltered",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQMVE1UW9xLU9BLWF0TVVrR3FWZXpMVDJPUlNVOHdUVDllRGFQWENUWTFQbE9xdkJUOXJsLXU4RFJHVFZVNVMxQThqZHMtY0RDQUlEaTlDWnNmVjZQSldOM0owTXFoVHlGTGhrMjNrbm5TYUhKX0dVQU9xMFdlVU1NQWdxRm1nN0xkY1dCYjZtVTNndGM?oc=5",
+      "date": "Wed, 30 Sep 2026 19:51:56 GMT",
+      "source": "news",
+      "category": "SysML",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    }
+  ],
+  "papers": [
+    {
+      "title": "Cross-Organizational SysML Model Integration: A Survey of Challenges and AI-Supported Tasks",
+      "url": "http://arxiv.org/abs/2609.37000v1",
+      "date": "2026-09-29",
+      "authors": "Zirui Li, Torsten Brix, Stephan Husung",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 10,
+      "abstract": "Cross-organizational collaboration is widely regarded as a key promise of SysML-based Model-Based Systems Engineering (MBSE), yet practitioners still face persistent challenges when exchanging and integrating system models. In parallel, Large Language Models (LLMs) raise expectations for AI-assisted model understanding and integration, while reliability and required human oversight continue to pose challenges. This paper reports the results of an online questionnaire survey with 29 MBSE stakeholders involved in cross-organizational collaboration. Respondents rated eight predefined integration challenge categories and six AI-supported task types on five-point Likert scales. The results indicate that stakeholders perceive model integration as a multi-dimensional alignment problem across semantics, behavior, traceability, and exchange interoperability. These perceptions vary by organizational role and frequency of integration involvement. AI is rated highly useful for analysis tasks such as semantic structure analysis and inconsistency detection, and respondents predominantly prefer human-in-the-loop use with mandatory verification. These findings motivate AI support that enhances, rather than replaces, engineering responsibility in SysML-based integration.",
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": false
+    }
+  ]
+}
