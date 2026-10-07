@@ -1,0 +1,60 @@
+{
+  "report_date": "2026-10-07",
+  "report_date_kr": "2026년 10월 7일",
+  "window_start_kst": "2026-10-06",
+  "window_end_kst": "2026-10-07",
+  "generated_at": "2026-10-07T01:05:12",
+  "news": [
+    {
+      "title": "Why modern defence programmes need a systems engineering reset",
+      "url": "https://defenceweb.co.za/industry/industry-industry/why-modern-defence-programmes-need-a-systems-engineering-reset/",
+      "date": "Tue, 06 Oct 2026 00:37:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 4,
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": true
+    },
+    {
+      "title": "Recent Jobs",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5LTHlWZU9qTFE3Qkd2WUNuREZEdHVkckZpcHVieTlwSjZRc1NSZGNfXzdtcFotcUpfQ2d6MnQ4bzNLQTd6cXBtTGhyTElGS1k0c012QjBFSENxdElGSTV2cm10a1NjU1d0OTEwOEw3Yk5kaGZheXc?oc=5",
+      "date": "Tue, 06 Oct 2026 15:26:07 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 0,
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": true
+    },
+    {
+      "title": "MBSE/Digital Engineering Weekly Report - AI-Driven Architecture Generation and Cross-Organizational Model Integration (October 2, 2026)",
+      "url": "https://note.com/around50_life_/n/n93d0541f7346?hl=en",
+      "date": "Thu, 01 Oct 2026 20:29:00 GMT",
+      "source": "news",
+      "category": "Digital",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Are you using MBSE (Model Based Systems Engineering) at work? If so, how?",
+      "url": "https://arstechnica.com/civis/threads/are-you-using-mbse-model-based-systems-engineering-at-work-if-so-how.1513248/",
+      "date": "Wed, 27 May 2026 14:47:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Model-Based Systems Engineering: How Data Analytics & AI Are Enabling Better Design Decisions",
+      "url": "https://www.designnews.com/design-software/model-based-systems-engineering-how-data-analytics-ai-are-enabling-better-design-decisions",
+      "date": "Wed, 27 May 2026 15:15:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    }
+  ],
+  "papers": []
+}
