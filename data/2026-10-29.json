@@ -1,0 +1,63 @@
+{
+  "report_date": "2026-10-29",
+  "report_date_kr": "2026년 10월 29일",
+  "window_start_kst": "2026-10-28",
+  "window_end_kst": "2026-10-29",
+  "generated_at": "2026-10-29T01:20:41",
+  "news": [
+    {
+      "title": "IN FOCUS October 2026",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1rUUpNdzlQU05HRURCa3RpN0ZvaHBEQjZWZFpITHRDbTVsWlJfbnBMQ3VyZS0tUWw1UmJBY3FVd21FczJ0N1pxZE10Rmp4RW93T1dKT0ljWUJwVjNHaWIw?oc=5",
+      "date": "Wed, 28 Oct 2026 13:03:41 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 0,
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": true
+    },
+    {
+      "title": "Model-Based Systems Engineering (MBSE) Software Market Size Analysis Report: Forecast to Reach US$3,261 Million by 2026",
+      "url": "https://note.com/qy_research/n/n83e965253444?hl=en",
+      "date": "Wed, 14 Oct 2026 19:41:00 GMT",
+      "source": "news",
+      "category": "Tool",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Are you using MBSE (Model Based Systems Engineering) at work? If so, how?",
+      "url": "https://arstechnica.com/civis/threads/are-you-using-mbse-model-based-systems-engineering-at-work-if-so-how.1513248/",
+      "date": "Wed, 27 May 2026 14:47:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Model-Based Systems Engineering: How Data Analytics & AI Are Enabling Better Design Decisions",
+      "url": "https://www.designnews.com/design-software/model-based-systems-engineering-how-data-analytics-ai-are-enabling-better-design-decisions",
+      "date": "Wed, 27 May 2026 15:15:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    }
+  ],
+  "papers": [
+    {
+      "title": "A SysML v2 Domain Library for ROS2 Robot Architectures",
+      "url": "http://arxiv.org/abs/2610.33362v1",
+      "date": "2026-10-23",
+      "authors": "Sai Sandeep Damera, John S. Baras",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 10,
+      "abstract": "Systems engineers who model a ROS2 robot in SysML v2 must first model ROS2 itself. Its nodes, communication endpoints, message types, lifecycle states, quality-of-service policies, and coordinate frames have no ready definitions in the language, so each project reconstructs them. We present ros2-sysmlv2, a native SysML v2 domain library that supplies these definitions for reuse. A robot model imports the library and specializes its definitions to declare its own nodes, ports, connections, frames, and parameters. The library maps ROS2 concepts to SysML v2 definitions and usages and organizes them in Primitives, Infrastructure, and Application layers. We check its declarations for parity with the ROS2 Jazzy sources they model. Because every ROS2 element of a model specializes a library definition, a tool can select those elements by type. We state what this selection is and use it for a round trip. A ROS2 package is generated from the selection, and a monitor generated with the package compares the running graph with the same selection and reports every departure against the model. The generation-gap workflow derives topic endpoints and parameter declarations while preserving developer-owned node algorithms. In a case study on a generated ground robot, the generated conformance monitor reported each of the three departures that we introduced in the implementation. The library is distributed as a versioned package that any SysML v2 model can import.",
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": false
+    }
+  ]
+}
