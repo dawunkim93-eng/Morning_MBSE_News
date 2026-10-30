@@ -1,0 +1,53 @@
+{
+  "report_date": "2026-10-30",
+  "report_date_kr": "2026년 10월 30일",
+  "window_start_kst": "2026-10-29",
+  "window_end_kst": "2026-10-30",
+  "generated_at": "2026-10-30T01:24:46",
+  "news": [
+    {
+      "title": "Model-Based Systems Engineering (MBSE) Software Market Size Analysis Report: Forecast to Reach US$3,261 Million by 2026",
+      "url": "https://note.com/qy_research/n/n83e965253444?hl=en",
+      "date": "Wed, 14 Oct 2026 19:41:00 GMT",
+      "source": "news",
+      "category": "Tool",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Are you using MBSE (Model Based Systems Engineering) at work? If so, how?",
+      "url": "https://arstechnica.com/civis/threads/are-you-using-mbse-model-based-systems-engineering-at-work-if-so-how.1513248/",
+      "date": "Wed, 27 May 2026 14:47:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Model-Based Systems Engineering: How Data Analytics & AI Are Enabling Better Design Decisions",
+      "url": "https://www.designnews.com/design-software/model-based-systems-engineering-how-data-analytics-ai-are-enabling-better-design-decisions",
+      "date": "Wed, 27 May 2026 15:15:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    }
+  ],
+  "papers": [
+    {
+      "title": "6.6.2 Determining the right solution using SysML and model based systems engineering (MBSE) for trade studies",
+      "url": "https://doi.org/10.1002/j.2334-5837.2011.tb01243.x",
+      "date": "2011",
+      "authors": "",
+      "source": "semantic",
+      "category": "SysML",
+      "score": 10,
+      "abstract": "",
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": false
+    }
+  ]
+}
