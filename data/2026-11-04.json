@@ -1,0 +1,73 @@
+{
+  "report_date": "2026-11-04",
+  "report_date_kr": "2026년 11월 4일",
+  "window_start_kst": "2026-11-03",
+  "window_end_kst": "2026-11-04",
+  "generated_at": "2026-11-04T01:44:28",
+  "news": [
+    {
+      "title": "INCOSE Los Angeles Chapter: Workshop – Strengthening the Digital Thread Through Executable Physics",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOcjRySy0xSEJQWmFnX3o2TUsweGhrUk5VOVpoSjlaTzBZa09aSW94TkVPQnRGbEJFZ3YwUk9zcjRUUFJzbjRnREdHVFRFdThhazk1eVUyNkk1NDZaZmlucXVQb19CbE5zR1gyX3M3cFhRaFF4SzFobUdfTk1YSWpYemlpTFFWVlJyeVlDTE1FdTB4aENQX2JxWG5USFlNcjk3WEgyUFpEM0MtSjdXMlhNTDE2OXlrS0RtT001M1FZUDZXV2JTUUhjcHJhZ0xBUQ?oc=5",
+      "date": "Tue, 03 Nov 2026 19:04:53 GMT",
+      "source": "news",
+      "category": "Standard",
+      "score": 10,
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": true
+    },
+    {
+      "title": "Systems Engineering 101 Webinar Series",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1iR3lpN2lRQWxxbXhjV3ZkSWtiXzJISGVlcmdFdjZmTXVWM2ltLUJxdFU2VWstRVJROC1oazdxeS1obDZVcmczLUpkdWFVZm9PUFk3VGNraU8xNTVWdFBlT1FCR0x4MDJNMTRRVVZORFl1WmJZWEZN?oc=5",
+      "date": "Tue, 03 Nov 2026 09:10:39 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 4,
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": true
+    },
+    {
+      "title": "Are you using MBSE (Model Based Systems Engineering) at work? If so, how?",
+      "url": "https://arstechnica.com/civis/threads/are-you-using-mbse-model-based-systems-engineering-at-work-if-so-how.1513248/",
+      "date": "Wed, 27 May 2026 14:47:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Model-Based Systems Engineering: How Data Analytics & AI Are Enabling Better Design Decisions",
+      "url": "https://www.designnews.com/design-software/model-based-systems-engineering-how-data-analytics-ai-are-enabling-better-design-decisions",
+      "date": "Wed, 27 May 2026 15:15:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Are you using MBSE (Model Based Systems Engineering) at work? If so, how?",
+      "url": "https://arstechnica.com/civis/threads/are-you-using-mbse-model-based-systems-engineering-at-work-if-so-how.1513248/",
+      "date": "Wed, 27 May 2026 14:47:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    }
+  ],
+  "papers": [
+    {
+      "title": "A SysML v2 Domain Library for ROS2 Robot Architectures",
+      "url": "http://arxiv.org/abs/2610.33362v1",
+      "date": "2026-10-23",
+      "authors": "Sai Sandeep Damera, John S. Baras",
+      "source": "arxiv",
+      "category": "SysML",
+      "score": 10,
+      "abstract": "Systems engineers who model a ROS2 robot in SysML v2 must first model ROS2 itself. Its nodes, communication endpoints, message types, lifecycle states, quality-of-service policies, and coordinate frames have no ready definitions in the language, so each project reconstructs them. We present ros2-sysmlv2, a native SysML v2 domain library that supplies these definitions for reuse. A robot model imports the library and specializes its definitions to declare its own nodes, ports, connections, frames, and parameters. The library maps ROS2 concepts to SysML v2 definitions and usages and organizes them in Primitives, Infrastructure, and Application layers. We check its declarations for parity with the ROS2 Jazzy sources they model. Because every ROS2 element of a model specializes a library definition, a tool can select those elements by type. We state what this selection is and use it for a round trip. A ROS2 package is generated from the selection, and a monitor generated with the package compares the running graph with the same selection and reports every departure against the model. The generation-gap workflow derives topic endpoints and parameter declarations while preserving developer-owned node algorithms. In a case study on a generated ground robot, the generated conformance monitor reported each of the three departures that we introduced in the implementation. The library is distributed as a versioned package that any SysML v2 model can import.",
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": false
+    }
+  ]
+}
