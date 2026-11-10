@@ -1,0 +1,53 @@
+{
+  "report_date": "2026-11-10",
+  "report_date_kr": "2026년 11월 10일",
+  "window_start_kst": "2026-11-09",
+  "window_end_kst": "2026-11-10",
+  "generated_at": "2026-11-10T03:52:15",
+  "news": [
+    {
+      "title": "Are you using MBSE (Model Based Systems Engineering) at work? If so, how?",
+      "url": "https://arstechnica.com/civis/threads/are-you-using-mbse-model-based-systems-engineering-at-work-if-so-how.1513248/",
+      "date": "Wed, 27 May 2026 14:47:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Model-Based Systems Engineering: How Data Analytics & AI Are Enabling Better Design Decisions",
+      "url": "https://www.designnews.com/design-software/model-based-systems-engineering-how-data-analytics-ai-are-enabling-better-design-decisions",
+      "date": "Wed, 27 May 2026 15:15:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Are you using MBSE (Model Based Systems Engineering) at work? If so, how?",
+      "url": "https://arstechnica.com/civis/threads/are-you-using-mbse-model-based-systems-engineering-at-work-if-so-how.1513248/",
+      "date": "Wed, 27 May 2026 14:47:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    }
+  ],
+  "papers": [
+    {
+      "title": "Integrating MBSE Principles with AI to Improve the Quality of Requirements in SMEs Context",
+      "url": "http://arxiv.org/abs/2611.09234v1",
+      "date": "2026-11-06",
+      "authors": "Iryna Volosheniuk, Claude Baron, Jean-Michel Bruel",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 10,
+      "abstract": "Model-Based Systems Engineering (MBSE) is a promising approach to improve systems engineering practices, particularly by enhancing requirement management, traceability, and early validation and verification (V\\&V). However, its adoption remains challenging, especially for small and medium-sized enterprises (SMEs), which often lack structured processes and solutions adapted to their scale and constraints. Our goal is to propose a lightweight MBSE methodology tailored to the needs and constraints of SMEs. This paper focuses specifically on requirements refinement, traceability, and early V\\&V. The approach integrates MBSE principles with artificial intelligence-assisted analysis to improve requirements quality while remaining compatible with existing tools and practices. A proof of concept is developed and applied in an industrial case study to evaluate the feasibility of the approach. The results demonstrate how early V\\&V activities can be supported within an SME context, while improving traceability across engineering artifacts. These findings highlight the potential of a lightweight, integrated MBSE approach to support the progressive adoption of MBSE in SMEs, thereby improving overall engineering efficiency.",
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": false
+    }
+  ]
+}
