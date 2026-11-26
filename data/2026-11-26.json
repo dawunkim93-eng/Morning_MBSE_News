@@ -1,0 +1,73 @@
+{
+  "report_date": "2026-11-26",
+  "report_date_kr": "2026년 11월 26일",
+  "window_start_kst": "2026-11-25",
+  "window_end_kst": "2026-11-26",
+  "generated_at": "2026-11-26T03:49:22",
+  "news": [
+    {
+      "title": "INCOSE-LA Holiday Party",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE90eDVQZHc3ak56bGRMb3Ayb2JxSGhTcWVza0pqUlVqdFRrM1ZBaS1JTlVraEtuUWlYbzQ1d1M3d096TzJ5d3o0WWVTcmpTZVVvTlFOTHk0QnBlZ1lVb1pvSC1Ob2dJckVOTlI1MHVB?oc=5",
+      "date": "Wed, 25 Nov 2026 02:59:50 GMT",
+      "source": "news",
+      "category": "Standard",
+      "score": 6,
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": true
+    },
+    {
+      "title": "Web Events",
+      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBWVkFYQk5MMGxmWVBKTkRodDhLSW9zX3hnMm5GYWJUbHl5TnRfNFpWcDVxSTI1Rjk2MVFvZk5JX05WTmNySDRaYjJR?oc=5",
+      "date": "Wed, 25 Nov 2026 04:16:36 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 0,
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": true
+    },
+    {
+      "title": "MBSynergy: MBSE Strategy and Optimization",
+      "url": "https://sei.cmu.edu/annual-reviews/mission-ready-research-2026/mbsynergy-mbse-strategy-and-optimization/",
+      "date": "Wed, 04 Nov 2026 15:59:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "Research on System Engineering (MBSE) and Manufacturing System Design using the ARCADIA/Capella Method (Claude Baron et al., 2023: Japanese Translation Excerpt)",
+      "url": "https://note.com/osamu_okumura/n/n07e6661ecee3?hl=en",
+      "date": "Wed, 14 Oct 2026 19:27:00 GMT",
+      "source": "news",
+      "category": "Tool",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "MBSynergy: MBSE Strategy and Optimization",
+      "url": "https://sei.cmu.edu/annual-reviews/mission-ready-research-2026/mbsynergy-mbse-strategy-and-optimization/",
+      "date": "Wed, 04 Nov 2026 15:59:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    }
+  ],
+  "papers": [
+    {
+      "title": "Integrating MBSE Principles with AI to Improve the Quality of Requirements in SMEs Context",
+      "url": "http://arxiv.org/abs/2611.09234v1",
+      "date": "2026-11-06",
+      "authors": "Iryna Volosheniuk, Claude Baron, Jean-Michel Bruel",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 10,
+      "abstract": "Model-Based Systems Engineering (MBSE) is a promising approach to improve systems engineering practices, particularly by enhancing requirement management, traceability, and early validation and verification (V\\&V). However, its adoption remains challenging, especially for small and medium-sized enterprises (SMEs), which often lack structured processes and solutions adapted to their scale and constraints. Our goal is to propose a lightweight MBSE methodology tailored to the needs and constraints of SMEs. This paper focuses specifically on requirements refinement, traceability, and early V\\&V. The approach integrates MBSE principles with artificial intelligence-assisted analysis to improve requirements quality while remaining compatible with existing tools and practices. A proof of concept is developed and applied in an industrial case study to evaluate the feasibility of the approach. The results demonstrate how early V\\&V activities can be supported within an SME context, while improving traceability across engineering artifacts. These findings highlight the potential of a lightweight, integrated MBSE approach to support the progressive adoption of MBSE in SMEs, thereby improving overall engineering efficiency.",
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": false
+    }
+  ]
+}
