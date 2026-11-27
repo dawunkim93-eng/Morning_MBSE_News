@@ -1,0 +1,63 @@
+{
+  "report_date": "2026-11-27",
+  "report_date_kr": "2026년 11월 27일",
+  "window_start_kst": "2026-11-26",
+  "window_end_kst": "2026-11-27",
+  "generated_at": "2026-11-27T03:50:55",
+  "news": [
+    {
+      "title": "Logistics-Driven Systems Engineering Framework Boosts Cross-Belt Parcel Sorter Throughput",
+      "url": "https://bioengineer.org/logistics-driven-systems-engineering-framework-boosts-cross-belt-parcel-sorter-throughput/",
+      "date": "Thu, 26 Nov 2026 04:17:00 GMT",
+      "source": "news",
+      "category": "Research",
+      "score": 4,
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": true
+    },
+    {
+      "title": "INCOSE Latam Chapter: Needs and Requirements Definition and Management Processes According to INCOSE",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOZlRHVkZoTVM5YmEtRHZPQ3pvVVRrUW1oOHc5Y29XaVhLWFFsOXJCMkE2R1BzOHMzUVZzLXJ2U0V5NjU5a244TEtlejdXX1MzYU9QRzJSR0Rqb0NyNlpEZHhkVlhDVFF1TkpMNDR6VGpaQldNdUlrVVZ4SER6Y2JUaXFVdFF3T1pPTDF4T1ZkOG9yNnllUEc3SWNWRzhrOWU1SkxwQWhheXJkbTg5TDVSeHV3eVdjU2RXcHo0azZSUHZhaGVNY1pZQmdSdw?oc=5",
+      "date": "Tue, 17 Nov 2026 02:13:09 GMT",
+      "source": "news",
+      "category": "Standard",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "SysML V2 Exchange- December",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5heUgtYjJyQU1OSk52aUlTSkl3aENUZEV3cXVOX01NUzhlNzdDVnFVeHZteHRjWlJVUFVKcE5tZG4zRmY5c3RyQzVmaVRvSTUzbGd4XzZFcGFuSDBMU3k2Um14VWdKRlk?oc=5",
+      "date": "Tue, 03 Nov 2026 08:57:23 GMT",
+      "source": "news",
+      "category": "SysML",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    },
+    {
+      "title": "INCOSE SysML v2 Exchange!",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNel9IazU4LWF6TTlLTGNFd3lxc2plamtpTG5mTDJtczJVUTJPTXpxMTVKWVRIdXJqeFZtaVBlbFZBS1NMbUFZcG1FSDBuSXVISUtzWG03Mk1wZHA5YXZBcGhoV3E2dE11QzdQQlh5dVBsMVkxaG8tWDU4ZkN3NXpqODdWWVM4Q3BaWUtINUpJOS00OV93bF9jdQ?oc=5",
+      "date": "Wed, 22 Jul 2026 07:00:00 GMT",
+      "source": "news",
+      "category": "SysML",
+      "score": 10,
+      "summary": "",
+      "is_today": false
+    }
+  ],
+  "papers": [
+    {
+      "title": "Integrating MBSE Principles with AI to Improve the Quality of Requirements in SMEs Context",
+      "url": "http://arxiv.org/abs/2611.09234v1",
+      "date": "2026-11-06",
+      "authors": "Iryna Volosheniuk, Claude Baron, Jean-Michel Bruel",
+      "source": "arxiv",
+      "category": "Tool",
+      "score": 10,
+      "abstract": "Model-Based Systems Engineering (MBSE) is a promising approach to improve systems engineering practices, particularly by enhancing requirement management, traceability, and early validation and verification (V\\&V). However, its adoption remains challenging, especially for small and medium-sized enterprises (SMEs), which often lack structured processes and solutions adapted to their scale and constraints. Our goal is to propose a lightweight MBSE methodology tailored to the needs and constraints of SMEs. This paper focuses specifically on requirements refinement, traceability, and early V\\&V. The approach integrates MBSE principles with artificial intelligence-assisted analysis to improve requirements quality while remaining compatible with existing tools and practices. A proof of concept is developed and applied in an industrial case study to evaluate the feasibility of the approach. The results demonstrate how early V\\&V activities can be supported within an SME context, while improving traceability across engineering artifacts. These findings highlight the potential of a lightweight, integrated MBSE approach to support the progressive adoption of MBSE in SMEs, thereby improving overall engineering efficiency.",
+      "summary": "• 요약 생략 (API 키 없음)",
+      "is_today": false
+    }
+  ]
+}
